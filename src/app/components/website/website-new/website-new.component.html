@@ -1,13 +1,4 @@
-
-
-	
-				<!--########################################################-->
-				<!--#############[         Nave bar            ]############-->
-				<!--########################################################-->
-
-
-<!-- ######################################[ ROW ]############################################ -->
-			<nav class="row navbar navbar-dark bg-primary fixed-top">
+		<nav class="row navbar navbar-dark bg-primary fixed-top">
 
 
 
@@ -15,9 +6,9 @@
 						<div class="container-fluid">
 							<div>
 								<!-- <i class="fa-chevron-left "></i> -->
-								<a class="sw-font-white" href="#"><i class="fa-chevron-left "></i></a>				
-								<a class="navbar navbar-brand sw-font-red" href="#">Websites</a>
-								<a class="sw-font-white" href="#"><i class="fas fa-check"></i></a>
+								<a class="sw-font-white" routerLink="/uid/website/new"><i class="fa-chevron-left "></i></a>				
+								<a class="navbar navbar-brand sw-font-red" routerLink="/uid/website/new">Websites</a>
+								<a class="sw-font-white" routerLink="/uid/website/new"><i class="fas fa-check"></i></a>
 								<!-- <i class="fas fa-check"></i> -->
 
 								<!-- fa-chevron-left -->
@@ -33,17 +24,17 @@
 				<div class="col-sm-6">
 					<div class="container-fluid">
 							<!-- <i class="fas fa-plus"></i>	 -->
-							<a class="navbar navbar-brand sw-font-red" href="#">New Websites</a>											
-							<a class="sw-font-white" href="../Profile/profile.html"><i class="fas fa-check"></i></a>
+							<a class="navbar navbar-brand sw-font-red" routerLink="/uid/website/new">New Websites</a>											
+							<a class="sw-font-white" routerLink="/user/uid:"><i class="fas fa-check"></i></a>
 							
-								<a href="website-list.html"></a>
+								<a routerLink="/user/:uid/website"></a>
 									
 								
 							
 
 						</div>
 					</div>
-				</div>
+				<!-- < </div>   [Angular] closed for compile error -->
 
 			</nav>
 
@@ -64,10 +55,10 @@
 						<li class="list-group-item">
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="websites-list.html">Address Book App</a>
+									<a routerLink="/user/:uid/website">Address Book App</a>
 								</div>
 								<div id="m-float-right">
-									<a href="website-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -77,10 +68,10 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="websites-list.html">Blogger</a>
+									<a routerLink="/user/:uid/website">Blogger</a>
 								</div>
 								<div id="m-float-right">
-									<a href="website-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -92,10 +83,10 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="websites-list.html">Blogger App</a>
+									<a routerLink="/user/:uid/website">Blogger App</a>
 								</div>
 								<div id="m-float-right">
-									<a href="website-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -107,10 +98,10 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="websites-list.html">Script Test App</a>
+									<a routerLink="/user/:uid/website">Script Test App</a>
 								</div>
 								<div id="m-float-right">
-									<a href="website-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>

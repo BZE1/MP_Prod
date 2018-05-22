@@ -1,14 +1,10 @@
 
-				<!--########################################################-->
-				<!--#############[       Nav bar Code          ]############-->
-				<!--########################################################-->
-
 	<div class="container">
 			<div id="top_of_the_page"></div>
 
 			<!--_______________NAV_BAR_________________-->
 			<nav class="navbar navbar-dark bg-primary fixed-top">
-				<a class="navbar-brand"  href="profile.html">Profile</a>
+				<a class="navbar-brand"  routerLink="/user/:uid">Profile</a>
 
 					<div class="fa-1x">
 						 <i class="fas fa-sync fa-spin"></i>
@@ -60,10 +56,7 @@
 				<!--#############[   Buttons from Bootstrap    ]############-->
 				<!--########################################################-->
 
-
-
-
 				<div><!-- __________[]  Buttons  ]__________ -->
-					<a class="btn btn-primary btn-block" href="../Websites/websites-list.html">Websites</a>
-					<a class="btn btn-danger btn-block" href="../login.html">Logout</a>
+					<a class="btn btn-primary btn-block" routerLink="/uid/website/:wid/page/:pid/widget">Websites</a>
+					<a class="btn btn-danger btn-block" routerLink="/login">Logout</a>
 				</div>

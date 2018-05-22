@@ -1,5 +1,5 @@
-<!--########################[_____BODY_____]##############################-->
 	<div class="container">
+
 		<div id="top_of_the_page"></div>
 
 
@@ -13,24 +13,24 @@
 
 
 	<!--########################################################-->
-	<nav class="navbar navbar-dark bg-primary fixed-top">
+			<nav class="navbar navbar-dark bg-primary fixed-top">
 
-		<a href="../Profile/profile.html"
-		class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
-
-
-		<div class="sw-80-width">
-			<a class="float-left navbar-brand" href="website-list.html"><strong>Websites</strong></a>
-		</div>
+				<a routerLink="/user/:uid"
+				class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
 
 
-		<a href="website-new.html"
-		class="sw-font-white"><i class="fas fa-plus"></i></a>	
+				<div class="sw-80-width">
+					<a class="float-left navbar-brand" routerLink="/user/:uid/website"><strong>Websites</strong></a>
+				</div>
 
-	</nav>
+
+				<a routerLink="/uid/website/new"
+				class="sw-font-white"><i class="fas fa-plus"></i></a>	
+
+			</nav>
 	<!--########################################################-->
 
-			</div>
+	</div>
 
 
 			<div>
@@ -46,10 +46,10 @@
 						<li class="list-group-item">
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="../Pages/page-list.html">Address Book App</a>
+									<a routerLink="/uid/website/:wid/page">Address Book App</a>
 								</div>
 								<div id="m-float-right">
-									<a href="../Websites/website-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -59,11 +59,11 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="../Pages/page-list.html">Blogger</a>
+									<a routerLink="/uid/website/:wid/page">Blogger</a>
 								</div>
 								<div id="m-float-right">
 									
-									<a href="../Websites/website-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -74,10 +74,10 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="../Pages/page-list.html">Blogger App</a>
+									<a routerLink="/uid/website/:wid/page">Blogger App</a>
 								</div>
 								<div id="m-float-right">
-									<a href="../Websites/website-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -89,11 +89,11 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="../Pages/page-list.html">Script Test App</a>
+									<a routerLink="/uid/website/:wid/page">Script Test App</a>
 								</div>
 								<div id="m-float-right">
 									
-									<a href="../Websites/website-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -120,8 +120,8 @@
 				<nav class="navbar navbar-dark bg-danger fixed-bottom">
 
 					<!-- <i class="fas fa-sync fa-spin"></i> -->
-					
-					<a class="navbar-brand"  href="../Profile/profile.html"><i class="fas fa-plus "></i></a>
+				
+					<a class="navbar-brand"  routerLink="/user/uid"><i class="fas fa-plus "></i></a>
 
 					<i class="fas fa-sync fa-spin"></i>
 
@@ -151,4 +151,4 @@
 
 
 
-	</div><!--[ container]-->
+	<!-- </div>   [angular] closed for compile error -->

@@ -4,13 +4,13 @@
 				<!--########################################################-->
 		<nav class="navbar navbar-dark fixed-top sw-gray">
 
-					<a href="../Widgets/widgets-list.html" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+					<a routerLink="/uid/website/:wid/page/:pid/widget" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
 					
 					<div class="sw-80-width">
-						<a class="sw-font-white sw-no-underline float-left" href="#">Widget Edit</a>
+						<a class="sw-font-white sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget/:wgid">Widget Edit</a>
 					</div>
 
-					<a href="../Widgets/widgets-list.html" class="sw-font-white float-right">
+					<a routerLink="/uid/website/:wid/page/:pid/widget" class="sw-font-white float-right">
 						                             <i class="fas fa-check"></i></a>
 		</nav>
 
@@ -42,7 +42,7 @@
 				<!--########################################################-->
 
 				<div>
-						<a class="btn btn-danger btn-block" href="../Widgets/widgets-list.html">DELETE</a>
+						<a class="btn btn-danger btn-block" routerLink="/uid/website/:wid/page/:pid/widget">DELETE</a>
 				</div>
 
 
@@ -57,7 +57,7 @@
 			<!-- footer -->
 			<nav class="navbar navbar-dark sw-gray fixed-bottom">
 				<div class="sw-me">
-					<a href="../Profile/profile.html" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
+					<a routerLink="/user/uid:" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
 				</div>
 			</nav>
 			

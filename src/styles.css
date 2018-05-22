@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-*
+/*
 				<!--########################################################-->
 				<!--#############[   Local css for all pages   ]############-->
 				<!--########################################################-->
@@ -31,7 +31,7 @@ body{
 
 
 .lc-col-a{
-	color: magenta:;
+	color: magenta;
 }
 
 .sw-width{

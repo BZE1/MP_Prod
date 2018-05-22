@@ -1,18 +1,12 @@
+<nav class="navbar navbar-dark fixed-top  sw_w_c">  <!-- sw-gray -->
 
-
-				<!--########################################################-->
-				<!--#############[         Nave bar            ]############-->
-				<!--########################################################-->
-
-			<nav class="navbar navbar-dark fixed-top  sw_w_c">  <!-- sw-gray -->
-
-					<a href="../Pages/page-list.html" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+					<a routerLink="/uid/website/:wid/page" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
 					
 					<div class="sw-80-width">
-						<a class="sw-font-white sw-no-underline float-left" href="#">Widgets</a>
+						<a class="sw-font-white sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget">Widgets</a>
 					</div>
 
-						<a href="../Widgets/widget-choser.html" class="sw-font-white float-right">
+						<a routerLink="/widget-chooser" class="sw-font-white float-right">
 						<i class="fas fa-plus"></i></a>
 
 			</nav>
@@ -31,10 +25,10 @@
 			<div>		<!--________ Widgets____________-->
 				
 				<div class="sw-absolute">
-					<a href="widget-heading.html"><i class="fas fa-bars float-right"></i></a>
+					<a routerLink="/widget-heading"><i class="fas fa-bars float-right"></i></a>
 				</div>
 
-				<a class="sw-black"  href=""><i class="fas fa-bars float-right"></i></a>
+				<a class="sw-black"  routerLink="/uid/website/:wid/page/:pid/widget"><i class="fas fa-bars float-right"></i></a>
 
 				<h1>Welcome</h1>
 
@@ -52,8 +46,8 @@
  				<div>   	<!--________ Widgets____________-->
 
 				<div class="sw-absolute">
-					<a href="../Widgets/widget-image.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
-					<a href="widget-heading.html"><i class="fas fa-bars float-right"></i></a>
+					<a routerLink="/widget-image"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
+					<a routerLink="/widget-heading"><i class="fas fa-bars float-right"></i></a>
 				
 				</div>
 				<h5>UsS reaches somthing in the news</h5>
@@ -83,8 +77,8 @@
 			<div>  	<!--________ Widgets____________-->
 
 				<div class="sw-absolute">
-					<a href="../Widgets/widget-youtube.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
-					<a href="widget-heading.html"><i class="fas fa-bars float-right"></i></a>
+					<a routerLink="/widget-youtube"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
+					<a routerLink="/widget-heading"><i class="fas fa-bars float-right"></i></a>
 				</div>
 
 				<h5>Movie Trailer</h5>
@@ -116,7 +110,7 @@
 			<!-- footer -->
 			<nav class="navbar navbar-dark sw-gray fixed-bottom">
 				<div class="sw-me">
-					<a href="../Profile/profile.html" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
+					<a routerLink="/user/uid:" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
 				</div>
 			</nav>
 			
@@ -127,4 +121,4 @@
 
 
 
-	</div>  <!--  end of container -->
+	

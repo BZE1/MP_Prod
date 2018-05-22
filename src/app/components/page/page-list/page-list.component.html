@@ -1,27 +1,21 @@
 
-				<!--########################################################-->
-				<!--#############[         Nave bar            ]############-->
-				<!--########################################################-->
-
-
-	<!-- ######################################[ ROW ]############################################ -->
 	<nav class=" navbar navbar-dark bg-primary fixed-top">  <!-- bg-primary --> <!--  row -->
 
 
 		<div class="container-fluid">
 
 
-			<a href="../Websites/websites-list.html"
+			<a routerLink="/user/:uid/website"
 			class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
 
 
 			<div class="sw-80-width">
-				<a class="float-left navbar-brand" href="../Profile/profile.html"><strong>Page List</strong></a>
+				<a class="float-left navbar-brand" routerLink="/user/:uid"><strong>Page List</strong></a>
 			</div>
 
 
 
-			<a href="page-new.html"
+			<a routerLink="/uid/website/:wid/page/new"
 			class="sw-font-white"><i class="fas fa-plus"></i></a>	
 
 
@@ -51,10 +45,10 @@
 						<li class="list-group-item">
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="../Widgets/widgets-list.html">Blogger page</a>
+									<a routerLink="/uid/website/:wid/page/:pid/widget">Blogger page</a>
 								</div>
 								<div id="m-float-right">
-									<a href="page-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
+									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
 									
 									
 								</div>
@@ -66,10 +60,10 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="../Widgets/widgets-list.html">Blog Post</a>
+									<a routerLink="/uid/website/:wid/page/:pid/widget">Blog Post</a>
 								</div>
 								<div id="m-float-right">
-									<a href="page-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
+									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
 								</div>
 							</button>
 								
@@ -80,10 +74,10 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="../Widgets/widgets-list.html">Blogs</a>
+									<a routerLink="/uid/website/:wid/page/:pid/widget">Blogs</a>
 								</div>
 								<div id="m-float-right">
-									<a href="page-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
+									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
 								</div>
 							</button>
 
@@ -94,10 +88,10 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="../Widgets/widgets-list.html">Home</a>
+									<a routerLink="/uid/website/:wid/page/:pid/widget">Home</a>
 								</div>
 								<div id="m-float-right">
-									<a href="page-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
+									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
 								</div>
 							</button>
 
@@ -106,10 +100,10 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="../Widgets/widgets-list.html">About</a>
+									<a routerLink="/uid/website/:wid/page/:pid/widget">About</a>
 								</div>
 								<div id="m-float-right">
-									<a href="page-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
+									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
 								</div>
 							</button>
 
@@ -118,10 +112,10 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a href="../Widgets/widgets-list.html">Contact Us</a>
+									<a routerLink="/uid/website/:wid/page/:pid/widget">Contact Us</a>
 								</div>
 								<div id="m-float-right">
-									<a href="page-edit.html"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
+									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
 								</div>
 							</button>
 
@@ -145,6 +139,6 @@
 
 			<nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom">
 				<div class="sw-me">
-					<a href="../User/profile.html" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
+					<a routerLink="/user/:uid" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
 				</div>
 			</nav>

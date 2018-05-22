@@ -1,21 +1,16 @@
 
-				<!--########################################################-->
-				<!--#############[         Nave bar            ]############-->
-				<!--########################################################-->
-
-	<!--########################################################-->
 	<nav class="navbar navbar-dark bg-primary fixed-top">
 
-		<a href="../Pages/page-list.html"
+		<a routerLink="/uid/website/:wid/page"
 		class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
 
 
 		<div class="sw-80-width">
-			<a class="float-left navbar-brand" href="website-list.html"><strong>Edit Page</strong></a>
+			<a class="float-left navbar-brand" routerLink="/user/:uid/website"><strong>Edit Page</strong></a>
 		</div>
 
 
-		<a href="website-new.html"
+		<a routerLink="/uid/website/new"
 		class="sw-font-white"><i class="fas fa-check"></i></a>	
 
 	</nav>
@@ -55,7 +50,7 @@
 
 				<div><!-- __________[]  Buttons  ]__________ -->
 					
-					<a class="btn btn-danger btn-block" href="../Pages/page-list.html">Delete</a>
+					<a class="btn btn-danger btn-block" routerLink="/uid/website/:wid/page">Delete</a>
 
 				</div>
 
@@ -65,17 +60,11 @@
 				<!--#############[        footer Icon          ]############-->
 				<!--########################################################-->
 
-			<!-- footer -->
-			<!--
-			<nav class="navbar navbar-dark sw-gray fixed-bottom">
-				<div class="sw-me">
-					<a href="../User/profile.html" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
-				</div>
-			</nav>-->
+		
 
 			<nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom">
 				<div class="sw-me">
-					<a href="../Profile/profile.html" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
+					<a routerLink="/user/:uid" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
 				</div>
 			</nav>
 			
