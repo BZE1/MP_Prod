@@ -1,44 +1,115 @@
-	<div class="container">
+<div class="container">
 
-		<div id="top_of_the_page"></div>
+<div id="top_of_the_page"></div>
 
 
 
 
 				<!--########################################################-->
-				<!--#############[         NAV code            ]############-->
+				<!--#############[         NAV SECTION         ]############-->
 				<!--########################################################-->
+
+<nav class="navbar fixed-top navbar-dark bg-primary">
+
+		<a  class="sw-color-white" 
+			routerLink="/user/{{uid}}">
+			<i class="fas fa-chevron-left"></i>
+			</a>
+
+		<div class="sw-90-width">
+			<a  class="navbar-brand float-left" 
+				routerLink="/user/{{uid}}/website">
+				<strong>Websites</strong>
+				</a>
+		</div>
+
+		<a  class="sw-color-white" 
+			routerLink="/user/{{uid}}/website/new">
+			<i class="fas fa-plus"></i>
+			</a>
+
+</nav>
+
+
+				<!--########################################################-->
+				<!--#############[      LIST OF WEBSITES       ]############-->
+				<!--########################################################-->
+<div class="container-fluid">
+
+		<ul class="list-group">
+
+			<li class="list-group-item" 
+				*ngFor ="let website of websites">
+
+				<a  routerLink="/user/{{uid}}/website/{{website._id}}/page">
+					{{website.name}}
+					</a>
+
+				<a  class="float-right" 
+					routerLink="/user/{{uid}}/website/{{website._id}}">
+					<i class="fas fa-cog"></i>
+					</a>
+			</li>
+
+		</ul>
+</div>
+
+
+
+				<!--########################################################-->
+				<!--#############[      FOOTER OF PAGE         ]############-->
+				<!--########################################################-->
+<footer class="navbar fixed-bottom navbar-dark bg-primary">
+
+		<div class="sw-full-width">
+
+			<a  class="navbar-brand float-right" 
+				routerLink="/user/{{uid}}">
+				<i class="fas fa-user"></i>
+				</a>
+
+		</div>
+	</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 	<!--########################################################-->
-			<nav class="navbar navbar-dark bg-primary fixed-top">
-
-				<a routerLink="/user/:uid"
-				class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
 
 
-				<div class="sw-80-width">
-					<a class="float-left navbar-brand" routerLink="/user/:uid/website"><strong>Websites</strong></a>
-				</div>
 
 
-				<a routerLink="/uid/website/new"
-				class="sw-font-white"><i class="fas fa-plus"></i></a>	
 
-			</nav>
 	<!--########################################################-->
-
-	</div>
-
-
-			<div>
-				<!--########################################################-->
-				<!--#############[      Link Buttons           ]############-->
-				<!--########################################################-->
-
-
+<!-- 
+	
 				<div>
 
 					<ul class="list-group">
@@ -46,10 +117,10 @@
 						<li class="list-group-item">
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a routerLink="/uid/website/:wid/page">Address Book App</a>
+									<a routerLink="/{{uid}}/website/{{wid}}/page">Address Book App</a>
 								</div>
 								<div id="m-float-right">
-									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/{{uid}}/website/{{wid}}"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -59,11 +130,11 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a routerLink="/uid/website/:wid/page">Blogger</a>
+									<a routerLink="/{{uid}}/website/{{wid}}/page">Blogger</a>
 								</div>
 								<div id="m-float-right">
 									
-									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/{{uid}}/website/{{wid}}"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -74,10 +145,10 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a routerLink="/uid/website/:wid/page">Blogger App</a>
+									<a routerLink="/{{uid}}/website/{{wid}}/page">Blogger App</a>
 								</div>
 								<div id="m-float-right">
-									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/{{uid}}/website/{{wid}}"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -89,11 +160,11 @@
 
 							<button type="button" class="btn btn-light btn-block" >
 								<div id="m-float-left">
-									<a routerLink="/uid/website/:wid/page">Script Test App</a>
+									<a routerLink="/{{uid}}/website/{{wid}}/page">Script Test App</a>
 								</div>
 								<div id="m-float-right">
 									
-									<a routerLink="/uid/website/:wid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
+									<a routerLink="/{{uid}}/website/{{wid}}"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
 									<span class="sr-only">Loading...</span>
 								</div>
 							</button>
@@ -115,40 +186,26 @@
 
 			<!-- working_____________________________________ -->
 
-			<div class="sw-80-width">
+			<!-- <div class="sw-80-width"> -->
 					<!--_______________NAV_BAR_________________-->
-				<nav class="navbar navbar-dark bg-danger fixed-bottom">
+				<!-- <nav class="navbar navbar-dark bg-danger fixed-bottom"> -->
 
 					<!-- <i class="fas fa-sync fa-spin"></i> -->
 				
-					<a class="navbar-brand"  routerLink="/user/uid"><i class="fas fa-plus "></i></a>
-
-					<i class="fas fa-sync fa-spin"></i>
-
-				</nav>
-			</div>
 
 
 
 
-
-			<div>
-				<button class="navbar navbar-dark bg-primary btn-block">
+		
+				<!-- <button class="navbar navbar-dark bg-primary btn-block"> -->
 
 						<!-- <i class="fas fa-sync fa-spin"></i> -->
-					<div id="m-float-right">
+					<!-- <div id="m-float-right"> -->
 
-						<i class="fas fa-plus "></i>
+						<!-- <i class="fas fa-plus "></i> -->
 						<!-- <a class="navbar-brand"  href="profile.html">Websites</a>
 						<i class="fas fa-sync fa-spin"></i> -->
 						
-					</div>
-
-				</button>
-			</div>
-
-
-
-
+	
 
 	<!-- </div>   [angular] closed for compile error -->

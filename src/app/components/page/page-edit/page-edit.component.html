@@ -1,89 +1,107 @@
 
-	<nav class="navbar navbar-dark bg-primary fixed-top">
-
-		<a routerLink="/uid/website/:wid/page"
-		class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
-
-
-		<div class="sw-80-width">
-			<a class="float-left navbar-brand" routerLink="/user/:uid/website"><strong>Edit Page</strong></a>
-		</div>
+				<!--########################################################-->
+				<!--#############[          NAV Bar            ]############-->
+				<!--########################################################-->
 
 
-		<a routerLink="/uid/website/new"
-		class="sw-font-white"><i class="fas fa-check"></i></a>	
+<nav class="navbar fixed-top navbar-light sw-bg-grey">
 
-	</nav>
-	<!--########################################################-->
+		<a class="sw-color-black" 
+				routerLink="/user/{{uid}}/website/{{wid}}/page">
+				<i class="fas fa-chevron-left"></i>
+		</a>
 
+	<div class="sw-90-width">
+			<a class="navbar-brand float-left" 
+			routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}">Edit Page
+			</a>
+	</div>
+
+
+	<button type="submit" 
+		[disabled]="f.invalid" 
+		form="pageForm" 
+		class="btn sw-button-to-a sw-color-black float-right">
+		<i class="fas fa-check"></i>
+	</button>
+
+</nav>
 
 
 				<!--########################################################-->
 				<!--#############[          Form Inputs        ]############-->
 				<!--########################################################-->
 
-	<div class="container">
-		<form> 
 
-				
+<div class="container">
+	
+	<form id="pageForm" (ngSubmit)="update()" #f="ngForm">
 
-				<div class="form-group">
-										<!-- lable -->
-							<label class="font-weight-bold"   for="website-name">Name</label>
-							<input class="form-control" type="text" name="Title" placeholder="Username">
-					</div>
+		<div class="form-group">
+			<label class="font-weight-bold" for="website-name">Name</label>
+			<input class="form-control" 
+					required ngModel="{{page.name}}" 
+					#name="ngModel" 
+					type="text" name="name" 
+					placeholder="what is the name of your page" 
+					value="Blog Post">
 
-				<div class="form-group">
-										<!-- lable -->
-						<label class="font-weight-bold"   for="website-name">Title</label>
-						<input class="form-control" type="text" name="Title" placeholder="Page Title">
-				</div>
-									
+		</div>
 
 
+		<div *ngIf="name.invalid && name.touched" class="alert alert-warning">This fiels canot be enpty
 
+		<div class="form-group">
 
+				<label class="font-weight-bold"  for="website-name">Description</label>
+				<input class="form-control" 
+							ngModel={{page.description}} 
+							#description="ngModel" 
+							type="text" name="description" 
+							placeholder="Enter your page description..." 
+							value="Blog">
+		</div>
 
-				
-		</form>
+			<button class="btn btn-primary btn-block" 
+						type="submit" 
+						[disabled]="f.invalid">
+						Update
+			</button>
 
+			<button type="button" class="btn btn-danger btn-block" 
+						(click)="remove()">
+						Delete
+			</button>
+	</form>
 
-				<div><!-- __________[]  Buttons  ]__________ -->
-					
-					<a class="btn btn-danger btn-block" routerLink="/uid/website/:wid/page">Delete</a>
-
-				</div>
-
+</div> <!-- [ END OF CONTAINER ] -->
 
 
 				<!--########################################################-->
 				<!--#############[        footer Icon          ]############-->
 				<!--########################################################-->
 
-		
+		<!-- 
 
 			<nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom">
 				<div class="sw-me">
 					<a routerLink="/user/:uid" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
 				</div>
 			</nav>
-			
-			<!--
+			 -->
+	
+
+	<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
+
+		<div class="sw-full-width">
+
+			<a class="navbar-brand float-right" 
+						routerLink="/user/{{uid}}">
+						<i class="fas fa-user"></i>
+			</a>
+
+		</div>
+	</footer>
 
 
-				navbar-dark 
-
-				navbar-light bg-light
-
-
-
-			-->
-
-
-
-
-
-
-
-
-	</div>
+	

@@ -11,7 +11,8 @@ export class WebsiteServices {
 		}
 
 
-		websites : Website[] = [		
+		websites : Website[] = 
+			[		
 				{_id: "123",name: "Facebook", developerId: "456", description: "lorem"},
 				{_id: "234",name: "Tweeter", developerId: "456", description: "lorem"},
 				{_id: "456",name: "Gizmodo", developerId: "456", description: "lorem"},
@@ -19,19 +20,8 @@ export class WebsiteServices {
 				{_id: "567",name: "Tic Tac Toe", developerId: "123", description: "lorem"},
 				{_id: "678",name: "Checkers", developerId: "123", description: "lorem"},
 				{_id: "789",name: "Chess", developerId: "234", description: "lorem"},
-
-// 						/* =======================================
-// 							MORE OBJECTS TO ENTER HERE !!!!!!
-// 						 =======================================*/
 			]
 
-		// api = {
-		// 		'createWebsite'    	:  this.createWebsite,
-		// 		'findWebsiteByUser' :  this.findWebsiteByUser,
-		// 		'findWebsiteById' 	:  this.findWebsiteById,
-		// 		'updateWebsite' 	:  this.updateWebsite,
-		// 		'deleteWebsite' 	:  this.deleteWebsite,
-		// 	};
 
 
 /************************************************************
@@ -42,46 +32,54 @@ export class WebsiteServices {
  * 
  *************************************************************/
  
-		createWebsite(userId:string, website: Website){
+		createWebsite(userId:string, website: Website)
+			{
 				website._id = Math.floor(Math.random() + 10000).toString();
 				website.developerId = userId;
 				this.websites.push(website);
+				
 				return website;
 			}
 
-		findWebsiteByUser(userId:string){
+		findWebsiteByUser(userId:string)
+			{
 				var result = [];
+
 				for (let i = 0;i<this.websites.length;i++)
-				{
-					if (this.websites[i].developerId === userId)
 					{
-						result.push(this.websites[i]);
+						if (this.websites[i].developerId === userId)
+							{
+								result.push(this.websites[i]);
+							}
+						
 					}
-					
-				}
 			}
 
-		findWebsiteById(websiteId:string){
+		findWebsiteById(websiteId:string)
+			{
 				for(let i =0;i<this.websites.length;i++)
-				{
-					if(this.websites[i]._id === websiteId)
 					{
-						return this.websites[i];
+						if(this.websites[i]._id === websiteId)
+							{
+								return this.websites[i];
+							}
 					}
-				}
 			}
 
-		updateWebsite(websiteId:string, website : Website ){
+		updateWebsite(websiteId:string, website : Website )
+			{
 				var oldWeb = this.findWebsiteById(websiteId);
 				var index = this.websites.indexOf(oldWeb);
+
 				this.websites[index].name = website.name;
 				this.websites[index].description = website.description;
-
 			}
 
-		deleteWebsite(websiteId:string){
+		deleteWebsite(websiteId:string)
+			{
 				var web = this.findWebsiteById(websiteId);
 				var index = this.websites.indexOf(web);
+
 				this.websites.splice(index, 1);
 			}
 

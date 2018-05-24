@@ -1,55 +1,112 @@
 
-	<nav class="navbar navbar-dark bg-primary fixed-top">  <!--bg-primary-->
 
-		<a routerLink="/login"
-		class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+		<!--########################################################-->
+		<!--#############[          NAV BAR            ]############-->
+		<!--########################################################-->
+ <!--bg-primary-->
+<!-- <nav class="navbar navbar-dark bg-primary fixed-top">  -->
+<nav class="navbar fixed-top navbar-light sw-bg-grey">
+
+	<a class="sw-color-black" 
+			routerLink="/user/{{uid}}/website/{{wid}}/page">
+			<i class="fas fa-chevron-left"></i>
+			</a>
+
+	<div class="sw-90-width">
+
+		<a class="navbar-brand float-left" 
+				routerLink="/user/{{uid}}/website/{{wid}}/page/new">
+				<strong>New Page</strong></a>
+	</div>
+
+	<button [disabled]="f.invalid" 
+			type="submit" 
+			form="pageForm" 
+			class="btn sw-button-to-a sw-color-black float-right" >
+			<i class="fas fa-check"></i>
+	</button>
+
+</nav>
 
 
-		<div class="sw-80-width">
-			<a class="float-left navbar-brand" routerLink="/user/:uid/website"><strong>New Page</strong></a>
+
+				<!--########################################################-->
+				<!--#############[         MAIN FORM           ]############-->
+				<!--########################################################-->
+
+<div class="container-fluid">
+
+	<form id="pageForm" (ngSubmit)="create()" #f="ngForm">
+
+		<div class="form-group">
+				<label  class="font-weight-bold"  
+						for="website-name">
+						<strong>Name</strong>
+						</label>
+
+
+				<input  class="form-control" 
+						required ngModel #name="ngModel" 
+						type="text" 
+						name="name" 
+						placeholder="Please type in a page name here">
 		</div>
 
 
-		<a routerLink="/uid/website/:wid/page" 
-		class="sw-font-white"><i class="fas fa-check"></i></a>	  <!-- fa-plus -->
+		<div    *ngIf="name.invalid && name.touched" 
+				class="alert alert-warning">
+				This Name Field must be filled in
+		</div>
 
-	</nav>
-	<!--########################################################-->
+
+
+		<div class="form-group">
+
+			<label><strong>Description</strong></label>
+
+			<input  class="form-control" 
+					type="text" 
+					name="description" 
+					ngModel #description="ngModel" 
+					placeholder="Please write about your page">
+
+		</div>
+
+
+
+		<button [disabled]="f.invalid" 
+				class="btn btn-success btn-block" 
+				type="submit">Submit
+				</button>
+
+		<a  class="btn btn-danger btn-block" 
+			routerLink="/user/{{uid}}/website/{{wid}}/page">
+			Cancel
+			</a>
+
+	</form> <!-- [END OF FORM] -->
+
+</div>
+
 
 
 				<!--########################################################-->
-				<!--#############[          Widgets            ]############-->
+				<!--#############[          PAGE FOOTER        ]############-->
 				<!--########################################################-->
 
-	<div class="container">
-		<form> 
+<!-- <nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom"> -->
+<footer class="navbar 
+			   sw-font-white 
+			   fixed-bottom 
+			   navbar-light 
+			   sw-bg-grey">
 
+	<div class="sw-full-width">
 
-				<div class="form-group">
-										<!-- lable -->
-					<label class="font-weight-bold"   for="website-name">Name</label>
-					<input class="form-control" type="text" name="Title" placeholder="Page Name">
-				</div>
-
-				<div class="form-group">
-										<!-- lable -->
-					<label class="font-weight-bold"   for="website-name">Title</label>
-					<input class="form-control" type="text" name="Title" placeholder="Page Title">
-
-				</div>
-		
-				
-		</form>
-
-
-
-
+		<a class="navbar-brand float-right" 
+				routerLink="/user/{{uid}}">
+				<i class="fas fa-user"></i>
+				</a>
 
 	</div>
-
-
-	<nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom">
-				<div class="sw-me">
-					<a routerLink="/user/:uid" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
-				</div>
-			</nav>
+</footer>

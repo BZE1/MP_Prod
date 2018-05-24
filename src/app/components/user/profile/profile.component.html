@@ -1,62 +1,134 @@
 
-	<div class="container">
-			<div id="top_of_the_page"></div>
+				<!--########################################################-->
+				<!--#############[    NAV BAR TO OF PAGE       ]############-->
+				<!--########################################################-->
 
-			<!--_______________NAV_BAR_________________-->
-			<nav class="navbar navbar-dark bg-primary fixed-top">
-				<a class="navbar-brand"  routerLink="/user/:uid">Profile</a>
+<div class="container">
+	<!--_______________NAV_BAR_________________-->
+	<nav class="navbar navbar-dark bg-primary fixed-top">
 
-					<div class="fa-1x">
-						 <i class="fas fa-sync fa-spin"></i>
-						 <!-- <i class="fas fa-cog fa-spin"></i> -->
-					</div>
+			<a  class="navbar-brand" 
+				routerLink="user/{{uid}}">
+				<strong>Profile</strong>
+				</a>
 
-			</nav>
+			<button class="btn sw-color-white sw-button-to-a" 
+					type="submit" 
+					form="profileForm" 
+					[disabled]="f.invalid">
+					<i class="fas fa-check"></i>
+					<!-- <i class="fas fa-cog fa-spin"></i> -->
+					</button>
+
+	</nav>
+
+</div>   <!-- [END CONTAINER] -->
+
+
+			<!--########################################################-->
+			<!--#############[                             ]############-->
+			<!--########################################################-->
+<div class="container-fluid">
+
+		<div    *ngIf="usernameTaken" 
+			  	class="alert alert-danger">
+				THis username is already useed try another one.
+				</div>
+
+		<div    *ngIf="submitSuccess" 
+				class="alert alert-success">
+				Update successfull !
+				</div>
+
+			<!--########################################################-->
+			<!--#############[        FORM FOR PAGE        ]############-->
+			<!--########################################################-->
+
+	<form (ngSubmit)="update()" id="profileForm" #f="ngForm">
+
+			<div class="form-group">
+
+				<label for="username"><strong>Username</strong></label>
+
+				<input  class="form-control" 
+						type="text" name="username" 
+						required ngModel="{{user.username}}" 
+						#username="ngModel" 
+						placeholder="Your Username">
+			</div>
+
+
+			<div class="form-group">
+
+				<label for="email"><strong>Email</strong></label>
+
+				<input  class="form-control" 
+						type="email" 
+						name="email" 
+						ngModel="{{user.email}}" 
+						#email="ngModel" 
+						placeholder="somebody@gmail.com">
+			</div>
+
+
+			<div class="form-group">
+
+				<label for="firstName"><strong>First Name</strong></label>
+
+				<input  class="form-control" 
+						type="text" 
+						name="firstName" 
+						ngModel="{{user.firstName}}" 
+						#firstName="ngModel" 
+						placeholder="Your First name here">
+			</div>
+
+
+			<div class="form-group">
+
+				<label for="lastName"><strong>Last Name</strong></label>
+
+				<input  class="form-control" 
+						type="text" 
+						name="lastName" 
+						ngModel="{{user.lastName}}" 
+						#lastname="ngModel" 
+						placeholder="Your Last name here">
+			</div>
+
+
+
+			<a  class="btn btn-primary btn-block" 
+				routerLink="/user/{{uid}}/website">
+				Websites
+				</a>
+
+			<a  class="btn btn-danger btn-block" 
+				routerLink="/login">
+				Logout
+				</a>
+
+	</form>  <!-- [END OF FORM] -->
+
 
 		
+</div>   <!-- [END CONTAINER FLUID] -->
 
 
-			<form> 
+
+			
 				<!--########################################################-->
-				<!--#############[   Form part of the script   ]############-->
+				<!--#############[        FOOTER OF PAGE       ]############-->
 				<!--########################################################-->
-				<br><br><br><br><br><br>
-				<div class="form-group">
-					<!-- Input functions -->
-					<label class="font-weight-bold">UserName</label>
-					<br>
-					<input type="Text" name="username" placeholder="username">
-				</div>
+	
+			<!-- __________[]  Buttons  ]__________ -->
+	<nav class="navbar navbar-dark bg-primary fixed-bottom">
 
-				<div class="form-group">
-					<!-- Input functions -->
-					<label class="font-weight-bold">Email</label>
-					<br>
-					<input type="text" name="email" placeholder="jannunzi@gmail.com">
-				</div>
+		<div class="sw-full-width">
+				<a  routerLink="user/:uid" 
+					class="sw-color-white float-right" >
+					<i class="fas fa-user"></i>
+					</a>
+		</div>
 
-				<div class="form-group">
-					<!-- Input functions -->
-					<label class="font-weight-bold">First Name</label>
-					<br>
-					<input type="Text" name="username" placeholder="Jose">
-				</div>
-
-				<div class="form-group">
-					<!-- Input functions -->
-					<label class="font-weight-bold">Last Name</label>
-					<br>
-					<input type="Text" name="username" placeholder="Annunziato">
-				</div>
-			</form>
-
-
-				
-				<!--########################################################-->
-				<!--#############[   Buttons from Bootstrap    ]############-->
-				<!--########################################################-->
-
-				<div><!-- __________[]  Buttons  ]__________ -->
-					<a class="btn btn-primary btn-block" routerLink="/uid/website/:wid/page/:pid/widget">Websites</a>
-					<a class="btn btn-danger btn-block" routerLink="/login">Logout</a>
-				</div>
+	</nav>

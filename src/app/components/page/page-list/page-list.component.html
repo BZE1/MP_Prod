@@ -1,144 +1,73 @@
 
-	<nav class=" navbar navbar-dark bg-primary fixed-top">  <!-- bg-primary --> <!--  row -->
-
-
-		<div class="container-fluid">
-
-
-			<a routerLink="/user/:uid/website"
-			class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
-
-
-			<div class="sw-80-width">
-				<a class="float-left navbar-brand" routerLink="/user/:uid"><strong>Page List</strong></a>
-			</div>
-
-
-
-			<a routerLink="/uid/website/:wid/page/new"
-			class="sw-font-white"><i class="fas fa-plus"></i></a>	
-
-
-
-		</div>
-
-
-	</nav>
-
 	
 
+				<!--########################################################-->
+				<!--#############[           NAV BAR           ]############-->
+				<!--########################################################-->
+
+<!-- <nav class=" navbar navbar-dark bg-primary fixed-top"> -->
+<nav class="navbar fixed-top navbar-light sw-bg-grey">
+
+		<a class="sw-color-black" routerLink="/user/{{uid}}/website">
+				<i class="fas fa-chevron-left"></i>
+				</a>
+
+	<div class="sw-80-width">
+		<a class="navbar-brand float-left" 
+				routerLink="/user/{{uid}}/website/{{wid}}/page">
+				<strong>Page List</strong>
+				</a>
+	</div>
+
+		<a class="sw-color-black" 
+				routerLink="/user/{{uid}}/website/{{wid}}/page/new">
+				<i class="fas fa-plus"></i>
+				</a>
+</nav>
 
 
+				<!--########################################################-->
+				<!--#############[      List item Container    ]############-->
+				<!--########################################################-->
 
 
-		<!-- ######################################[ ROW ]############################################ -->
-	<div class="row">	
-		<div class="col-sm-12">		
+	<div class="container-fluid">
 
-							<!--########################################################-->
-							<!--#############[      List item Container    ]############-->
-							<!--########################################################-->
+		<ul class="list-group list-group-flush">
 
-				<ul class="list-group">
-					<!-- _______________TOP OF UL GROUP________________ -->
-						
-						<li class="list-group-item">
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="/uid/website/:wid/page/:pid/widget">Blogger page</a>
-								</div>
-								<div id="m-float-right">
-									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
-									
-									
-								</div>
-							</button>
-						</li>
+			<li class="list-group-item" 
+				*ngFor="let page of pages">
 
 
-						<li class="list-group-item">
+				<a class="sw-color-black" 
+					routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget">
+					{{page.name}}
+					</a>
 
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="/uid/website/:wid/page/:pid/widget">Blog Post</a>
-								</div>
-								<div id="m-float-right">
-									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
-								</div>
-							</button>
-								
-						</li>
-
-
-						<li class="list-group-item">
-
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="/uid/website/:wid/page/:pid/widget">Blogs</a>
-								</div>
-								<div id="m-float-right">
-									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
-								</div>
-							</button>
-
-						</li>
-
-
-						<li class="list-group-item">
-
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="/uid/website/:wid/page/:pid/widget">Home</a>
-								</div>
-								<div id="m-float-right">
-									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
-								</div>
-							</button>
-
-						</li>
-						<li class="list-group-item">
-
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="/uid/website/:wid/page/:pid/widget">About</a>
-								</div>
-								<div id="m-float-right">
-									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
-								</div>
-							</button>
-
-						</li>
-						<li class="list-group-item">
-
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="/uid/website/:wid/page/:pid/widget">Contact Us</a>
-								</div>
-								<div id="m-float-right">
-									<a routerLink="/uid/website/:wid/page/:pid"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
-								</div>
-							</button>
-
-						</li>
-
-
-
-
-
-
-					</ul>
-					<!-- ______________BOTTOM OF UL GROUP________________ -->
-
-
-		</div>
-
-	
-
+				<a class="float-right sw-color-black" 
+					routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}">
+					<i class="fas fa-cog"></i>
+					</a>
+			</li>
+		</ul>
 
 	</div>
 
-			<nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom">
-				<div class="sw-me">
-					<a routerLink="/user/:uid" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
-				</div>
-			</nav>
+
+				<!--########################################################-->
+				<!--#############[        FOOTER OF PAGE       ]############-->
+				<!--########################################################-->
+
+	<!-- <nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom"> -->
+	<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
+
+		<div class="sw-full-width">
+			<a class="navbar-brand float-right" 
+					routerLink="/user/{{uid}}">
+					<i class="fas fa-user"></i>
+					</a>
+		</div>
+
+	</footer>
+
+	

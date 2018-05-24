@@ -1,163 +1,175 @@
-<nav class="row navbar navbar-dark bg-primary fixed-top">
-
-				<div class="col-sm-6 d-none d-sm-block">
-						<div class="container-fluid">
-							<a class="navbar navbar-brand sw-font-red" routerLink="/uid/website/:wid">Websites</a>
-							<a class="sw-font-white" routerLink="/uid/website/:wid"></a>
-							<i class="fas fa-cheveron-left"></i>
-						</div>
-				</div>
-
-				<div class="col-sm-6">
-					<div class="container-fluid">
-							<a class="navbar navbar-brand sw-font-red" routerLink="/uid/website/:wid">Edit Websites</a>
-							<a class="sw-font-white" routerLink="/uid/website/:wid"></a>
-							<i class="fas fa-cheveron-left"></i>
-					</div>
-				</div>
-
-			</nav>
+	<!--##########################################################################################-->
+	<!--##########################[           TOP NAVE BARs             ]#########################-->
+	<!--##########################################################################################-->
 
 
+<nav class="row navbar navbar-dark fixed-top bg-primary">
 
+		<!--########################################################-->
+		<!--#############[   [ LEFT ]  Side Nav Bar    ]############-->
+		<!--########################################################-->
+		<div class="col-sm-4 d-none d-md-block">
 
+			<a  class="sw-color-white" 
+				routerLink="/user/{{uid}}/website">
+				<i class="fas fa-chevron-left"></i>
+				</a>
 
+			<a  class="sw-color-white sw-left-padding" 
+				routerLink="/user/{{uid}}/website">
+				<strong>Websites</strong>
+				</a>
 
-	<div class="row">
-		<!-- ######################################[ ROW ]############################################ -->
-		<div class="col-sm-4">		
-
-							<!--########################################################-->
-							<!--#############[      List item Container    ]############-->
-							<!--########################################################-->
-
-				<ul class="list-group">
-					<!-- _______________TOP OF UL GROUP________________ -->
-						
-						<li class="list-group-item">
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="top_of_the_page">Address Book App</a>
-								</div>
-								<div id="m-float-right">
-									<i class="fa fa-cog fa-spin fa-1x fa-fw"></i>
-									<span class="sr-only">Loading...</span>
-								</div>
-							</button>
-						</li>
-
-						<li class="list-group-item">
-
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="top_of_the_page">Blogger</a>
-								</div>
-								<div id="m-float-right">
-									<i class="fa fa-cog fa-spin fa-1x fa-fw"></i>
-									<span class="sr-only">Loading...</span>
-								</div>
-							</button>
-								
-						</li>
-
-
-						<li class="list-group-item">
-
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="top_of_the_page">Blogger App</a>
-								</div>
-								<div id="m-float-right">
-									<i class="fa fa-cog fa-spin fa-1x fa-fw"></i>
-									<span class="sr-only">Loading...</span>
-								</div>
-							</button>
-
-						</li>
-
-
-						<li class="list-group-item">
-
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="top_of_the_page">Script Test App</a>
-								</div>
-								<div id="m-float-right">
-									<i class="fa fa-cog fa-spin fa-1x fa-fw"></i>
-									<span class="sr-only">Loading...</span>
-								</div>
-							</button>
-
-						</li>
-
-					</ul>
-					<!-- ______________BOTTOM OF UL GROUP________________ -->
-
+			<a  class="sw-color-white float-right" 
+				routerLink="/user/{{uid}}/website/new">
+				<i class="fas fa-plus"></i>
+				</a>
 
 		</div>
+		<!--########################################################-->
+		<!--#############[   [ Right] Side Nav Bar     ]############-->
+		<!--########################################################-->
+		<div class="col-md-8">
 
-				<!--########################################################-->
-				<!--#############[   Right Side   Input forms  ]############-->
-				<!--########################################################-->
+			<a  class="sw-color-white" 
+				routerLink="/user/{{uid}}/website/{{wid}}">
+				<strong>Edit Website</strong>
+				</a>
 
-		<!-- right side form -->
-		<div class="col-sm-8">
-
-			<div class="container">
-				<form>   <!--  website name -->
-					<div class="form-group">
-						<!-- lable -->
-						<label for="website-name">Website Name</label>
-						<input class="form-control" type="text" name="website-name" placeholder="Blogger">
-					</div>
-					
-					<div class="form-group">
-						<label for="website-description">Website Description</label>
-						<textarea class="form-control" rows="6"   placeholder="Blogger is a blog publishing service that will allow multi user blogs with time stampes entries It was developed by Pyrs Labs which was bought by Google in 2003"></textarea>
-						
-					</div>
-				</form>
-
-				<a class="btn btn-danger btn-block" routerLink="/user/:uid/website">Delete</a>
-
-			</div>
-
-		</div>
-
-
-
-				<!--########################################################-->
-	</div>
-	<!-- </div> -->
-
-
-	
-	<div class="row">
-<!-- 				<div class="col-sm-12">	
-
-					<button type="button" class="btn btn-primary btn-block" >
-								<div id="m-float-left">
-									<a routerLink="top_of_the_page">Script Test App</a>
-								</div>
-								<div id="m-float-right">
-									<i class="fa fa-cog fa-spin fa-1x fa-fw float-right fixed-bottom"></i>
-									<span class="sr-only">Loading...</span>
-								</div>
+			<button class="btn sw-color-white float-right sw-button-to-a" 
+					type="submit" 
+					form="websiteForm">
+					<i class="fas fa-check"></i>
 					</button>
 
-				</div> -->
-	</div>
+		</div>
 
-		
-		<div>
-				<button class="navbar navbar-dark bg-primary btn-block fixed-bottom">
 
-					<div id="m-float-right">
+</nav>   <!-- [END OF NAV SECTION] -->
+	<!--##########################################################################################-->
+	<!--##########################[     [ MIDDLE ] LIST ITEMS           ]#########################-->
+	<!--##########################################################################################-->
+<div class="row">  <!-- [START ROW]____________________________________________ -->
 
-						<i class="fas fa-plus "></i>
 
+
+
+
+
+		<!--########################################################-->
+		<!--#############[   [ LEFT ] Side of Website  ]############-->
+		<!--########################################################-->
+<div class="col-md-4 d-none d-md-block">  <!-- [GRID USEING 4 COLUMES PF PAGE] -->
+	<div class="container-fluid">
+
+		<ul class="list-group">
+
+				<li class="list-group-item" 
+					*ngFor ="let website of websites">
+
+						<a 	routerLink="/user/{{uid}}/website/{{website._id}}/page">
+							{{website.name}}
+							</a>
+
+						<a  class="float-right" 
+							routerLink="/user/{{uid}}/website/{{website._id}}">
+							<i class="fas fa-cog"></i>
+							</a>
+
+				</li>
+
+		</ul>
+
+	</div> <!-- [END OF CONTAINER] -->
+</div>	   <!-- [END OF LEFT SIDE ] -->
+
+
+
+
+		<!--########################################################-->
+		<!--#############[  [ Right ] Side of Website  ]############-->
+		<!--########################################################-->
+<div class="col-md-8 d-none d-md-block">  <!-- [GRID USEING 8 COLUMES PF PAGE] -->
+	<div class="container-fluid">
+
+		<form id="websiteForm" (ngSubmit)="update()" #f="ngForm">
+
+			<div class="form-group">
+
+				<label><strong>Name</strong></label>
+
+				<input  class="form-control" 
+						type="text" 
+						name="name" 
+						placeholder="Put in your Website name here" 
+						required ngModel="{{website.name}}" 
+						#name="ngModel">
+			</div>
+
+			<div    class="alert alert-warning" 
+					*ngIf="name.invalid && name.touched">
+					Name cannot be empty
 					</div>
 
-				</button>
+
+			<div class="form-group">
+
+						<label  for="description">
+								<strong>Description</strong>
+								</label>
+
+
+						<textarea   rows="10" 
+									class="form-control" 
+									name="description" 
+									placeholder="Describe your website here" 
+									ngModel="{{website.description}}" 
+									#description="ngModel">
+									</textarea>
+			</div>
+
+
+
+					<button (click)="delete()" 
+							type="button" 
+							class="btn btn-danger">
+							Delete
+							</button>
+
+
+					<button type="submit" 
+							class="btn btn-primary float-right">
+							Update
+							</button>
+
+
+		</form>  <!-- [END OF FORM] -->
+
+
+	</div>  <!-- [END OF CONTAINER] -->
+</div>		<!-- [END OF RIGHT SIDE ] -->
+		
+
+
+</div>   <!-- [END ROW]__________________________________________________________ -->
+
+
+
+	<!--##########################################################################################-->
+	<!--##########################[     [ FOOTER ]  BOTTOM OF PAGE      ]#########################-->
+	<!--##########################################################################################-->
+
+	<footer class="navbar fixed-bottom navbar-dark bg-primary">
+
+		<div class="sw-full-width">
+
+			<a  class="navbar-brand float-right" 
+				routerLink="/user/:uid">
+				<i class="fas fa-user"></i>
+				</a>
 
 		</div>
+
+	</footer>
+
+

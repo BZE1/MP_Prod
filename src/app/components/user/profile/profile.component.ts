@@ -7,9 +7,70 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+	uid:			string;
+	user: 			User;
+	username: 		string;
+	email: 			string;
+	firstName: 		string;
+	lastName:		string;
+	oldUsername:	string;
+	usernameTaken:	boolean;
+	submitSuccess:	boolean;
 
-  ngOnInit() {
-  }
 
-}
+  constructor(	private activatedRoute: ActivatedRoute,
+   				private userService: UserService) { }
+
+  ngOnInit() 
+	  {
+	  	this.activatedRoute.params.subscribe
+	  		(
+	  			params => 
+	  			{
+	  				this.uid 			= params['uid'];
+	  				this.user 			= this.userService.findUserById(this.uid);
+	  				this.username 		= this.user.username;
+	  				this.email	 		= this.user.email;
+	  				this.firstName 		= this.user.firstName;
+	  				this.lastName 		= this.user.lastName;
+	  				this.oldUsername 	= this.user.username;
+	  			}
+	  		)
+
+	  }
+
+	update()
+		{
+			this.username 	= this.profileForm.value.username;
+			this.email 		= this.profileForm.value.email;
+			this.firstName 	= this.profileForm.value.firstName;
+			this.lastName 	= this.profileForm.lastname;
+
+			const aUser: User = this.userService.findUserByUsername(this.username);
+
+			if (aUser && this.oldUsername !== this.username)
+				{
+					this.usernameTaken = true;
+					this.submitSuccess = false;
+				}
+			else
+				{
+					const updaterUser: User = 
+						{
+							_id: 		this.user._id,
+							username: 	this.username,
+							password: 	this.user.password,
+							firstName: 	this.firstName,
+							lastName: 	this.lastName,
+							email: 		this.email
+						};
+
+					this.userService.updateUser(this.uid, updatedUser);
+					this.usernameTaken = false;
+					this.submitSuccess = true;
+
+				}
+
+		}
+
+}	/* [END OF CLASS]
