@@ -1,145 +1,174 @@
-		<nav class="row navbar navbar-dark bg-primary fixed-top">
-
-
-
-				<div class="col-sm-6">
-						<div class="container-fluid">
-							<div>
-								<!-- <i class="fa-chevron-left "></i> -->
-								<a class="sw-font-white" routerLink="/{{uid}}/website/new"><i class="fa-chevron-left "></i></a>				
-								<a class="navbar navbar-brand sw-font-red" routerLink="/{{uid}}/website/new">Websites</a>
-								<a class="sw-font-white" routerLink="/{{uid}}/website/new"><i class="fas fa-check"></i></a>
-								<!-- <i class="fas fa-check"></i> -->
-
-								<!-- fa-chevron-left -->
-								<!-- fas fa-plus -->
-
-
-							</div>
-						</div>
-				</div>
-
-
-
-				<div class="col-sm-6">
-					<div class="container-fluid">
-							<!-- <i class="fas fa-plus"></i>	 -->
-							<a class="navbar navbar-brand sw-font-red" routerLink="/{{uid}}/website/new">New Websites</a>											
-							<a class="sw-font-white" routerLink="/user/{{uid}}"><i class="fas fa-check"></i></a>
-							
-								<a routerLink="/user/{{uid}}/website"></a>
-									
-								
-							
-
-						</div>
-					</div>
-				<!-- < </div>   [Angular] closed for compile error -->
-
-			</nav>
-
-
+	
+<!--############################################################################################-->
+<!--##########################[             NAV SECTION               ]#########################-->
+<!--############################################################################################-->
+<nav class="row navbar navbar-dark fixed-top bg-primary ">
 
 				<!--########################################################-->
-				<!--#############[      List item Container    ]############-->
+				<!--#############[       [ LEFT ] SIDE         ]############-->
 				<!--########################################################-->
 
+	<div class="container-fluid">
 
-	<div class="row">
-		<!-- ######################################[ ROW ]############################################ -->
-		<div class="col-sm-4">		
+	<div class="col-sm-4 d-none d-md-block">
+
+				<!-- <i class="fa-chevron-left "></i> -->
+
+			<a  class="sw-color-white" 
+				routerLink="/user/{{uid}}/website">
+				<i class="fas fa-chevron-left"></i>
+				</a>
+
+			<a  class="sw-color-white sw-left-padding" 
+				routerLink="/user/{{uid}}/website">
+				<strong>Websites</strong>
+				</a>
+
+			<a  class="sw-color-white float-right" 
+				routerLink="/user/{{uid}}/website/new">
+				<i class="fas fa-plus"></i>
+				</a>
+
+				<!-- <i class="fas fa-check"></i> -->
+				<!-- fa-chevron-left -->
+				<!-- fas fa-plus -->
+
+	</div>
+				<!--########################################################-->
+				<!--#############[       [ RIGHT ] SIDE        ]############-->
+				<!--########################################################-->
+
+	<div class="col-md-8">
+
+			<a  class="sw-color-white" 
+				routerLink="/user/{{uid}}/website/new">
+				<strong>New Website</strong>
+				</a>
+
+			<!-- <i class="fas fa-plus"></i>	 -->
+			<button class="btn sw-color-white float-right sw-button" 
+					type="submit" 
+					form="websiteForm" 
+					[disabled]="f.invalid">
+					<i class="fas fa-check"></i>
+					</button>
+	</div>
+
+
+	</div>  <!-- [END CONTAINER] -->
+
+</nav> <!-- [END NAV SECTION] -->
+
+<!--############################################################################################-->
+<!--##########################[             MID SECTION               ]#########################-->
+<!--############################################################################################-->
+
+<div class="row">  <!-- [ROW]___________________________ -->
+
+				<!--########################################################-->
+				<!--#############[ [ LEFT ] SIDE WEBSITE LIST  ]############-->
+				<!--########################################################-->
+
+				<!-- _______________TOP OF UL GROUP________________ -->
+<div class="col-md-4 d-none d-md-block">
+
+	<div class="container-fluid">
 
 				<ul class="list-group">
-					<!-- _______________TOP OF UL GROUP________________ -->
-						
-						<li class="list-group-item">
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="/user/{{uid}}/website">Address Book App</a>
-								</div>
-								<div id="m-float-right">
-									<a routerLink="/{{uid}}/website/{{wid}}"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
-									<span class="sr-only">Loading...</span>
-								</div>
-							</button>
-						</li>
 
-						<li class="list-group-item">
+					<li class="list-group-item" 
+						*ngFor ="let website of websites">
 
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="/user/:uid/website">Blogger</a>
-								</div>
-								<div id="m-float-right">
-									<a routerLink="/{{uid}}/website/{{wid}}"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
-									<span class="sr-only">Loading...</span>
-								</div>							</button>
-								
-						</li>
+						<a  routerLink="/user/{{uid}}/website/{{website._id}}/page">
+							{{website.name}}
+							</a>
 
+						<a  class="float-right" 
+							routerLink="/user/{{uid}}/website/{{website._id}}">
+							<i class="fas fa-cog"></i>
+							</a>
 
-						<li class="list-group-item">
+					</li>
+				</ul>
 
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="/user/{{uid}}/website">Blogger App</a>
-								</div>
-								<div id="m-float-right">
-									<a routerLink="/{{uid}}/website/{{wid}}"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
-									<span class="sr-only">Loading...</span>
-								</div>
-							</button>
-
-						</li>
-
-
-						<li class="list-group-item">
-
-							<button type="button" class="btn btn-light btn-block" >
-								<div id="m-float-left">
-									<a routerLink="/user/{{uid}}/website">Script Test App</a>
-								</div>
-								<div id="m-float-right">
-									<a routerLink="/{{uid}}/website/{{wid}}"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i></a>
-									<span class="sr-only">Loading...</span>
-								</div>
-							</button>
-
-						</li>
-
-					</ul>
-					<!-- ______________BOTTOM OF UL GROUP________________ -->
-
-
-		</div>
+	</div>   <!-- [END CONTAINER] -->
 
 				<!--########################################################-->
-				<!--#############[         Input Form           ]############-->
+				<!--#############[ [ RIGHT ] SIDE WEBSITE LIST  ]############-->
 				<!--########################################################-->
+<div class="col-md-8">
 
-		<!-- right side form -->
-		<div class="col-sm-4">
+	<div class="container-fluid">
 
-			<div class="container">
-				<form>   <!--  website name -->
-					<div class="form-group">
-						<!-- lable -->
-						<label for="website-name">Name</label>
-						<input class="form-control" type="text" name="website-name" placeholder="Input your website name">
-					</div>
-					
-					<div class="form-group">
-						<label for="website-description">Description</label>
-						<textarea class="form-control" rows="5"   placeholder="Input your description for your website"></textarea>
-						
-					</div>
-				</form>
+		<form   id="websiteForm" 
+				(ngSubmit)="create()" #f="ngForm">
+
+			<div class="form-group">
+
+						<label><strong>Name</strong></label>
+
+						<input  class="form-control" 
+								type="text" 
+								name="name" 
+								placeholder="Write your website name here" 
+								required ngModel #name="ngModel">
+
 			</div>
 
+
+					<div    class="alert alert-warning" 
+							*ngIf="name.invalid && name.touched">
+							This Field must be filled in!
+							</div>
+
+			<div class="form-group">
+
+					<label><strong>Description</strong></label>
+
+					<textarea   rows="8" 
+								class="form-control" 
+								name="description" 
+								placeholder="Write about your website here." 
+								ngModel #description="ngModel">
+								</textarea>
+
+			</div>
+
+					<a  routerLink="/user/{{uid}}/website" 
+						class="btn btn-danger">
+						Cancel
+						</a>
+
+
+					<button [disabled]="f.invalid" 
+							type="submit" 
+							class="btn btn-success float-right">
+							Submit
+							</button>
+
+		</form>   <!-- [END OF FORM] -->
+
+	</div><!-- [END CONTAINER] -->
+</div><!-- [END ROW]_________________________________________ -->
+
+</div>  <!-- [END OF ROW] -->
+<!--############################################################################################-->
+<!--##########################[             FOOTER  SECTION           ]#########################-->
+<!--############################################################################################-->
+
+
+<footer class="navbar fixed-bottom navbar-dark bg-primary">
+
+		<div class="sw-full-width">
+
+			<a  class="navbar-brand float-right" 
+				routerLink="/user/:uid">
+				<i class="fas fa-user"></i>
+				</a>
+
 		</div>
+</footer>
 
 
 
-				<!--########################################################-->
-	</div>
-	<!-- </div> -->
+
