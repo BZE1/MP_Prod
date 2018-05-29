@@ -1,12 +1,23 @@
+/*	########################################################
+	##########[        Imported   Modules         ]#########
+	########################################################  */
+
+
+
+
+
+/*	########################################################
+	##########[               Class               ]#########
+	########################################################         */
 export class Widget {
 
-	_id:string;
-	widgetType:string;
-	pageId:string;
-	size?:number;
-	text?:string;
-	width?:string;
-	url?:string;
+	_id:		string;
+	widgetType:	string;
+	pageId:		string;
+	size?:		number;
+	text?:		string;
+	width?:		string;
+	url?:		string;
 	
 
 	constructor(_id, widgetType,pageId )
@@ -18,4 +29,4 @@ export class Widget {
 		}
 
 
-}
+}/*  #################[    END OF CLASS  ]###############  */

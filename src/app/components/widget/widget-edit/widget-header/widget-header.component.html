@@ -1,61 +1,91 @@
-		<nav class="navbar navbar-dark fixed-top sw-gray">
+		<nav class="navbar navbar-dark fixed-top navbar-light sw-bg-grey">
 
-					<a routerLink="/uid/website/:wid/page/:pid/widget" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+					<a  class="sw-font-white" 
+						routerLink="/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
+						<i class="fas fa-chevron-left"></i>
+						</a>
 					
-					<div class="sw-80-width">
-						<a class="sw-font-white sw-no-underline float-left" routerLink="/widget-header">Widget Edit</a>
+					<div class="sw-90-width"> <!--  was 80 now 90 -->
+						<a  class="navbar-brand sw-font-white sw-no-underline float-left" 
+							routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new">
+							<strong>Edit Widget</strong>
+							</a>
 					</div>
 
-					<a routerLink="/uid/website/:wid/page/:pid/widget" class="sw-font-white float-right">
-						                             <i class="fas fa-check"></i></a>
+					<button     class="btn sw-button-to-a  sw-color-black sw-font-white float-right"
+								type="submit"
+								form="widgetForm">
+								<i class="fas fa-check"></i>
+								</button>
 		</nav>
 
 				<!--########################################################-->
 				<!--#############[         Nave bar            ]############-->
 				<!--########################################################-->
 
-		<div class="container-fluid">
+<div class="container-fluid">
 
-			<form>
+	<form 	id="widgetForm" 
+			(ngSubmit)="update()"
+			#f="ngForm">
 				
-				<div class="form-group">
-					<label for="name">NAME</label>
-					<input type="text" name="name" class="form-control"  placeholder="Joe Schmoe">
-				</div>
+			<div class="form-group">
 
-				<div class="form-group">
+					<label  for="name">NAME</label>
+					<input  class="form-control"
+							type="text" 
+							name="name"
+							ngModel="{{widget.name}}"
+							#name="ngModel"
+							placeholder="Please enter a widget name here">
+			</div>
+
+		[BM]
+
+			<div class="form-group">
+
 					<label for="text">TEXT</label>
-					<input type="text" name="text" class="form-control"  placeholder="Top US News Headlines">
-				</div>
+					<input  class="form-control" 
+							type="text" 
+							name="text"  
+							placeholder="Top US News Headlines">
+			</div>
 
-				<div class="form-group">
+			<div class="form-group">
+
 					<label for="size">SIZE</label>
-					<input type="number" name="size" class="form-control"  placeholder="example something like 3">
-				</div>
+					<input  class="form-control"
+							type="number" 
+							name="size"   
+							placeholder="example something like 3">
+			</div>
 
 				<!--########################################################-->
 				<!--#############[         DELETE Button       ]############-->
 				<!--########################################################-->
 
-				<div>
-						<a class="btn btn-danger btn-block" routerLink="/uid/website/:wid/page/:pid/widget">DELETE</a>
-				</div>
+			<div>
+						<a  class="btn btn-danger btn-block" 
+							routerLink="/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
+							DELETE
+							</a>
+			</div>
 
-
-			</form>
-
-
+	</form>
 			
 				<!--########################################################-->
 				<!--#############[        footer Icon          ]############-->
 				<!--########################################################-->
 
-			<!-- footer -->
-			<nav class="navbar navbar-dark sw-gray fixed-bottom">
+	<nav class="navbar navbar-dark sw-gray fixed-bottom">
+
 				<div class="sw-me">
-					<a routerLink="/user/uid:" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
+					<a  class="sw-font-white float-right"
+						routerLink="/user/uid" >
+						<i class="fas fa-user "></i>
+						</a>
 				</div>
-			</nav>
+	</nav>
 			
 
-		</div>  <!-- container-fluid -->
+</div>  <!-- container-fluid -->

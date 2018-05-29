@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  Login
+  Login()
 	  {
 	  	this.username = this.loginForm.value.username;
 	  	this.password = this.loginForm.value.password;
