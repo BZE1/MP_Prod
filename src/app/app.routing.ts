@@ -53,15 +53,6 @@ const APP_ROUTES : Routes =
 		{ path : 'uid/website/:wid/page/:pid/widget', component : WidgetListComponent},
 		{ path : 'uid/website/:wid/page/:pid/widget/new', component : WidgetChooserComponent},
 		{ path : 'uid/website/:wid/page/:pid/widget/:wgid', component : WidgetEditComponent},
-
-		/* NOT USED_____________________________
-
-		{ path : '', component : Component},
-		{ path : '', component : Component},
-		{ path : '', component : Component},
-		{ path : '', component : Component},
-
-		________________________________________*/
 	]
 
 /*################################################################*/

@@ -78,3 +78,7 @@ body{
 .sw_text_color_blk{
 	color:black;
 }
+
+.sw-front{
+	z-index: 2
+}

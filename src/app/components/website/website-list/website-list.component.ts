@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WebsiteServices } from '../../../services/website.service.client'
 import { Website } from '../../../models/website.models.client'
-import  { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 
 
 

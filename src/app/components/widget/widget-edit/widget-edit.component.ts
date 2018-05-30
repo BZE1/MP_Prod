@@ -1,7 +1,12 @@
+/*	########################################################
+	##########[        Imported   Modules         ]#########
+	########################################################  */
 import { Component, OnInit } from '@angular/core';
 import { Widget } from '../../../models/widget.models.client'
 import { Widget_Services } from '../../../services/widget.service.client'
-import { ActivtedRoute } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
+
+
 
 @Component({
   selector: 'app-widget-edit',
@@ -10,20 +15,34 @@ import { ActivtedRoute } from '@angular/router'
 })
 
 
+
+
 /*			########################################################
-			#############[ WidgetEditComponent  Class  ]############
+			##########[               Class               ]#########
 			########################################################         */
 export class WidgetEditComponent implements OnInit {
 
 
 
-  constructor() { 	private widgetservices : Widget_Services
-  					private }
+	  constructor (	private widgetService: Widget_Services, 
+	  				private activatedRoute: ActivatedRoute) {}
 
-  
 
-  ngOnInit() {
-  }
+	  //[ VARABLES ]___________
+	 	 	widget: Widget;
+	  		wgid: string;
+
+
+
+	  	ngOnInit() 
+			  	{
+			  	this.activatedRoute.params.subscribe(
+			  		params => 
+				  		{
+					  		this.wgid = params['wgid'];
+					  		this.widget = this.widgetService.findWidgetById(this.wgid);
+				  		})
+			  	}
 
 
 

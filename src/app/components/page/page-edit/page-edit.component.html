@@ -9,21 +9,22 @@
 		<a class="sw-color-black" 
 				routerLink="/user/{{uid}}/website/{{wid}}/page">
 				<i class="fas fa-chevron-left"></i>
-		</a>
+				</a>
 
 	<div class="sw-90-width">
-			<a class="navbar-brand float-left" 
-			routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}">Edit Page
-			</a>
+			<a 	class="navbar-brand float-left" 
+				routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}">
+				Edit Page
+				</a>
 	</div>
 
 
-	<button type="submit" 
-		[disabled]="f.invalid" 
-		form="pageForm" 
-		class="btn sw-button-to-a sw-color-black float-right">
-		<i class="fas fa-check"></i>
-	</button>
+	<button class="btn sw-button-to-a sw-color-black float-right"
+			type="submit" 
+			[disabled]="f.invalid" 
+			form="pageForm" >
+			<i class="fas fa-check"></i>
+			</button>
 
 </nav>
 
@@ -37,51 +38,77 @@
 	
 	<form id="pageForm" (ngSubmit)="update()" #f="ngForm">
 
-		<div class="form-group">
-			<label class="font-weight-bold" for="website-name">Name</label>
-			<input class="form-control" 
-					required ngModel="{{page.name}}" 
-					#name="ngModel" 
-					type="text" name="name" 
-					placeholder="what is the name of your page" 
-					value="Blog Post">
+			<div class="form-group">
 
-		</div>
+					<label 	class="font-weight-bold" 
+							for="website-name">
+							Name
+							</label>
+					<input class="form-control" 
+							required ngModel="{{page.name}}" 
+							#name="ngModel" 
+							type="text" name="name" 
+							placeholder="what is the name of your page" 
+							value="Blog Post">
+			</div>
 
 
-		<div *ngIf="name.invalid && name.touched" class="alert alert-warning">This fiels canot be enpty
 
-		<div class="form-group">
 
-				<label class="font-weight-bold"  for="website-name">Description</label>
-				<input class="form-control" 
-							ngModel={{page.description}} 
-							#description="ngModel" 
-							type="text" name="description" 
-							placeholder="Enter your page description..." 
-							value="Blog">
-		</div>
+			<div 	*ngIf="name.invalid && name.touched" 
+						class="alert alert-warning">
+						This fiels canot be enpty
+			</div>
 
-			<button class="btn btn-primary btn-block" 
-						type="submit" 
-						[disabled]="f.invalid">
-						Update
-			</button>
+			<div class="form-group">
+						<label 	class="font-weight-bold"  
+								for="website-name">
+								Description
+								</label>
+						<input 	class="form-control" 
+								ngModel={{page.description}} 
+								#description="ngModel" 
+								type="text" 
+								name="description" 
+								placeholder="Enter your page description..." 
+								value="Blog">		
+			</div>
 
-			<button type="button" class="btn btn-danger btn-block" 
-						(click)="remove()">
-						Delete
-			</button>
-	</form>
 
+				<button 	class="btn btn-primary btn-block" 
+							type="submit" 
+							[disabled]="f.invalid">
+							Update
+							</button>
+				<button 	type="button" 
+							class="btn btn-danger btn-block" 
+							(click)="remove()">
+							Delete
+							</button>
+
+	</form>  <!-- [ END FORM ] -->
 </div> <!-- [ END OF CONTAINER ] -->
+
 
 
 				<!--########################################################-->
 				<!--#############[        footer Icon          ]############-->
 				<!--########################################################-->
 
-		<!-- 
+<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
+
+		<div class="sw-full-width">
+
+			<a 	class="navbar-brand float-right" 
+				routerLink="/user/{{uid}}">
+				<i class="fas fa-user"></i>
+				</a>
+
+		</div>
+</footer>
+
+
+	<!-- 
 
 			<nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom">
 				<div class="sw-me">
@@ -89,19 +116,3 @@
 				</div>
 			</nav>
 			 -->
-	
-
-	<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
-
-		<div class="sw-full-width">
-
-			<a class="navbar-brand float-right" 
-						routerLink="/user/{{uid}}">
-						<i class="fas fa-user"></i>
-			</a>
-
-		</div>
-	</footer>
-
-
-	

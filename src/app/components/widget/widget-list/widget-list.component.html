@@ -1,122 +1,129 @@
+				<!--########################################################-->
+				<!--#############[     NAV Bar  / Top of Page  ]############-->
+				<!--########################################################-->
 <nav class="navbar navbar-dark fixed-top  sw_w_c">  <!-- sw-gray -->
 
-					<a routerLink="/uid/website/:wid/page" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+				<a  class="sw-font-white" 
+					routerLink="/{{uid}}/website/{{wid}}/page">
+					<i class="fas fa-chevron-left"></i>
+					</a>
 					
-					<div class="sw-80-width">
-						<a class="sw-font-white sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget">Widgets</a>
-					</div>
+				<div class="sw-80-width">
 
-						<a routerLink="/widget-chooser" class="sw-font-white float-right">
-						<i class="fas fa-plus"></i></a>
+					<a  class="sw-font-white sw-no-underline float-left" 
+						routerLink="/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
+						Widgets
+						</a>
 
-			</nav>
+				</div>
+
+				<a  class="sw-font-white float-right"
+					routerLink="/widget-chooser" >
+					<i class="fas fa-plus"></i>
+					</a>
+
+</nav>
+
+				<!--########################################################-->
+				<!--#############[       Widget  Section       ]############-->
+				<!--########################################################-->
+<div class="container-fluid">
+
+ 	<!-- [ Loop to cycle through Widgets ] -->
+	<div *ngFor="let widget of widgets">
+
+		<div class="sw-absolute-right sw-front">
+
+				<a  routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{widget._id}}">
+					<i class="fas fa-cog"></i>
+					</a>
+
+				<a  href="#">
+					<i class="fas fa-bars"></i></a>
+		</div>
 
 
 
 				<!--########################################################-->
-				<!--#############[          Widgets            ]############-->
+				<!--#############[      Switch Statement       ]############-->
 				<!--########################################################-->
 
-	<div class="container-fluid">
-
-
-		<div class="container-widget"><!--#######################################-->
-
-			<div>		<!--________ Widgets____________-->
+	<!-- [ SWITCH statement checking each CASE ] -->
+	<div [ngSwitch]="widget.widgetType">
 				
-				<div class="sw-absolute">
-					<a routerLink="/widget-heading"><i class="fas fa-bars float-right"></i></a>
-				</div>
+				<!-- [________________HEADING Case_________________ ] -->
+				<div *ngSwitchCase="'HEADING'"> 
 
-				<a class="sw-black"  routerLink="/uid/website/:wid/page/:pid/widget"><i class="fas fa-bars float-right"></i></a>
+					<!-- [[ CHECKING THE SIZE ]] -->
+							<div [ngSwitch]="widget.size">
 
-				<h1>Welcome</h1>
+								<div *ngSwitchCase="1"><h1>{{widget.text}}</h1></div>
+								<div *ngSwitchCase="2"><h2>{{widget.text}}</h2></div>
+								<div *ngSwitchCase="3"><h3>{{widget.text}}</h3></div>
+								<div *ngSwitchCase="4"><h4>{{widget.text}}</h4></div>
+								<div *ngSwitchCase="5"><h5>{{widget.text}}</h5></div>
+								<div *ngSwitchCase="6"><h6>{{widget.text}}</h6></div>
 
-			</div>
-		</div><!--##################################################################-->
-
-				<!--#############[________ Page Devider_________]############-->
-				<div class="progress progress-striped active">
-  					<div class="bar" style="width: 40%;"></div>
-				</div>
-
-
-		<div class="container-widget"><!--#######################################-->
-
- 				<div>   	<!--________ Widgets____________-->
-
-				<div class="sw-absolute">
-					<a routerLink="/widget-image"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
-					<a routerLink="/widget-heading"><i class="fas fa-bars float-right"></i></a>
-				
-				</div>
-				<h5>UsS reaches somthing in the news</h5>
-				<img width="500"  height="250" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwpgDmqsp-7VaeBxL_xiLD6sHMNBK68vLCqZlA3P2JaeAaY91e">
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				
-
-			</div>
-		</div><!--##################################################################-->
-
-
-			<!--#############[________ Page Devider_________]############-->
-							<div class="progress progress-striped active">
-			  					<div class="bar" style="width: 40%;"></div>
 							</div>
+				</div>  <!-- [END OF HEADING] -->
+						
+				<!-- [________________IMAGE Case_________________ ] -->
+				<div *ngSwitchCase="'IMAGE'">
+							<img [src]="widget.url"
+								 [style.width]="widget.width">
+				</div>
+						
+					<!-- [________________YOUTUBE Case_________________ ] -->
+				<div *ngSwitchCase="'YOUTUBE'">
+						<div class="embed-responsive embed-responsive-16by9">
 
-
-		<div class="container-widget"><!--#######################################-->
-
-
-			<div>  	<!--________ Widgets____________-->
-
-				<div class="sw-absolute">
-					<a routerLink="/widget-youtube"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><span class="sr-only">Loading...</span></a>
-					<a routerLink="/widget-heading"><i class="fas fa-bars float-right"></i></a>
+							<iframe [src]="this.getYoutubeUrl(widget.url)"
+									[style.width]="widget.width"
+									frameborder="0"
+									allowfullscreen>
+									</iframe>
+						</div>
 				</div>
 
-				<h5>Movie Trailer</h5>
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/tN8o_E_f9FQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
+</div>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<!--########################################################-->
+				<!--#############[          Switch END         ]############-->
+				<!--########################################################-->
 
+</div>  <!-- [  END Container-Fluid ] -->
+
+
+<!--#############[________ Page Devider_________]############-->
+			<div class="progress progress-striped active">
+			 <div class="bar" style="width: 40%;"></div>
 			</div>
-
-
-		</div><!--##################################################################-->
-
-
-			<!--#############[________ Page Devider_________]############-->
-							<div class="progress progress-striped active">
-			  					<div class="bar" style="width: 40%;"></div>
-							</div>
 
 
 				<!--########################################################-->
 				<!--#############[        footer Icon          ]############-->
 				<!--########################################################-->
 
-			<!-- footer -->
-			<nav class="navbar navbar-dark sw-gray fixed-bottom">
-				<div class="sw-me">
-					<a routerLink="/user/uid:" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
-				</div>
-			</nav>
-			
+<footer class="navbar fixed-bottom navbar-light sw-bg-grey sw-font-white">
 
-		</div>  <!-- container-fluid -->
+	<div class="sw-full-width">
 
+			<a href="#" class="btn btn-primary">
+				publish
+				</a>
+
+			<a  href="#" class="btn btn-warning">
+				Preview
+				</a>
+
+			<a  class="navbar-brand float-right" 
+				routerLink="/user/{{uid}}">
+				<i class="fas fa-user"></i>
+				</a>
+	</div>
+
+</footer>
 
 
 

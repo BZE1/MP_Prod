@@ -5,11 +5,14 @@ import {Widget} from '../models/widget.models.client'
 // injecting Services into modules
 @Injectable()
 
+
+
+/*		########################################################
+		#############[    Widget_Services   Class  ]############
+		########################################################*/
 export class Widget_Services {
 
-	constructor(){
-	
-	}
+	constructor(){}
 
 	
 	widgets : Widget [] = 
@@ -23,54 +26,53 @@ export class Widget_Services {
 			  { _id: "789", widgetType: "HTML", pageId: "321", text: "<p>Lorem ipsum</p>"}
 		]
 
-			
-
-	// api = {
-	// 			'createWidget' 			:  this.createWidget,
-	// 		//  'findWidgetByWebsite' 	:  this.findWidgetByWebsite,
-	// 			'findWidgetById' 		:  this.findWidgetById,
-	// 			'updateWidget' 			:  this.updateWidget,
-	// 			'deleteWidget' 			:  this.deleteWidget,
-	// 		};
 
 
-		createWidget(pageId: string, widget:Widget){
-				
+		createWidget(pageId: string, widget:Widget)
+			{
 				widget._id = Math.floor(Math.random() + 10000).toString();
 				widget.pageId = pageId;
 				this.widgets.push(widget);
+
 				return widget
 			}
 
-		findWidgetByPageId(pageId:string){
-				var result = [];
-				for (var i = 0 ; i<this.widgets.length ; i++){
-					if (this.widgets[i].pageId == pageId){
-						result.push(this.widgets[i]);
-					}
-				}
+		findWidgetByPageId(pageId:string)
+			{
+					var result = [];
+
+					for (var i = 0 ; i<this.widgets.length ; i++)
+						{
+							if (this.widgets[i].pageId === pageId)
+								{
+									result.push(this.widgets[i]);
+								}
+						}
 			}
 
-		findWidgetById(widgetId: string){
-				for(var i = 0; i<this.widgets.length; i++){
-					if(this.widgets[i]._id === widgetId){
-						return this.widgets[i];
+		findWidgetById(widgetId: string)
+			{
+				for(var i = 0; i<this.widgets.length; i++)
+					{
+						if(this.widgets[i]._id === widgetId)
+							{
+								return this.widgets[i];
+							}
 					}
-				}
 			}
 
 
-		updateWidget(widgetId: string, widget:Widget){
-				const oldWidget = this.findWidgetById(widgetId);
-				const index = this.widgets.indexOf(oldWidget);
+		updateWidget(widgetId: string, widget:Widget)
+				{
+					const oldWidget = this.findWidgetById(widgetId);
+					const index = this.widgets.indexOf(oldWidget);
 
-				/* [_______Compile issue here___________] */
-				this.widgets[index].size 	= widget.size;
-				this.widgets[index].text 	= widget.text;
-				this.widgets[index].width 	= widget.width;
-				this.widgets[index].url 	= widget.url;
-				
-
+					/* [_______Compile issue here___________] */
+					this.widgets[index].size 	= widget.size;
+					this.widgets[index].text 	= widget.text;
+					this.widgets[index].width 	= widget.width;
+					this.widgets[index].url 	= widget.url;
+					
 				}
 
 
@@ -78,8 +80,8 @@ export class Widget_Services {
 		deleteWidget(widgetId:string){
 				const oldWidget = this.findWidgetById(widgetId);
 				const index = this.widgets.indexOf(oldWidget);
-				this.widgets.splice(index,1);
 
+				this.widgets.splice(index,1);
 			}
 
 

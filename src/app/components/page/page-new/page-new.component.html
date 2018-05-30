@@ -1,5 +1,3 @@
-
-
 		<!--########################################################-->
 		<!--#############[          NAV BAR            ]############-->
 		<!--########################################################-->
@@ -7,33 +5,31 @@
 <!-- <nav class="navbar navbar-dark bg-primary fixed-top">  -->
 <nav class="navbar fixed-top navbar-light sw-bg-grey">
 
-	<a class="sw-color-black" 
+		<a 	class="sw-color-black" 
 			routerLink="/user/{{uid}}/website/{{wid}}/page">
 			<i class="fas fa-chevron-left"></i>
 			</a>
 
-	<div class="sw-90-width">
+		<div class="sw-90-width">
 
-		<a class="navbar-brand float-left" 
+			<a 	class="navbar-brand float-left" 
 				routerLink="/user/{{uid}}/website/{{wid}}/page/new">
-				<strong>New Page</strong></a>
-	</div>
+				<strong>New Page</strong>
+				</a>
+		</div>
 
-	<button [disabled]="f.invalid" 
-			type="submit" 
-			form="pageForm" 
-			class="btn sw-button-to-a sw-color-black float-right" >
-			<i class="fas fa-check"></i>
-	</button>
+		<button class="btn sw-button-to-a sw-color-black float-right"
+				[disabled]="f.invalid" 
+				type="submit" 
+				form="pageForm">
+				<i class="fas fa-check"></i>
+				</button>
 
 </nav>
-
-
 
 				<!--########################################################-->
 				<!--#############[         MAIN FORM           ]############-->
 				<!--########################################################-->
-
 <div class="container-fluid">
 
 	<form id="pageForm" (ngSubmit)="create()" #f="ngForm">
@@ -52,61 +48,50 @@
 						placeholder="Please type in a page name here">
 		</div>
 
-
 		<div    *ngIf="name.invalid && name.touched" 
 				class="alert alert-warning">
 				This Name Field must be filled in
 		</div>
 
-
-
 		<div class="form-group">
 
-			<label><strong>Description</strong></label>
+			<label>	
+					<strong>Description</strong>
+					</label>
 
 			<input  class="form-control" 
 					type="text" 
 					name="description" 
 					ngModel #description="ngModel" 
 					placeholder="Please write about your page">
-
 		</div>
-
-
 
 		<button [disabled]="f.invalid" 
 				class="btn btn-success btn-block" 
 				type="submit">Submit
 				</button>
 
-		<a  class="btn btn-danger btn-block" 
-			routerLink="/user/{{uid}}/website/{{wid}}/page">
-			Cancel
-			</a>
+		<a  	class="btn btn-danger btn-block" 
+				routerLink="/user/{{uid}}/website/{{wid}}/page">
+				Cancel
+				</a>
 
 	</form> <!-- [END OF FORM] -->
 
-</div>
-
-
+</div>  <!-- [END OF CONTAINER] -->
 
 				<!--########################################################-->
 				<!--#############[          PAGE FOOTER        ]############-->
 				<!--########################################################-->
 
 <!-- <nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom"> -->
-<footer class="navbar 
-			   sw-font-white 
-			   fixed-bottom 
-			   navbar-light 
-			   sw-bg-grey">
-
+<footer class="navbar  sw-font-white  fixed-bottom  navbar-light  sw-bg-grey">
 	<div class="sw-full-width">
 
-		<a class="navbar-brand float-right" 
-				routerLink="/user/{{uid}}">
-				<i class="fas fa-user"></i>
-				</a>
+		<a 	class="navbar-brand float-right" 
+			routerLink="/user/{{uid}}">
+			<i class="fas fa-user"></i>
+			</a>
 
 	</div>
 </footer>

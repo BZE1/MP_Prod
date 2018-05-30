@@ -1,3 +1,6 @@
+/*##############################################################
+  ############[          Imported Modules           ]########### 
+  ############################################################## */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pages } from '../../../models/pages.models.client'
@@ -14,21 +17,22 @@ import { NgForm } from "@angular/forms"
 })
 
 
+/*##############################################################
+  ############[                Class                ]########### 
+  ############################################################## */
 export class PageNewComponent implements OnInit {
   
 
   @ViewChild('f') pageForm: NgForm;
 
+    uid:           string;
+    wid:           string;
+    name:          string;
+    description:   string;
 
-  uid:           string;
-  wid:           string;
-  name:          string;
-  description:   string;
-
-  constructor(  private pageService: PageServices, 
-                private activatedRoute: ActivatedRoute, 
-                private router: Router) { }
-
+  constructor(  private pageService:       PageServices, 
+                private activatedRoute:   ActivatedRoute, 
+                private router:           Router) { }
 
 
   ngOnInit() 
@@ -59,5 +63,8 @@ export class PageNewComponent implements OnInit {
       	this.pageService.createPage(this.wid, newPage);
       	this.router.navigate(['user', this.uid, 'website', this.wid, 'page']);
       }
+
+
+
 
 } /* [ END OF CLASS ] */

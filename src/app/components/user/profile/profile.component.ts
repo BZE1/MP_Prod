@@ -1,25 +1,66 @@
-import { Component, OnInit } from '@angular/core';
 
-@Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
-})
+/**
+############################################
+______________[   TODO :   ]________________
+
+[_]  Users
+  		-Imported
+    	-Do I need to put it in the constructure
+
+[_]  userService
+		var nopt working 
+		what going on with this one
+
+[_]  View Child
+		#F used in HTML code
+		
+[_]  findUserByUsername
+
+[_]  updatedUser
+
+
+#############################################
+ */
+
+import { UserServices } from '../../../services/user.service.client'
+import { Component, OnInit } from '@angular/core';
+import { User } from '../../../models/user.models.client'
+import  { ActivatedRoute } from '@angular/router'
+import { WebsiteServices } from '../../../services/website.service.client'
+
+
+@Component
+	({
+	  selector: 		'app-profile',
+	  templateUrl: 		'./profile.component.html',
+	  styleUrls: 	   ['./profile.component.css']
+	})
+
+
+
+
+/*##############################################################
+  ############[                CLASS                ]########### 
+  ############################################################## */
 export class ProfileComponent implements OnInit {
 
-	uid:			string;
-	user: 			User;
-	username: 		string;
-	email: 			string;
-	firstName: 		string;
-	lastName:		string;
-	oldUsername:	string;
-	usernameTaken:	boolean;
-	submitSuccess:	boolean;
+
+	// [ Varables ]_____________
+		uid:			string;
+		user: 			User;
+		username: 		string;
+		email: 			string;
+		firstName: 		string;
+		lastName:		string;
+		oldUsername:	string;
+		usernameTaken:	boolean;
+		submitSuccess:	boolean;
 
 
   constructor(	private activatedRoute: ActivatedRoute,
-   				private userService: UserService) { }
+   				private userService: UserServices,
+   				private user: User) { }
+
 
   ngOnInit() 
 	  {

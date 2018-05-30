@@ -1,6 +1,4 @@
 
-	
-
 				<!--########################################################-->
 				<!--#############[           NAV BAR           ]############-->
 				<!--########################################################-->
@@ -8,66 +6,63 @@
 <!-- <nav class=" navbar navbar-dark bg-primary fixed-top"> -->
 <nav class="navbar fixed-top navbar-light sw-bg-grey">
 
-		<a class="sw-color-black" routerLink="/user/{{uid}}/website">
+		<a 		class="sw-color-black" 
+				routerLink="/user/{{uid}}/website">
 				<i class="fas fa-chevron-left"></i>
 				</a>
 
-	<div class="sw-80-width">
-		<a class="navbar-brand float-left" 
+		<div class="sw-80-width">
+
+			<a 	class="navbar-brand float-left" 
 				routerLink="/user/{{uid}}/website/{{wid}}/page">
 				<strong>Page List</strong>
 				</a>
-	</div>
+		</div>
 
-		<a class="sw-color-black" 
+		<a 		class="sw-color-black" 
 				routerLink="/user/{{uid}}/website/{{wid}}/page/new">
 				<i class="fas fa-plus"></i>
 				</a>
 </nav>
 
+		<!--########################################################-->
+		<!--#############[      List item Container    ]############-->
+		<!--########################################################-->
+<div class="container-fluid">
 
-				<!--########################################################-->
-				<!--#############[      List item Container    ]############-->
-				<!--########################################################-->
+	<ul class="list-group list-group-flush">
 
+			<li 	class="list-group-item" 
+					*ngFor="let page of pages">
 
-	<div class="container-fluid">
+					<a 	class="sw-color-black" 
+						routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget">
+						{{page.name}}
+						</a>
 
-		<ul class="list-group list-group-flush">
-
-			<li class="list-group-item" 
-				*ngFor="let page of pages">
-
-
-				<a class="sw-color-black" 
-					routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget">
-					{{page.name}}
-					</a>
-
-				<a class="float-right sw-color-black" 
-					routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}">
-					<i class="fas fa-cog"></i>
-					</a>
+					<a 	class="float-right sw-color-black" 
+						routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}">
+						<i class="fas fa-cog"></i>
+						</a>
 			</li>
-		</ul>
+	</ul>
 
-	</div>
+</div>   <!-- [END CONTAINER] -->
 
 
 				<!--########################################################-->
 				<!--#############[        FOOTER OF PAGE       ]############-->
 				<!--########################################################-->
-
 	<!-- <nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom"> -->
-	<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
+<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
 
 		<div class="sw-full-width">
-			<a class="navbar-brand float-right" 
-					routerLink="/user/{{uid}}">
-					<i class="fas fa-user"></i>
-					</a>
+			<a 	class="navbar-brand float-right" 
+				routerLink="/user/{{uid}}">
+				<i class="fas fa-user"></i>
+				</a>
 		</div>
 
-	</footer>
+</footer>
 
 	

@@ -1,3 +1,7 @@
+
+/*##############################################################
+  ############[          Imported Modules           ]########### 
+  ############################################################## */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Page } from '../../../models/pages.models.client'
@@ -6,34 +10,38 @@ import { NgForm } from "@angular/forms"
 
 
 
-@Component({
-  selector: 	'app-page-edit',
-  templateUrl: 	'./page-edit.component.html',
-  styleUrls:   ['./page-edit.component.css']
-})
+@Component
+	({
+	  selector: 	'app-page-edit',
+	  templateUrl: 	'./page-edit.component.html',
+	  styleUrls:   ['./page-edit.component.css']
+	})
 
 
+/*##############################################################
+  ############[              CLASS                  ]########### 
+  ############################################################## */
 export class PageEditComponent implements OnInit {
 
 
-  @ViewChild('f') pageForm: NgForm;
+	  @ViewChild('f') pageForm: NgForm;
 
 
- /*[ Varables ]___________________*/
-  uid: 			string;
-  wid: 			string;
-  pid: 			string;
-  name: 		string;
-  description:  string;
-  page: 		Page;
- /*________________________________*/
+	 /*[ Varables ]___________________*/
+	  uid: 			string;
+	  wid: 			string;
+	  pid: 			string;
+	  name: 		string;
+	  description:  string;
+	  page: 		Page;
+	 /*________________________________*/
 
 
 
 
-  constructor(	private pageService: PageServices, 
+  constructor(	private pageService: 	PageServices, 
   				private activatedRoute: ActivatedRoute, 
-  				private router: Router) { }
+  				private router: 		Router) { }
 
 
 
@@ -77,5 +85,6 @@ export class PageEditComponent implements OnInit {
 	  	this.pageService.deletePage(this.pid);
 	  	this.router.navigate(['user', this.uid, 'website', this.wid, 'page']);
 	  }
+
 
 }  /* [ END OF CLASS ] */
