@@ -10,11 +10,12 @@ import { NgForm } from "@angular/forms"
 
 
 
-@Component({
-  selector:       'app-page-new',
-  templateUrl:    './page-new.component.html',
-  styleUrls:     ['./page-new.component.css']
-})
+@Component
+  ({
+    selector:       'app-page-new',
+    templateUrl:    './page-new.component.html',
+    styleUrls:     ['./page-new.component.css']
+  })
 
 
 /*##############################################################
@@ -30,7 +31,7 @@ export class PageNewComponent implements OnInit {
     name:          string;
     description:   string;
 
-  constructor(  private pageService:       PageServices, 
+  constructor(  private pageService:      PageServices, 
                 private activatedRoute:   ActivatedRoute, 
                 private router:           Router) { }
 

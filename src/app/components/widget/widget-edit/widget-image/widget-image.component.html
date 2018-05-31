@@ -1,91 +1,115 @@
+########################################################-->
+<!--#############[          NAV Bar            ]############-->
+<!--########################################################-->
+<nav class="navbar navbar-dark fixed-top sw-gray">
 
-	<nav class="navbar navbar-dark fixed-top sw-gray">
-
-					<a routerLink="/uid/website/:wid/page/:pid/widget" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+	<a  class="sw-font-white" 
+		routerLink="/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
+		<i class="fas fa-chevron-left"></i>
+		</a>
 					
-					<div class="sw-80-width">
-						<a class="sw-font-white sw-no-underline float-left" routerLink="/widget-image">Widget Edit</a>
-					</div>
+	<div class="sw-80-width">
 
-					<a routerLink="/uid/website/:wid/page/:pid/widget" class="sw-font-white float-right">
-						                             <i class="fas fa-check"></i></a>
-				</nav>
+		<a 	class="navbar-brand sw-font-white sw-no-underline float-left"
+			routerLink="user/{{uid}}/website/:wid/page/{{pid}}/widget/new">
+			Widget Edit
+			</a>
+	</div>
 
-
-
-
-
-				<!--########################################################-->
-				<!--#############[         Form Area           ]############-->
-				<!--########################################################-->
-
-	<div class="container">
-
-				<form>
-
-					<!-- widget name -->
-					<div class="form-group">
-						<label for="name">NAME</label>
-
-						<input type="text" name="name" placeholder="Please enter you name here" class="form-control">
-					</div>
-
-					<!-- Widget Text -->
-					<div class="form-group">
-						<label for="text">TEXT</label>
-
-						<input type="text" name="text" placeholder="Add some text for your image here" class="form-control">
-					</div>
-
-					<!-- Widget URL -->
-					<div class="form-group">
-						<label for="url">URL</label>
-
-						<input type="URL" name="url" placeholder="https://www.google.com" class="form-control">
-					</div>
-
-					<!-- Widget Width -->
-					<div class="form-group">
-						<label for="width">Image Width</label>
-
-						<input type="text" name="width" placeholder="enter something like 100%" class="form-control">
-					</div>
-
-					<!-- Upload -->
-					<div class="form-group">
-						<label for="upload">UPLOAD</label>
-
-						<input type="file" name="upload" placeholder="enter something like 100%" class="form-control">
-					</div>
-
-					<!-- Upload Icon -->
-
-					<div>
-						<a class="btn btn-primary btn-block" routerLink="/uid/website/:wid/page/:pid/widget">UPLOAD</a>
-					</div>
-
-					<div>
-						<a class="btn btn-danger btn-block" routerLink="/uid/website/:wid/page/:pid/widget">DELETE</a>
-					</div>
-
+	    <button class="btn sw-button-to-a sw-color-black float-right"
+	    		[disabled]="f.invalid" 
+    			type="submit" 
+    			form="widgetForm">
+    			<i class="fas fa-check"></i>
+    			</button>
 				
-				</form>
+</nav>
 
+<div class="container">
+<!--########################################################-->
+<!--#############[         Form Area           ]############-->
+<!--########################################################-->
+<form 		id="widgetForm" (ngSubmit)="update()" #f="ngForm">
+			
+	<div class="form-group">
+	        <label><b>Name</b></label>
+	        <input    class="form-control" 
+	                  type="text" 
+	                  name="name" 
+	                  ngModel="{{widget.name}}" 
+	                  #name="ngModel" 
+	                  placeholder="Enter your widget name...">
+	      </div>
+
+	<div class="form-group">
+        <label><b>URL</b></label>
+        <input class="form-control" 
+                required ngModel="{{widget.url}}" 
+                #url="ngModel" 
+                type="text" 
+                name="url" 
+                placeholder="https://www.google.com">
+      </div>
+
+		<!-- ( ALERT MESSAGE TO THE USER ) -->
+      <div 		class="alert alert-danger" 
+      			*ngIf="url.invalid && url.touched">
+      			You Must Enter a Valid URL
+      		</div>
+
+     <div class="form-group">
+        <label><b>Width</b></label>
+        <input  class="form-control" 
+                required ngModel="{{widget.width}}" 
+                #width="ngModel"  
+                type="text" 
+                name="width" 
+                placeholder="Try %50 for a start">
+     </div>
+	<!-- ( ALERT MESSAGE TO THE USER ) -->
+		     <div 	class="alert alert-danger" 
+		     		*ngIf="width.invalid && width.touched">
+		     		Enter a width for your Image Try %50
+		     </div>
+
+     <div class="form-group">
+        <label><strong>Upload</strong></label>
+        <input  class="form-control" 
+                type="file" 
+                name="upload" 
+                placeholder="Try %50 for a start">
+      </div>
+
+      <a   class="btn btn-secondary btn-block" 
+            href="#">
+            Upload Image (NOT WORKING)
+            </a>
+
+      <button   type="submit" 
+                [disabled]="f.invalid" 
+                class="btn btn-primary btn-block">
+                Submit
+                </button>
+
+      <button   class="btn btn-danger btn-block" 
+                type="button" 
+                (click)="remove()">
+                Delete
+                </button>
+ 				
+</form>
+<!--########################################################-->
+<!--#############[        footer Icon          ]############-->
+<!--########################################################-->	
+<footer class="navbar navbar-dark sw-gray fixed-bottom">
+	<div class="sw-me">
+
+		<a 	class="sw-font-white float-right" 
+			routerLink="/user/uid:" >
+			<i class="fas fa-user "></i>
+			</a>
+	</div>
+</footer>
 			
 
-
-
-
-				<!--########################################################-->
-				<!--#############[        footer Icon          ]############-->
-				<!--########################################################-->
-
-			
-			<nav class="navbar navbar-dark sw-gray fixed-bottom">
-				<div class="sw-me">
-					<a routerLink="/user/uid:" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
-				</div>
-			</nav>
-			
-
-	</div>  <!-- container-fluid -->
+</div>  <!-- container-fluid 

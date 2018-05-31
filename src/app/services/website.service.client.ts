@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-// import { ModuleWithProviders} from '@angular/core';
 import {Website} from '../models/website.models.client'
 
 
 
-// injecting Services into modules
+
 @Injectable()
 
 export class WebsiteServices {
@@ -25,13 +24,6 @@ export class WebsiteServices {
 
 
 
-/************************************************************
- * comment for getting the JS Function working 
- * need more imput for files and JSON
- * 
- * @param {[function need improvement and organization]}
- * 
- *************************************************************/
  
 		createWebsite(userId:string, website: Website)
 			{
@@ -54,6 +46,7 @@ export class WebsiteServices {
 							}
 						
 					}
+				return result;
 			}
 
 		findWebsiteById(websiteId:string)
@@ -90,7 +83,3 @@ export class WebsiteServices {
 
 
 
-
-// Export the routes as module providers
-
-// export const Services: ModuleWithProviders = WebsiteServicesModule.forRoot(WebsiteServices);

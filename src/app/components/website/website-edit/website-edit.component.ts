@@ -5,15 +5,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms'
 
 
-@Component({
-  selector: 		'app-website-edit',
-  templateUrl: 		'./website-edit.component.html',
-  styleUrls:   	   ['./website-edit.component.css']
-})
+@Component
+	({
+	  selector: 		'app-website-edit',
+	  templateUrl: 		'./website-edit.component.html',
+	  styleUrls:   	   ['./website-edit.component.css']
+	})
 
 
 export class WebsiteEditComponent implements OnInit {
 
+
+	 @ViewChild('f') websiteForm: NgForm;
+	 
   // [ Varables ]___________
   	uid: 			string;
   	websites: 		Website[];
@@ -25,7 +29,7 @@ export class WebsiteEditComponent implements OnInit {
 
   constructor(  private websiteService: WebsiteServices, 
   				private activatedRoute: ActivatedRoute, 
-  				private router: Router) { }
+  				private router: 		Router) { }
 
 
   ngOnInit() 
@@ -38,9 +42,10 @@ export class WebsiteEditComponent implements OnInit {
 		  		this.wid = params['wid'];
 
 		  		this.websites = this.websiteService.findWebsiteByUser(this.uid);
+		  		
 		  		this.website = this.websiteService.findWebsiteById(this.wid);
 
-		  		this.name - this.website.name;
+		  		this.name = this.website.name;
 		  		this.description = this.website.description;
 
 	  		}	
@@ -53,7 +58,7 @@ export class WebsiteEditComponent implements OnInit {
 			this.name = this.websiteForm.value.name;
 			this.description = this.websiteForm.value.description;
 
-			const updatedWeb: website = 
+			const updatedWeb: Website = 
 				{
 					_id: 		 this.wid,
 					name: 		 this.name,
@@ -61,7 +66,7 @@ export class WebsiteEditComponent implements OnInit {
 					description: this.description
 				}
 
-			this.websiteService.updateWebsite(this.wid,'website');
+			this.websiteService.updateWebsite(this.wid,updatedWeb);
 			this.router.navigate( ['user' , this.uid , 'website' ] );
 
 		}

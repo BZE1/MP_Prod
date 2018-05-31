@@ -45,6 +45,8 @@ import { Router } from '@angular/router'
   ############################################################## */
 export class LoginComponent implements OnInit {
 
+		 @ViewChild('f') loginForm: NgForm;
+		 
 		username:	string
 		password: 	string
 		errorFlag: 	boolean

@@ -1,6 +1,6 @@
-				<!--########################################################-->
-				<!--#############[         Nav bar            ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[         Nav bar            ]############-->
+<!--########################################################-->
 <nav class="navbar navbar-dark fixed-top sw-gray">
 
 		<a  class="sw-font-white" 
@@ -8,14 +8,14 @@
 			<i class="fas fa-chevron-left"></i>
 			</a>
 					
-		<div class="sw-80-width">
+	<div class="sw-80-width">
 
 		<a  class="sw-font-white sw-no-underline float-left" 
 			routerLink="/uid/website/{{wid}}/page/{{pid}}/widget/{{wgid}}">
 			Widget Edit
 			</a>
 
-		</div>
+	</div>
 
 		<a  class="sw-font-white float-right" 
 			routerLink="/{{uid}}/website/{{wid}}/page/{{pid}}/widget" 
@@ -23,46 +23,40 @@
 			</a>
 </nav>
 
-
-				<!--########################################################-->
-				<!--#############[     Switch    Rendering     ]############-->
-				<!--########################################################-->
-
+<!--########################################################-->
+<!--#############[     Switch    Rendering     ]############-->
+<!--########################################################-->
 <div [ngSwitch]="widget.widgetType">
 
-			<!--#############[   HEADING  ]############-->
-			<div *ngSwitchCase="'HEADING'">
-
+	<!--#############[   HEADING  ]############-->
+	<div *ngSwitchCase="'HEADING'">
 				<app-widget-header></app-widget-header>
 	
-			</div>
+	</div>
 
-			<!--#############[   IMAGE  ]############-->
-			<div *ngSwitchCase="'IMAGE'">
+	<!--#############[   IMAGE  ]############-->
+	<div *ngSwitchCase="'IMAGE'">
 
-				<app-widget-image></app-widget-image>
+		<app-widget-image></app-widget-image>
 
-			</div>
+	</div>
 
-			<!--#############[   YOUTUBE  ]############-->
-			<div *ngSwitchCase="'YOUTUBE'">
+	<!--#############[   YOUTUBE  ]############-->
+	<div *ngSwitchCase="'YOUTUBE'">
 
-				<app-widget-youtube></app-widget-youtube>
+		<app-widget-youtube></app-widget-youtube>
 
-			</div>
-
+	</div>
 </div>
 
+<!--########################################################-->
+<!--#############[       Old HTML BELOW        ]############-->
+<!--########################################################-->
 
-				<!--########################################################-->
-				<!--#############[       Old HTML BELOW        ]############-->
-				<!--########################################################-->
-
-		<div class="container-fluid">
-
-			<form>
+<div class="container-fluid">
+	<form>
 				
-				<div class="form-group">
+		<div class="form-group">
 
 					<label for="name">NAME</label>
 
@@ -71,9 +65,9 @@
 							class="form-control"  
 							placeholder="Joe Schmoe">
 
-				</div>
+		</div>
 
-				<div class="form-group">
+		<div class="form-group">
 
 					<label for="text">TEXT</label>
 
@@ -81,10 +75,10 @@
 							name="text" 
 							class="form-control"  
 							placeholder="Top US News Headlines">
-				</div>
+		</div>
 
 
-				<div class="form-group">
+		<div class="form-group">
 
 					<label for="size">SIZE</label>
 
@@ -92,41 +86,33 @@
 							name="size" 
 							class="form-control"  
 							placeholder="example something like 3">
-				</div>
+		</div>
 
+<!--########################################################-->
+<!--#############[         DELETE Button       ]############-->
+<!--########################################################-->
+	<div>
+		<a  class="btn btn-danger btn-block" 
+			routerLink="/uid/website/:wid/page/:pid/widget">
+			DELETE
+			</a>
+	</div>
 
-				<!--########################################################-->
-				<!--#############[         DELETE Button       ]############-->
-				<!--########################################################-->
+</form>
+	
+<!--########################################################-->
+<!--#############[        footer Icon          ]############-->
+<!--########################################################-->
+<nav class="navbar navbar-dark sw-gray fixed-bottom">
+	<div class="sw-me">
 
-				<div>
-						<a  class="btn btn-danger btn-block" 
-							routerLink="/uid/website/:wid/page/:pid/widget">
-							DELETE
-							</a>
-				</div>
+			<a  routerLink="/user/uid:" 
+				class="sw-font-white float-right">
+				<i class="fas fa-user "></i>
+				</a>
+	</div>
 
-
-			</form>
-
-
-			
-				<!--########################################################-->
-				<!--#############[        footer Icon          ]############-->
-				<!--########################################################-->
-
-			<!-- footer -->
-			<nav class="navbar navbar-dark sw-gray fixed-bottom">
-
-				<div class="sw-me">
-
-					<a  routerLink="/user/uid:" 
-						class="sw-font-white float-right">
-						<i class="fas fa-user "></i>
-						</a>
-				</div>
-
-			</nav>
+</nav>
 			
 
-		</div>  <!-- container-fluid -->
+</div>  <!-- container-fluid -->

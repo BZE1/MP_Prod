@@ -23,11 +23,11 @@ ______________[   TODO :   ]________________
  */
 
 import { UserServices } from '../../../services/user.service.client'
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../../models/user.models.client'
-import  { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 import { WebsiteServices } from '../../../services/website.service.client'
-
+import { NgForm } from '@angular/forms'
 
 @Component
 	({
@@ -44,6 +44,8 @@ import { WebsiteServices } from '../../../services/website.service.client'
   ############################################################## */
 export class ProfileComponent implements OnInit {
 
+
+	 @ViewChild('f') profileForm;
 
 	// [ Varables ]_____________
 		uid:			string;
@@ -87,7 +89,7 @@ export class ProfileComponent implements OnInit {
 			this.firstName 	= this.profileForm.value.firstName;
 			this.lastName 	= this.profileForm.lastname;
 
-			const aUser: User = this.userService.findUserByUsername(this.username);
+			const aUser: User = this.userService.findUserByUserName(this.username);
 
 			if (aUser && this.oldUsername !== this.username)
 				{
@@ -96,7 +98,7 @@ export class ProfileComponent implements OnInit {
 				}
 			else
 				{
-					const updaterUser: User = 
+					const updatedUser: User = 
 						{
 							_id: 		this.user._id,
 							username: 	this.username,

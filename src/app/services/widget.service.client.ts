@@ -90,7 +90,3 @@ export class Widget_Services {
 
 
 
-
-
-// Export the routes as module providers
-// export const Services: ModuleWithProviders = WidgetServicesModule.forRoot(Widget_Services);

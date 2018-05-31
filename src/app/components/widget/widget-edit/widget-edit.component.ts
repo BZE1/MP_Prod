@@ -17,12 +17,11 @@ import { ActivatedRoute } from '@angular/router'
 
 
 
-/*			########################################################
-			##########[               Class               ]#########
-			########################################################         */
+/*
+########################################################
+##########[               Class               ]#########
+######################################################## */
 export class WidgetEditComponent implements OnInit {
-
-
 
 	  constructor (	private widgetService: Widget_Services, 
 	  				private activatedRoute: ActivatedRoute) {}
@@ -31,7 +30,6 @@ export class WidgetEditComponent implements OnInit {
 	  //[ VARABLES ]___________
 	 	 	widget: Widget;
 	  		wgid: string;
-
 
 
 	  	ngOnInit() 

@@ -1,13 +1,9 @@
-<div class="container">
 
 <div id="top_of_the_page"></div>
 
-
-
-
-				<!--########################################################-->
-				<!--#############[         NAV SECTION         ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[         NAV SECTION         ]############-->
+<!--########################################################-->
 
 <nav class="navbar fixed-top navbar-dark bg-primary">
 
@@ -27,18 +23,15 @@
 			routerLink="/user/{{uid}}/website/new">
 			<i class="fas fa-plus"></i>
 			</a>
-
 </nav>
 
-
-				<!--########################################################-->
-				<!--#############[      LIST OF WEBSITES       ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[      LIST OF WEBSITES       ]############-->
+<!--########################################################-->
 <div class="container-fluid">
+	<ul class="list-group">
 
-		<ul class="list-group">
-
-			<li class="list-group-item" 
+		<li class="list-group-item" 
 				*ngFor ="let website of websites">
 
 				<a  routerLink="/user/{{uid}}/website/{{website._id}}/page">
@@ -49,27 +42,24 @@
 					routerLink="/user/{{uid}}/website/{{website._id}}">
 					<i class="fas fa-cog"></i>
 					</a>
-			</li>
+		</li>
 
-		</ul>
-</div>
+	</ul>
+</div> <!--  (END CONTAINER FLUID) -->
 
-
-
-				<!--########################################################-->
-				<!--#############[      FOOTER OF PAGE         ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[      FOOTER OF PAGE         ]############-->
+<!--########################################################-->
 <footer class="navbar fixed-bottom navbar-dark bg-primary">
-
-		<div class="sw-full-width">
+	<div class="sw-full-width">
 
 			<a  class="navbar-brand float-right" 
 				routerLink="/user/{{uid}}">
 				<i class="fas fa-user"></i>
 				</a>
 
-		</div>
-	</footer>
+	</div>
+</footer>
 
 
 

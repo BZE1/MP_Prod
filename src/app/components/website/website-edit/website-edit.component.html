@@ -1,14 +1,13 @@
-	<!--##########################################################################################-->
-	<!--##########################[           TOP NAVE BARs             ]#########################-->
-	<!--##########################################################################################-->
+<!--###############################################################-->
+<!--###########[          TOP NAVE BARs        ]###################-->
+<!--##############################################################-->
 
+<!--########################################################-->
+<!--#############[   [ LEFT ]  Side Nav Bar    ]############-->
+<!--########################################################-->
 
 <nav class="row navbar navbar-dark fixed-top bg-primary">
-
-		<!--########################################################-->
-		<!--#############[   [ LEFT ]  Side Nav Bar    ]############-->
-		<!--########################################################-->
-		<div class="col-sm-4 d-none d-md-block">
+	<div class="col-sm-4 d-none d-md-block">
 
 			<a  class="sw-color-white" 
 				routerLink="/user/{{uid}}/website">
@@ -25,45 +24,42 @@
 				<i class="fas fa-plus"></i>
 				</a>
 
-		</div>
-		<!--########################################################-->
-		<!--#############[   [ Right] Side Nav Bar     ]############-->
-		<!--########################################################-->
-		<div class="col-md-8">
+	</div>
+<!--########################################################-->
+<!--#############[   [ Right] Side Nav Bar     ]############-->
+<!--########################################################-->
+	<div class="col-md-8">
 
-			<a  class="sw-color-white" 
-				routerLink="/user/{{uid}}/website/{{wid}}">
-				<strong>Edit Website</strong>
-				</a>
+		<a  class="sw-color-white" 
+			routerLink="/user/{{uid}}/website/{{wid}}">
+			<strong>Edit Website</strong>
+			</a>
 
-			<button class="btn sw-color-white float-right sw-button-to-a" 
-					type="submit" 
-					form="websiteForm">
-					<i class="fas fa-check"></i>
-					</button>
+		<button class="btn sw-color-white float-right sw-button-to-a" 		 type="submit" 
+				form="websiteForm">
+				<i class="fas fa-check"></i>
+				</button>
 
-		</div>
+	</div>
 
 
 </nav>   <!-- [END OF NAV SECTION] -->
-	<!--##########################################################################################-->
-	<!--##########################[     [ MIDDLE ] LIST ITEMS           ]#########################-->
-	<!--##########################################################################################-->
-<div class="row">  <!-- [START ROW]____________________________________________ -->
+<!--########################################################-->
+<!--###########[     [ MIDDLE ] LIST ITEMS      ]###########-->
+<!--########################################################-->
+<div class="row">  
+	<!-- [START ROW]_______________________________ -->
 
 
 
 
-
-
-		<!--########################################################-->
-		<!--#############[   [ LEFT ] Side of Website  ]############-->
-		<!--########################################################-->
-<div class="col-md-4 d-none d-md-block">  <!-- [GRID USEING 4 COLUMES PF PAGE] -->
+<!--########################################################-->
+<!--#############[   [ LEFT ] Side of Website  ]############-->
+<!--########################################################-->
+<div class="col-md-4 d-none d-md-block">  
+	<!-- [GRID USEING 4 COLUMES PF PAGE] -->
 	<div class="container-fluid">
-
 		<ul class="list-group">
-
 				<li class="list-group-item" 
 					*ngFor ="let website of websites">
 
@@ -75,26 +71,20 @@
 							routerLink="/user/{{uid}}/website/{{website._id}}">
 							<i class="fas fa-cog"></i>
 							</a>
-
 				</li>
-
 		</ul>
-
 	</div> <!-- [END OF CONTAINER] -->
 </div>	   <!-- [END OF LEFT SIDE ] -->
-
-
-
 
 		<!--########################################################-->
 		<!--#############[  [ Right ] Side of Website  ]############-->
 		<!--########################################################-->
-<div class="col-md-8 d-none d-md-block">  <!-- [GRID USEING 8 COLUMES PF PAGE] -->
-	<div class="container-fluid">
+<div class="col-md-8 d-none d-md-block">  
+	<!-- [GRID USEING 8 COLUMES PF PAGE] -->
+<div class="container-fluid">
 
-		<form id="websiteForm" (ngSubmit)="update()" #f="ngForm">
-
-			<div class="form-group">
+	<form id="websiteForm" (ngSubmit)="update()" #f="ngForm">
+		<div class="form-group">
 
 				<label><strong>Name</strong></label>
 
@@ -104,31 +94,27 @@
 						placeholder="Put in your Website name here" 
 						required ngModel="{{website.name}}" 
 						#name="ngModel">
-			</div>
+		</div>
 
 			<div    class="alert alert-warning" 
 					*ngIf="name.invalid && name.touched">
-					Name cannot be empty
-					</div>
-
+					 You must enter a Name here
+			</div>
 
 			<div class="form-group">
 
 						<label  for="description">
-								<strong>Description</strong>
+								<b>Description</b>
 								</label>
-
 
 						<textarea   rows="10" 
 									class="form-control" 
 									name="description" 
-									placeholder="Describe your website here" 
+									placeholder="Tell us about your website" 
 									ngModel="{{website.description}}" 
 									#description="ngModel">
 									</textarea>
 			</div>
-
-
 
 					<button (click)="delete()" 
 							type="button" 
@@ -142,34 +128,26 @@
 							Update
 							</button>
 
-
 		</form>  <!-- [END OF FORM] -->
-
-
 	</div>  <!-- [END OF CONTAINER] -->
 </div>		<!-- [END OF RIGHT SIDE ] -->
 		
-
-
 </div>   <!-- [END ROW]__________________________________________________________ -->
 
 
 
-	<!--##########################################################################################-->
-	<!--##########################[     [ FOOTER ]  BOTTOM OF PAGE      ]#########################-->
-	<!--##########################################################################################-->
+<!--##############################################################-->
+<!--###########[     [ FOOTER ]  BOTTOM OF PAGE      ]############-->
+<!--##############################################################-->
 
-	<footer class="navbar fixed-bottom navbar-dark bg-primary">
-
-		<div class="sw-full-width">
+<footer class="navbar fixed-bottom navbar-dark bg-primary">
+	<div class="sw-full-width">
 
 			<a  class="navbar-brand float-right" 
 				routerLink="/user/:uid">
 				<i class="fas fa-user"></i>
 				</a>
-
-		</div>
-
-	</footer>
+	</div>
+</footer>
 
 

@@ -1,131 +1,108 @@
 
-		<nav class="navbar navbar-dark fixed-top sw-gray">
+<!--
+##############################################################
+############[               NAV BAR               ]########### 
+############################################################## -->
+<nav class="navbar navbar-dark fixed-top sw-bg-gray">
+		<a   	class="sw-color-black" 
+				routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
+				<i class="fas fa-chevron-left"></i>
+				</a>
+		<div class="sw-90-width">
+			<a 	class="navbar-brand float-left" 
+				routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new">
+				<i class="fas fa-check"></i>
+				<strong>Choose a widget</strong>
+				</a>
+		</div>
+</nav>
+<!--########################################################-->
+<!--#############[          UL List            ]############-->
+<!--########################################################-->
+<div class="container-fluid">
 
-					<a routerLink="/user/:uid/website" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
-					
-					<div class="sw-80-width">
-						<a class="sw-font-white sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget/new">Choose Widget</a>
-					</div>
+	<ul class="list-group list-group-flush">
 
-					<a routerLink="user/:uid/website" class="sw-black float-right">
-						                             <i class="fas fa-check"></i><uid/website/:wid/page/:pid/widget/new
-
-				<!--########################################################-->
-				<!--#############[          UL List            ]############-->
-				<!--########################################################-->
-
-			<div class="container-fluid">
-
-				<!-- ul List -->
-				<ul>
-
-					<div>
-						<li>
-							<a class="sw-no-underline float-left" routerLink="/widget-heading">Header</a>
-							<i class="fas fa-check float-right"></i>
-						</li>
-					</div>
-					<!--#############[________ Page Devider_________]############-->
+		<li class="list-group-item">
+				<button class="btn sw-button-to-a" 
+						(click)="create('HEADING')">
+						Header
+						</button>
+					</li>
+		<!--#############[________ Page Devider_________]############-->
 				<div class="progress progress-striped active">
-  					<div class="bar" style="width: 40%;"></div>
-				</div>
-					<div>
-						<li>
-							<a class="sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget/new">lable</a>
-							<i class="fas fa-check float-right"></i>
-						</li>
-					</div>
-					<!--#############[________ Page Devider_________]############-->
-				<div class="progress progress-striped active">
-  					<div class="bar" style="width: 40%;"></div>
-				</div>
-					<div>
-						<li>
-							<a class="sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget/new">HTML</a>
-							<i class="fas fa-check float-right"></i>
-						</li>
-					</div>
-					<!--#############[________ Page Devider_________]############-->
-				<div class="progress progress-striped active">
-  					<div class="bar" style="width: 40%;"></div>
-				</div>
-					<div>
-						<li>
-							<a class="sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget/new">Text Input</a>
-							<i class="fas fa-check float-right"></i>
-						</li>
-					</div>
-					<!--#############[________ Page Devider_________]############-->
-				<div class="progress progress-striped active">
-  					<div class="bar" style="width: 40%;"></div>
-				</div>
-					<div>
-						<li>
-							<a class="sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget/new">Link</a>
-							<i class="fas fa-check float-right"></i>
-						</li>
-					</div>
-					<!--#############[________ Page Devider_________]############-->
-				<div class="progress progress-striped active">
-  					<div class="bar" style="width: 40%;"></div>
-				</div>
-					<div>
-						<li>
-							<a class="sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget/new">Button</a>
-							<i class="fas fa-check float-right"></i>
-						</li>
-					</div>
-					<div>
-						<li>
-							<a class="sw-no-underline float-left" routerLink="/widget-image">Image</a>
-							<i class="fas fa-check float-right"></i>
-						</li>
-					</div>
-					<!--#############[________ Page Devider_________]############-->
-				<div class="progress progress-striped active">
-  					<div class="bar" style="width: 40%;"></div>
-				</div>
-					<div>
-						<li>
-							<a class="sw-no-underline float-left" routerLink="/widget-youtube">Youtube</a>
-							<i class="fas fa-check float-right"></i>
-						</li>
-					</div>
-					<!--#############[________ Page Devider_________]############-->
-				<div class="progress progress-striped active">
-  					<div class="bar" style="width: 40%;"></div>
-				</div>
-					<div>
-						<li>
-							<a class="sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget/new">Data Table</a>
-							<i class="fas fa-check float-right"></i>
-						</li>
-					</div>
-					<!--#############[________ Page Devider_________]############-->
-				<div class="progress progress-striped active">
-  					<div class="bar" style="width: 40%;"></div>
-				</div>
-					<div>
-						<li>
-							<a class="sw-no-underline float-left" routerLink="/uid/website/:wid/page/:pid/widget/new">Repeater</a>
-							<i class="fas fa-check float-right"></i>
-						</li>
+  					<div 	class="bar" 
+  							style="width: 40%;">
+  							</div>
 					</div>
 
-				</ul>
-				
+		<li class="list-group-item">
+				<button class="btn sw-button-to-a" 
+						(click)="create('IMAGE')">
+						Image
+						</button>
+					</li>
+		<!--#############[________ Page Devider_________]############-->
+		<div class="progress progress-striped active">
+  					<div 	class="bar" 
+  							style="width: 40%;">
+  							</div>
+					</div>
+		<li class="list-group-item">
+				<button class="btn sw-button-to-a" 
+						(click)="create('YOUTUBE')">
+						YouTube
+						</button>
+					</li>
+
+		<!--#############[________ Page Devider_________]############-->
+		<div class="progress progress-striped active">
+  					<div 	class="bar" 
+  							style="width: 40%;">
+  							</div>
+					</div>
+
+		<li class="list-group-item">
+				<a 	routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/:wgid">Label</a>
+		</li>
+
+		<li class="list-group-item">
+				<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/:wgid">HTML</a>
+		</li>
+
+		<li class="list-group-item">
+				<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/:wgid">Text Input</a>
+			</li>
+
+		<li class="list-group-item">
+				<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/:wgid">Link</a>
+			</li>
+
+		<li class="list-group-item">
+				<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/:wgid">Button</a>
+			</li>
+
+		<li class="list-group-item">
+				<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/:wgid">Data Table</a>
+			</li>
+
+		<li class="list-group-item">
+				<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/:wgid">Repeater</a>
+			</li>
+
+	</ul>
+<!--
+##############################################################
+############[                 FOOTER              ]########### 
+############################################################## -->
+	<footer class="navbar navbar-light fixed-bottom  sw-bg-grey">
+		<div class="sw-full-width">
+			<a class="navbar-brand float-right sw-font-white" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
+		</div>
+	</footer>
 
 
-				<!--########################################################-->
-				<!--#############[        footer Icon          ]############-->
-				<!--########################################################-->
+</div>  <!-- (END OF CONTAINER) -->
 
-			<!-- footer -->
-			<nav class="navbar navbar-dark sw-gray fixed-bottom">
-				<div class="sw-me">
-					<a routerLink="/user/uid:" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
-				</div>
-			</nav>
+
 			
-
-		</div>  <!-- container-fluid -->

@@ -4,7 +4,7 @@
   ############################################################## */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Page } from '../../../models/pages.models.client'
+import { Pages } from '../../../models/pages.models.client'
 import { PageServices } from '../../../services/page.service.client'
 import { NgForm } from "@angular/forms"
 
@@ -33,7 +33,7 @@ export class PageEditComponent implements OnInit {
 	  pid: 			string;
 	  name: 		string;
 	  description:  string;
-	  page: 		Page;
+	  page: 		Pages;
 	 /*________________________________*/
 
 
@@ -66,7 +66,7 @@ export class PageEditComponent implements OnInit {
 	  	this.name = this.pageForm.value.name;
 	  	this.description = this.pageForm.value.description;
 
-	  	const updatedPage: Page =
+	  	const updatedPage: Pages =
 		  	{
 		  		_id: 			this.pid,
 		  		name: 			this.name,

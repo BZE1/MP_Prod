@@ -1,9 +1,6 @@
-		<!--########################################################-->
-		<!--#############[          NAV BAR            ]############-->
-		<!--########################################################-->
- <!--bg-primary-->
-<!-- <nav class="navbar navbar-dark bg-primary fixed-top">  -->
-<nav class="navbar fixed-top navbar-light sw-bg-grey">
+<!--########################################################-->	<!--#############[          NAV BAR            ]############-->	<!--########################################################-->
+
+<nav class="navbar fixed-top navbar-light bg-primary sw-bg-grey">
 
 		<a 	class="sw-color-black" 
 			routerLink="/user/{{uid}}/website/{{wid}}/page">
@@ -27,9 +24,9 @@
 
 </nav>
 
-				<!--########################################################-->
-				<!--#############[         MAIN FORM           ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[         MAIN FORM           ]############-->
+<!--########################################################-->
 <div class="container-fluid">
 
 	<form id="pageForm" (ngSubmit)="create()" #f="ngForm">
@@ -42,16 +39,28 @@
 
 
 				<input  class="form-control" 
-						required ngModel #name="ngModel" 
+						required ngModel 
+						#name="ngModel" 
 						type="text" 
 						name="name" 
 						placeholder="Please type in a page name here">
 		</div>
 
+
+
+
+
+
+
+
+
+
+
 		<div    *ngIf="name.invalid && name.touched" 
 				class="alert alert-warning">
 				This Name Field must be filled in
-		</div>
+				</div>
+
 
 		<div class="form-group">
 
@@ -60,18 +69,22 @@
 					</label>
 
 			<input  class="form-control" 
+					ngModel 
 					type="text" 
 					name="description" 
-					ngModel #description="ngModel" 
+					#description="ngModel" 
 					placeholder="Please write about your page">
 		</div>
 
-		<button [disabled]="f.invalid" 
-				class="btn btn-success btn-block" 
-				type="submit">Submit
+
+
+		<button class="btn btn-success btn-block"
+				[disabled]="f.invalid" 
+				type="submit">
+				Submit
 				</button>
 
-		<a  	class="btn btn-danger btn-block" 
+		<a  	class="btn btn-block btn-danger " 
 				routerLink="/user/{{uid}}/website/{{wid}}/page">
 				Cancel
 				</a>
@@ -80,12 +93,17 @@
 
 </div>  <!-- [END OF CONTAINER] -->
 
-				<!--########################################################-->
-				<!--#############[          PAGE FOOTER        ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[          PAGE FOOTER        ]############-->
+<!--########################################################-->
 
-<!-- <nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom"> -->
-<footer class="navbar  sw-font-white  fixed-bottom  navbar-light  sw-bg-grey">
+<footer class=" navbar  
+				sw-font-white  
+				bg-primary 
+				fixed-bottom  
+				navbar-light  
+				sw-bg-grey">
+				
 	<div class="sw-full-width">
 
 		<a 	class="navbar-brand float-right" 

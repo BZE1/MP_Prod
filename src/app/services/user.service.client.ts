@@ -1,6 +1,5 @@
 
 import {Injectable} from '@angular/core';
-// import 'rxjs/Rx' from '@angular/core';
 import {environment} from '../../environments/environment';
 import { ModuleWithProviders} from '@angular/core';
 import {User} from '../models/user.models.client'

@@ -1,12 +1,12 @@
 	
-<!--############################################################################################-->
-<!--##########################[             NAV SECTION               ]#########################-->
-<!--############################################################################################-->
+<!--#######################################################-->
+<!--##########[         NAV SECTION         ]##############-->
+<!--#######################################################-->
 <nav class="row navbar navbar-dark fixed-top bg-primary ">
 
-				<!--########################################################-->
-				<!--#############[       [ LEFT ] SIDE         ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[       [ LEFT ] SIDE         ]############-->
+<!--########################################################-->
 
 	<div class="container-fluid">
 
@@ -34,9 +34,9 @@
 				<!-- fas fa-plus -->
 
 	</div>
-				<!--########################################################-->
-				<!--#############[       [ RIGHT ] SIDE        ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[       [ RIGHT ] SIDE        ]############-->
+<!--########################################################-->
 
 	<div class="col-md-8">
 
@@ -44,82 +44,76 @@
 				routerLink="/user/{{uid}}/website/new">
 				<strong>New Website</strong>
 				</a>
-
-			<!-- <i class="fas fa-plus"></i>	 -->
-			<button class="btn sw-color-white float-right sw-button" 
+			
+			<button class="btn sw-color-white float-right sw-button-to-a" 
 					type="submit" 
 					form="websiteForm" 
 					[disabled]="f.invalid">
 					<i class="fas fa-check"></i>
+					<!-- <i class="fas fa-plus"></i>	 -->
 					</button>
 	</div>
 
 
-	</div>  <!-- [END CONTAINER] -->
-
+</div>  <!-- [END CONTAINER] -->
 </nav> <!-- [END NAV SECTION] -->
 
-<!--############################################################################################-->
-<!--##########################[             MID SECTION               ]#########################-->
-<!--############################################################################################-->
+<!--#################################################################-->
+<!--###############[           MID SECTION             ]#############-->
+<!--#################################################################-->
 
 <div class="row">  <!-- [ROW]___________________________ -->
 
-				<!--########################################################-->
-				<!--#############[ [ LEFT ] SIDE WEBSITE LIST  ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[ [ LEFT ] SIDE WEBSITE LIST  ]############-->
+<!--########################################################-->
 
-				<!-- _______________TOP OF UL GROUP________________ -->
+	<!-- _______________TOP OF UL GROUP________________ -->
 <div class="col-md-4 d-none d-md-block">
-
 	<div class="container-fluid">
+		<ul class="list-group">
 
-				<ul class="list-group">
-
-					<li class="list-group-item" 
+			<li class="list-group-item" 
 						*ngFor ="let website of websites">
 
-						<a  routerLink="/user/{{uid}}/website/{{website._id}}/page">
-							{{website.name}}
-							</a>
+				<a  routerLink="/user/{{uid}}/website/{{website._id}}/page">
+					{{website.name}}
+					</a>
 
-						<a  class="float-right" 
-							routerLink="/user/{{uid}}/website/{{website._id}}">
-							<i class="fas fa-cog"></i>
-							</a>
+				<a  class="float-right" 
+					routerLink="/user/{{uid}}/website/{{website._id}}">
+					<i class="fas fa-cog"></i>
+					</a>
 
-					</li>
-				</ul>
+			</li>
+		</ul>
+</div>   <!-- [END CONTAINER] -->
 
-	</div>   <!-- [END CONTAINER] -->
-
-				<!--########################################################-->
-				<!--#############[ [ RIGHT ] SIDE WEBSITE LIST  ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[ [ RIGHT ] SIDE WEBSITE LIST  ]############-->
+<!--########################################################-->
 <div class="col-md-8">
-
 	<div class="container-fluid">
-
 		<form   id="websiteForm" 
-				(ngSubmit)="create()" #f="ngForm">
+				(ngSubmit)="create()" 
+				#f="ngForm">
 
 			<div class="form-group">
 
-						<label><strong>Name</strong></label>
+					<label><strong>Name</strong></label>
 
-						<input  class="form-control" 
-								type="text" 
-								name="name" 
-								placeholder="Write your website name here" 
-								required ngModel #name="ngModel">
-
+					<input  class="form-control" 
+							type="text" 
+							name="name" 
+							placeholder="Write your website name here" 
+							required ngModel 
+							#name="ngModel">
 			</div>
 
-
-					<div    class="alert alert-warning" 
+			<div    class="alert alert-warning" 
 							*ngIf="name.invalid && name.touched">
 							This Field must be filled in!
-							</div>
+			</div>
 
 			<div class="form-group">
 
@@ -131,14 +125,12 @@
 								placeholder="Write about your website here." 
 								ngModel #description="ngModel">
 								</textarea>
-
 			</div>
 
 					<a  routerLink="/user/{{uid}}/website" 
 						class="btn btn-danger">
 						Cancel
 						</a>
-
 
 					<button [disabled]="f.invalid" 
 							type="submit" 
@@ -152,21 +144,18 @@
 </div><!-- [END ROW]_________________________________________ -->
 
 </div>  <!-- [END OF ROW] -->
-<!--############################################################################################-->
-<!--##########################[             FOOTER  SECTION           ]#########################-->
-<!--############################################################################################-->
-
-
+<!--###################################################################-->
+<!--###############[           FOOTER  SECTION           ]#############-->
+<!--###################################################################-->
 <footer class="navbar fixed-bottom navbar-dark bg-primary">
-
-		<div class="sw-full-width">
+	<div class="sw-full-width">
 
 			<a  class="navbar-brand float-right" 
 				routerLink="/user/:uid">
 				<i class="fas fa-user"></i>
 				</a>
 
-		</div>
+	</div>
 </footer>
 
 

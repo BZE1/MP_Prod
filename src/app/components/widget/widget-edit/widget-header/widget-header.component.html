@@ -1,91 +1,86 @@
-		<nav class="navbar navbar-dark fixed-top navbar-light sw-bg-grey">
+<!--########################################################-->
+<!--#############[         Nave bar            ]############-->
+<!--########################################################-->
+<nav class="navbar navbar-dark fixed-top navbar-light sw-bg-grey">
 
-					<a  class="sw-font-white" 
-						routerLink="/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
-						<i class="fas fa-chevron-left"></i>
-						</a>
+		<a  class="sw-font-white" 
+			routerLink="/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
+			<i class="fas fa-chevron-left"></i>
+			</a>
 					
-					<div class="sw-90-width"> <!--  was 80 now 90 -->
-						<a  class="navbar-brand sw-font-white sw-no-underline float-left" 
-							routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new">
-							<strong>Edit Widget</strong>
-							</a>
-					</div>
+		<div class="sw-90-width"> <!--  was 80 now 90 -->
+				<a  class="navbar-brand sw-font-white sw-no-underline float-left" 
+					routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new">
+					<strong>Edit Widget</strong>
+					</a>
+		</div>
 
-					<button     class="btn sw-button-to-a  sw-color-black sw-font-white float-right"
-								type="submit"
-								form="widgetForm">
-								<i class="fas fa-check"></i>
-								</button>
-		</nav>
+		<button     class="btn sw-button-to-a  sw-color-black sw-font-white float-right"
+					type="submit"
+					form="widgetForm">
+					<i class="fas fa-check"></i>
+					</button>
+</nav>
 
-				<!--########################################################-->
-				<!--#############[         Nave bar            ]############-->
-				<!--########################################################-->
 
 <div class="container-fluid">
-
-	<form 	id="widgetForm" 
-			(ngSubmit)="update()"
-			#f="ngForm">
+<!--########################################################-->
+<!--#############[       Widget Form          ]############-->
+<!--########################################################-->
+<form 	id="widgetForm" 
+		(ngSubmit)="update()"
+		#f="ngForm">
 				
-			<div class="form-group">
+	<div class="form-group">
 
-					<label  for="name">NAME</label>
-					<input  class="form-control"
-							type="text" 
-							name="name"
-							ngModel="{{widget.name}}"
-							#name="ngModel"
-							placeholder="Please enter a widget name here">
-			</div>
+		<label  for="name">NAME</label>
+		<input  class="form-control"
+				name="name"
+				type="text" 
+				ngModel="{{widget.name}}"
+				#name="ngModel"
+				placeholder="Please enter a widget name here">
+	</div>
 
-		[BM]
+	<div class="form-group">
 
-			<div class="form-group">
+		<label for="text">TEXT</label>
+		<input  class="form-control" 
+				type="text" 
+				name="text"  
+				placeholder="Top US News Headlines">
+	</div>
 
-					<label for="text">TEXT</label>
-					<input  class="form-control" 
-							type="text" 
-							name="text"  
-							placeholder="Top US News Headlines">
-			</div>
+	<div class="form-group">
 
-			<div class="form-group">
+		<label for="size">SIZE</label>
+		<input  class="form-control"
+				type="number" 
+				name="size"   
+				placeholder="example something like 3">
+	</div>
 
-					<label for="size">SIZE</label>
-					<input  class="form-control"
-							type="number" 
-							name="size"   
-							placeholder="example something like 3">
-			</div>
 
-				<!--########################################################-->
-				<!--#############[         DELETE Button       ]############-->
-				<!--########################################################-->
+	<!--#############[ DELETE Button  ]############-->
+	<div>
+		<a  class="btn btn-danger btn-block" 
+			routerLink="/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
+			DELETE
+			</a>
+	</div>
 
-			<div>
-						<a  class="btn btn-danger btn-block" 
-							routerLink="/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
-							DELETE
-							</a>
-			</div>
-
-	</form>
-			
-				<!--########################################################-->
-				<!--#############[        footer Icon          ]############-->
-				<!--########################################################-->
-
-	<nav class="navbar navbar-dark sw-gray fixed-bottom">
-
-				<div class="sw-me">
-					<a  class="sw-font-white float-right"
-						routerLink="/user/uid" >
-						<i class="fas fa-user "></i>
-						</a>
-				</div>
-	</nav>
+</form>
+</div>  <!-- container-fluid -->		
+<!--########################################################-->
+<!--#############[        footer Icon          ]############-->
+<!--########################################################-->
+<footer class="navbar navbar-dark sw-gray fixed-bottom">
+	<div class="sw-me">
+			<a  class="sw-font-white float-right"
+				routerLink="/user/uid" >
+				<i class="fas fa-user "></i>
+				</a>
+	</div>
+</footer>
 			
 
-</div>  <!-- container-fluid -->
