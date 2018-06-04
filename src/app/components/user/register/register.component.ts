@@ -28,8 +28,8 @@ export class RegisterComponent implements OnInit
 		usernameError: 	boolean;
 
 
-  	constructor(private userService: UserServices, 
-  				private router: Router) { }
+  	constructor(private userService: 	UserServices, 
+  				private router: 		Router) { }
 
 
 	 /* [_NG_ON_INIT FUNCTION_] */
@@ -67,8 +67,8 @@ export class RegisterComponent implements OnInit
 					  			const newUser: User = 
 						  			{
 						  				_id: "",
-										username: this.username,
-										password: this.password,
+										username: 	this.username,
+										password: 	this.password,
 										firstName: "",
 										lastName: "",
 										email: ""

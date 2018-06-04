@@ -1,3 +1,5 @@
+
+
 <!--###############################################################-->
 <!--###########[          TOP NAVE BARs        ]###################-->
 <!--##############################################################-->
@@ -7,6 +9,7 @@
 <!--########################################################-->
 
 <nav class="row navbar navbar-dark fixed-top bg-primary">
+
 	<div class="col-sm-4 d-none d-md-block">
 
 			<a  class="sw-color-white" 
@@ -35,50 +38,47 @@
 			<strong>Edit Website</strong>
 			</a>
 
-		<button class="btn sw-color-white float-right sw-button-to-a" 		 type="submit" 
+		<button class="btn sw-color-white float-right sw-button-to-a" 		 
+				type="submit" 
 				form="websiteForm">
-				<i class="fas fa-check"></i>
+				<i class="fas fa-check"></i>  
 				</button>
-
+	
 	</div>
 
 
 </nav>   <!-- [END OF NAV SECTION] -->
+
 <!--########################################################-->
-<!--###########[     [ MIDDLE ] LIST ITEMS      ]###########-->
+<!--###########[            NEW ROW             ]###########-->
 <!--########################################################-->
 <div class="row">  
-	<!-- [START ROW]_______________________________ -->
-
-
-
-
 <!--########################################################-->
 <!--#############[   [ LEFT ] Side of Website  ]############-->
 <!--########################################################-->
 <div class="col-md-4 d-none d-md-block">  
 	<!-- [GRID USEING 4 COLUMES PF PAGE] -->
-	<div class="container-fluid">
-		<ul class="list-group">
-				<li class="list-group-item" 
-					*ngFor ="let website of websites">
+<div class="container-fluid">
+	<ul class="list-group">
+		<li class="list-group-item" 
 
-						<a 	routerLink="/user/{{uid}}/website/{{website._id}}/page">
-							{{website.name}}
-							</a>
+			*ngFor ="let website of websites">
 
-						<a  class="float-right" 
-							routerLink="/user/{{uid}}/website/{{website._id}}">
-							<i class="fas fa-cog"></i>
-							</a>
-				</li>
-		</ul>
-	</div> <!-- [END OF CONTAINER] -->
+				<a 	routerLink="/user/{{uid}}/website/{{website._id}}/page">
+					{{website.name}}
+					</a>
+
+				<a  class="float-right" 
+					routerLink="/user/{{uid}}/website/{{website._id}}">
+					<i class="fas fa-cog"></i>
+					</a>
+		</li>
+	</ul>
+</div> <!-- [END OF CONTAINER] -->
 </div>	   <!-- [END OF LEFT SIDE ] -->
-
-		<!--########################################################-->
-		<!--#############[  [ Right ] Side of Website  ]############-->
-		<!--########################################################-->
+<!--########################################################-->
+<!--#############[  [ Right ] Side of Website  ]############-->
+<!--########################################################-->
 <div class="col-md-8 d-none d-md-block">  
 	<!-- [GRID USEING 8 COLUMES PF PAGE] -->
 <div class="container-fluid">
@@ -86,55 +86,54 @@
 	<form id="websiteForm" (ngSubmit)="update()" #f="ngForm">
 		<div class="form-group">
 
-				<label><strong>Name</strong></label>
+			<label><strong>Name</strong></label>
 
-				<input  class="form-control" 
-						type="text" 
-						name="name" 
-						placeholder="Put in your Website name here" 
-						required ngModel="{{website.name}}" 
-						#name="ngModel">
+			<input  class="form-control" 
+					type="text" 
+					name="name" 
+					placeholder="Put in your Website name here" 
+					required 
+					ngModel="{{website.name}}" 
+					#name="ngModel">
 		</div>
 
-			<div    class="alert alert-warning" 
+		<div    class="alert alert-warning" 
 					*ngIf="name.invalid && name.touched">
 					 You must enter a Name here
-			</div>
+		</div>
 
-			<div class="form-group">
+		<div class="form-group">
 
-						<label  for="description">
-								<b>Description</b>
-								</label>
+				<label  for="description">
+						<b>Description</b>
+						</label>
 
-						<textarea   rows="10" 
-									class="form-control" 
-									name="description" 
-									placeholder="Tell us about your website" 
-									ngModel="{{website.description}}" 
-									#description="ngModel">
-									</textarea>
-			</div>
+				<textarea   rows="10" 
+							class="form-control" 
+							name="description" 
+							placeholder="Tell us about your website" 
+							ngModel="{{website.description}}" 
+							#description="ngModel">
+						</textarea>
+		</div>
 
-					<button (click)="delete()" 
-							type="button" 
-							class="btn btn-danger">
+				<button 	class="btn btn-danger"
+							(click)="delete()" 
+							type="button">
 							Delete
-							</button>
+						</button>
 
 
-					<button type="submit" 
+				<button 	type="submit" 
 							class="btn btn-primary float-right">
 							Update
-							</button>
+						</button>
 
 		</form>  <!-- [END OF FORM] -->
 	</div>  <!-- [END OF CONTAINER] -->
 </div>		<!-- [END OF RIGHT SIDE ] -->
 		
 </div>   <!-- [END ROW]__________________________________________________________ -->
-
-
 
 <!--##############################################################-->
 <!--###########[     [ FOOTER ]  BOTTOM OF PAGE      ]############-->
@@ -144,7 +143,7 @@
 	<div class="sw-full-width">
 
 			<a  class="navbar-brand float-right" 
-				routerLink="/user/:uid">
+				routerLink="/user/{{uid}}">
 				<i class="fas fa-user"></i>
 				</a>
 	</div>

@@ -2,21 +2,7 @@
 ############################################
 ______________[   TODO :   ]________________
 
- [_] Var LoginForm 
-  		-not working
-    	-what needs to be don to fix
-    	 this issue
-    - Second todo item
-
-[_] userService
-		var nopt working 
-		what going on with this one
-
-[_] View Child
-		there is no #F used in the code
-		and ng in the HTML CODE
-
-
+ 
 #############################################
  */
 
@@ -27,10 +13,10 @@ ______________[   TODO :   ]________________
   ############[          Imported Modules           ]########### 
   ############################################################## */
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms'
-import { UserServices } from '../../../services/user.service.client'
-import { User } from '../../../models/user.models.client'
-import { Router } from '@angular/router'
+import { NgForm } from '@angular/forms';
+import { UserServices } from '../../../services/user.service.client';
+import { User } from '../../../models/user.models.client';
+import { Router } from '@angular/router';
 
 
 
@@ -47,9 +33,9 @@ export class LoginComponent implements OnInit {
 
 		 @ViewChild('f') loginForm: NgForm;
 		 
-		username:	string
-		password: 	string
-		errorFlag: 	boolean
+		username:	string;
+		password: 	string;
+		errorFlag: 	boolean;
 
 	  constructor(  private userServices: 	UserServices,
 	  		 		private router:			Router ) { }

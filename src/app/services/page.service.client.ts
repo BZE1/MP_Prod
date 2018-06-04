@@ -51,7 +51,7 @@ export class PageServices {
 				{
 					if (this.pages[i]._id === pageId)
 					{
-						return this.pages[i]
+						return this.pages[i];
 					}
 				}
 

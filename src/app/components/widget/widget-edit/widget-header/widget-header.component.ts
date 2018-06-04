@@ -25,19 +25,19 @@ export class WidgetHeaderComponent implements OnInit {
   @ViewChild('f') widgetForm: NgForm;
   
 	//  [VARABLES] ___________
+		  widget: 	Widget;
 		  uid:		string;
 		  wid: 		string;
 		  pid: 		string;
 		  wgid: 	string;
-		  widget: 	Widget;
 		  name: 	string;
 		  text:		string;
 		  size: 	number;
 
 
-  constructor (	private widgetService: Widget_Services, 
+  constructor (	private widgetService:  Widget_Services, 
   				private activitedRoute: ActivatedRoute, 
-  				private router: Router) {}
+  				private router: 		Router) {}
 
 
   ngOnInit() 

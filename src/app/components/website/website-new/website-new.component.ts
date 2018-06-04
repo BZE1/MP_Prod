@@ -17,19 +17,18 @@ import { NgForm } from '@angular/forms'
 export class WebsiteNewComponent implements OnInit {
 
 
-  @ViewChild('f') websiteForm: NgForm;
+      @ViewChild('f') websiteForm: NgForm;
 
 
-  uid: 			    string;
-  websites: 	  Website[];
-  name: 		    string;
-  description: 	string;
-
+      uid: 			    string;
+      websites: 	  Website[];
+      name: 		    string;
+      description: 	string;
 
 
   constructor(	private websiteService: WebsiteServices, 
   				      private activatedRoute: ActivatedRoute, 
-  				      private router: Router) { }
+  				      private router:         Router) { }
 
 
   ngOnInit() 
@@ -41,8 +40,6 @@ export class WebsiteNewComponent implements OnInit {
               		this.websites = this.websiteService.findWebsiteByUser(this.uid);
               })
     }
-
-
 
 
 

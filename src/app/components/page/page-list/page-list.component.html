@@ -4,7 +4,8 @@
 <!--########################################################-->
 
 <!-- <nav class=" navbar navbar-dark bg-primary fixed-top"> -->
-<nav class="navbar fixed-top navbar-light sw-bg-grey">
+										<!-- sw-bg-grey -->
+<nav class="navbar fixed-top navbar-light  bg-primary">
 
 		<a 		class="sw-color-black" 
 				routerLink="/user/{{uid}}/website">
@@ -36,7 +37,7 @@
 					*ngFor="let page of pages">
 
 					<a 	class="sw-color-black" 
-						routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget/{{wid}}">
+						routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget">
 						{{page.name}}
 						</a>
 

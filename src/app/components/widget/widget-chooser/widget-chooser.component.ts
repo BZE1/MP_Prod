@@ -28,8 +28,8 @@ export class WidgetChooserComponent implements OnInit {
  	pid: string;
 
   constructor(	private activatedRoute: ActivatedRoute, 
-  				private widgetService: Widget_Services, 
-  				private router: Router) { }
+  				private widgetService:  Widget_Services, 
+  				private router: 		Router) { }
 
 
   ngOnInit() {

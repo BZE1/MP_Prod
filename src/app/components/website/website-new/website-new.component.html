@@ -5,9 +5,8 @@
 <nav class="row navbar navbar-dark fixed-top bg-primary ">
 
 <!--########################################################-->
-<!--#############[       [ LEFT ] SIDE         ]############-->
+<!--#############[  NAV  [ Top-LEFT ] SIDE     ]############-->
 <!--########################################################-->
-
 	<div class="container-fluid">
 
 	<div class="col-sm-4 d-none d-md-block">
@@ -35,37 +34,32 @@
 
 	</div>
 <!--########################################################-->
-<!--#############[       [ RIGHT ] SIDE        ]############-->
+<!--#############[   NAV [ Top-RIGHT ] SIDE    ]############-->
 <!--########################################################-->
-
 	<div class="col-md-8">
 
-			<a  class="sw-color-white" 
-				routerLink="/user/{{uid}}/website/new">
-				<strong>New Website</strong>
-				</a>
+			<a  	class="sw-color-white" 
+					routerLink="/user/{{uid}}/website/new">
+					<strong>Website-NEW</strong>
+					</a>
 			
 			<button class="btn sw-color-white float-right sw-button-to-a" 
 					type="submit" 
 					form="websiteForm" 
 					[disabled]="f.invalid">
 					<i class="fas fa-check"></i>
-					<!-- <i class="fas fa-plus"></i>	 -->
-					</button>
+				</button>
 	</div>
-
 
 </div>  <!-- [END CONTAINER] -->
 </nav> <!-- [END NAV SECTION] -->
 
 <!--#################################################################-->
-<!--###############[           MID SECTION             ]#############-->
+<!--###############[           NEW ROW                 ]#############-->
 <!--#################################################################-->
-
-<div class="row">  <!-- [ROW]___________________________ -->
-
+<div class="row">  
 <!--########################################################-->
-<!--#############[ [ LEFT ] SIDE WEBSITE LIST  ]############-->
+<!--#############[     Middle   [ LEFT SIDE ]  ]############-->
 <!--########################################################-->
 
 	<!-- _______________TOP OF UL GROUP________________ -->
@@ -90,7 +84,7 @@
 </div>   <!-- [END CONTAINER] -->
 
 <!--########################################################-->
-<!--#############[ [ RIGHT ] SIDE WEBSITE LIST  ]############-->
+<!--#############[    Middle   [ RIGHT SIDE ]  ]############-->
 <!--########################################################-->
 <div class="col-md-8">
 	<div class="container-fluid">
@@ -99,7 +93,6 @@
 				#f="ngForm">
 
 			<div class="form-group">
-
 					<label><strong>Name</strong></label>
 
 					<input  class="form-control" 
@@ -116,7 +109,6 @@
 			</div>
 
 			<div class="form-group">
-
 					<label><strong>Description</strong></label>
 
 					<textarea   rows="8" 
@@ -124,22 +116,21 @@
 								name="description" 
 								placeholder="Write about your website here." 
 								ngModel #description="ngModel">
-								</textarea>
+							</textarea>
 			</div>
 
-					<a  routerLink="/user/{{uid}}/website" 
-						class="btn btn-danger">
-						Cancel
-						</a>
+			<a  	routerLink="/user/{{uid}}/website" 
+					class="btn btn-danger">
+					Cancel
+					</a>
 
-					<button [disabled]="f.invalid" 
-							type="submit" 
-							class="btn btn-success float-right">
-							Submit
-							</button>
+			<button [disabled]="f.invalid" 
+					type="submit" 
+					class="btn btn-success float-right">
+					Submit
+					</button>
 
 		</form>   <!-- [END OF FORM] -->
-
 	</div><!-- [END CONTAINER] -->
 </div><!-- [END ROW]_________________________________________ -->
 
@@ -150,8 +141,8 @@
 <footer class="navbar fixed-bottom navbar-dark bg-primary">
 	<div class="sw-full-width">
 
-			<a  class="navbar-brand float-right" 
-				routerLink="/user/:uid">
+		<a  	class="navbar-brand float-right" 
+				routerLink="/user/{{uid}}">
 				<i class="fas fa-user"></i>
 				</a>
 

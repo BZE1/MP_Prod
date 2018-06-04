@@ -14,23 +14,23 @@ import { ActivatedRoute } from '@angular/router'
 
 export class WebsiteListComponent implements OnInit {
 
-uid: string;
-website: Website [];
+  uid:      string;
+  websites: Website [];
 
 
   constructor(
   	private websiteServices: WebsiteServices,
-  	private activatedRoute: ActivatedRoute
+  	private activatedRoute:  ActivatedRoute
   				) { }
 
   ngOnInit() 
     {
-    	  this.activatedRoute.params.subscribe(params => {
-    		this.uid = params['uid'];
-    		this.websites = this.websiteServices.findWebsiteByUser(this.uid);
-
-    		// console.log(this.websites)
-  	})
+    	  this.activatedRoute.params.subscribe(
+          params => 
+            {
+          		this.uid = params['uid'];
+          		this.websites = this.websiteServices.findWebsiteByUser(this.uid);
+             })
   }
 
 }  /* [ END OF CLASS ] */

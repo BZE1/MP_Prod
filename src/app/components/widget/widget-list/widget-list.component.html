@@ -1,32 +1,29 @@
-				<!--########################################################-->
-				<!--#############[     NAV Bar  / Top of Page  ]############-->
-				<!--########################################################-->
-<nav class="navbar navbar-dark fixed-top  sw_w_c">  <!-- sw-gray -->
+<!--########################################################-->
+<!--#############[     NAV Bar  / Top of Page  ]############-->
+<!--########################################################-->
+<nav class="navbar navbar-dark fixed-top  sw_w_c sw-bg-grey">  <!-- sw-gray -->
 
 				<a  class="sw-font-white" 
-					routerLink="/{{uid}}/website/{{wid}}/page">
+					routerLink="/user/{{uid}}/website/{{wid}}/page">
 					<i class="fas fa-chevron-left"></i>
 					</a>
 					
 				<div class="sw-80-width">
 
-					<a  class="sw-font-white sw-no-underline float-left" 
+					<a  class="navbar-brand sw-font-white sw-no-underline float-left" 
 						routerLink="/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
-						Widgets
+						Widget List
 						</a>
-
 				</div>
 
 				<a  class="sw-font-white float-right"
-					routerLink="/widget-chooser" >
+					routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new" >
 					<i class="fas fa-plus"></i>
 					</a>
-
 </nav>
-
-				<!--########################################################-->
-				<!--#############[       Widget  Section       ]############-->
-				<!--########################################################-->
+<!--########################################################-->
+<!--#############[       Widget  Section       ]############-->
+<!--########################################################-->
 <div class="container-fluid">
 
  	<!-- [ Loop to cycle through Widgets ] -->
@@ -39,90 +36,80 @@
 					</a>
 
 				<a  href="#">
-					<i class="fas fa-bars"></i></a>
+					<i class="fas fa-bars"></i>
+					</a>
 		</div>
 
+<!--########################################################-->
+<!--#############[      Switch Statement       ]############-->
+<!--########################################################-->
 
-
-				<!--########################################################-->
-				<!--#############[      Switch Statement       ]############-->
-				<!--########################################################-->
-
-	<!-- [ SWITCH statement checking each CASE ] -->
-	<div [ngSwitch]="widget.widgetType">
+<!-- [ SWITCH statement checking each CASE ] -->
+<div [ngSwitch]="widget.widgetType">
 				
-				<!-- [________________HEADING Case_________________ ] -->
-				<div *ngSwitchCase="'HEADING'"> 
+	<!-- [________________HEADING Case_________________ ] -->
+	<div *ngSwitchCase="'HEADING'"> 
 
-					<!-- [[ CHECKING THE SIZE ]] -->
-							<div [ngSwitch]="widget.size">
-
-								<div *ngSwitchCase="1"><h1>{{widget.text}}</h1></div>
-								<div *ngSwitchCase="2"><h2>{{widget.text}}</h2></div>
-								<div *ngSwitchCase="3"><h3>{{widget.text}}</h3></div>
-								<div *ngSwitchCase="4"><h4>{{widget.text}}</h4></div>
-								<div *ngSwitchCase="5"><h5>{{widget.text}}</h5></div>
-								<div *ngSwitchCase="6"><h6>{{widget.text}}</h6></div>
-
-							</div>
-				</div>  <!-- [END OF HEADING] -->
+		<!-- [[ CHECKING THE SIZE ]] -->
+		<div [ngSwitch]="widget.size">
+				<div *ngSwitchCase="1"><h1>{{widget.text}}</h1></div>
+				<div *ngSwitchCase="2"><h2>{{widget.text}}</h2></div>
+				<div *ngSwitchCase="3"><h3>{{widget.text}}</h3></div>
+				<div *ngSwitchCase="4"><h4>{{widget.text}}</h4></div>
+				<div *ngSwitchCase="5"><h5>{{widget.text}}</h5></div>
+				<div *ngSwitchCase="6"><h6>{{widget.text}}</h6></div>
+			</div>
+	</div>  <!-- [END OF HEADING] -->
 						
-				<!-- [________________IMAGE Case_________________ ] -->
-				<div *ngSwitchCase="'IMAGE'">
-							<img [src]="widget.url"
-								 [style.width]="widget.width">
-				</div>
-						
-					<!-- [________________YOUTUBE Case_________________ ] -->
-				<div *ngSwitchCase="'YOUTUBE'">
-						<div class="embed-responsive embed-responsive-16by9">
-
-							<iframe [src]="this.getYoutubeUrl(widget.url)"
-									[style.width]="widget.width"
-									frameborder="0"
-									allowfullscreen>
-									</iframe>
-						</div>
-				</div>
-
+	<!-- [________________IMAGE Case_________________ ] -->
+	<div *ngSwitchCase="'IMAGE'">
+				<img 	[src]="widget.url"
+						[style.width]="widget.width">
 	</div>
+						
+		<!-- [________________YOUTUBE Case_________________ ] -->
+	<div *ngSwitchCase="'YOUTUBE'">
+
+			<div class="embed-responsive embed-responsive-16by9">
+
+				<iframe [src]="this.getYoutubeUrl(widget.url)"
+						[style.width]="widget.width"
+						frameborder="0"
+						allowfullscreen>
+						</iframe>
+			</div>
+	</div>
+
+</div>
 </div>
 
-				<!--########################################################-->
-				<!--#############[          Switch END         ]############-->
-				<!--########################################################-->
+</div>  
 
-</div>  <!-- [  END Container-Fluid ] -->
+<!--########################################################-->
+<!--#############[        footer Icon          ]############-->
+<!--########################################################-->
 
-
-<!--#############[________ Page Devider_________]############-->
-			<div class="progress progress-striped active">
-			 <div class="bar" style="width: 40%;"></div>
-			</div>
-
-
-				<!--########################################################-->
-				<!--#############[        footer Icon          ]############-->
-				<!--########################################################-->
-
-<footer class="navbar fixed-bottom navbar-light sw-bg-grey sw-font-white">
-
+<footer class="navbar fixed-bottom navbar-light  sw-bg-green sw-font-white">
 	<div class="sw-full-width">
 
-			<a href="#" class="btn btn-primary">
+			<a 	class="btn btn-primary"
+				href="#" >
 				publish
 				</a>
 
-			<a  href="#" class="btn btn-warning">
+			<a  class="btn btn-warning"
+				href="#" >
 				Preview
 				</a>
 
-			<a  class="navbar-brand float-right" 
+			<a  class="navbar-brand float-right "  
 				routerLink="/user/{{uid}}">
 				<i class="fas fa-user"></i>
 				</a>
 	</div>
 
+<!-- float-right -->
+<!-- sw-bg-grey -->
 </footer>
 
 

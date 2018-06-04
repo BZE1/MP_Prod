@@ -16,14 +16,16 @@
 		<!--#############[           FORM              ]############-->
 		<!--########################################################-->
 
-	<form (ngSubmit)="login()" #f="ngForm">
+	<form (ngSubmit)="Login()" #f="ngForm">
 
 		<div  class="form-group">
 			<input  class="form-control" 
 					type="text" 
 				  	name="username" 
 				  	placeholder="Username" 
-				  	required ngModel #username="ngModel">
+				  	required
+				  	ngModel
+				  	#username="ngModel">
 		</div>
 
 		<span   class="alert" 
@@ -36,7 +38,9 @@
 					required type="password" 
 					name="password" 
 					placeholder="Password" 
-					ngModel #password="ngModel">
+					required
+				  	ngModel
+					#password="ngModel">
 		</div>
 
 		<span   class="alert" 

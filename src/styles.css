@@ -7,55 +7,28 @@
 body{
 	padding-top: 70px;
 	padding-bottom: 70px;
-	padding-right: 10px;
-	padding-left: 10px;
+	/*padding-right: 10px;*/
+	/*padding-left: 10px;*/
 	
 }
 
-/*#profile_label{
-	font-size: 15px;
-	font-family: impact;
-}*/
-
-#m-float-left{
-	float: left;
-}
-#m-float-right{
-	float: right;
-}
-
-.sw-me{
-	width: 100%;
-
+/*( Color Styling )________________*/
+.sw-color-white{
+	color: white;
 }
 
 
-.lc-col-a{
-	color: magenta;
+.sw-color-black{
+	color: black;
 }
 
-.sw-width{
-	width: 100%;
+.sw-bg-grey{
+	background-color: #afafaf;
 }
 
-/*.custom_div_row-1{
-	margin: 3px;
-	min-height: 300px;
-	background-color: white;
-	text-align: center;
-	font-size: large;
+.sw-bg-green{
+	background-color: green;
 }
-
-
-
-.custom_div-row-2{
-	margin: 3px;
-	min-height: 300px;
-	background-color: white;
-	text-align: left;
-	font-size: large;
-
-}*/
 
 .sw-gray{
 	background-color: #ed802d;
@@ -69,16 +42,68 @@ body{
 	color: white;
 }
 
+
+.sw_text_color_blk{
+	color:black;
+}
+
+
+.lc-col-a{
+	color: magenta;
+}
+
+
+
+.sw-button-to-a{
+	background-color: transparent;
+}
+
+/*______________________________________*/
+
+
+
+
+
+/*[ Positioning]_______________________*/
+
+a:hover{
+	text-decoration: none;
+}
+
+
+
+.sw-me{
+	width: 100%;
+
+}
+.sw-absolute-right{
+	position: absolute;
+	right: 15px;
+}
+
+
 .sw-absolute{
 	position: absolute;
 	right: 15px;
 
 }
 
-.sw_text_color_blk{
-	color:black;
+#m-float-left{
+	float: left;
 }
+#m-float-right{
+	float: right;
+}
+
+
+
+.sw-width{
+	width: 100%;
+}
+
 
 .sw-front{
 	z-index: 2
 }
+
+

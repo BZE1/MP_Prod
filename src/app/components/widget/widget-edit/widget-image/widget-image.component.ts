@@ -59,13 +59,13 @@ export class WidgetImageComponent implements OnInit {
 
 	    const updatedWidget: Widget = 
 		    {
-			      _id: this.wgid,
-			      name: this.name,
-			      text: this.text,
-			      url: this.url,
-			      width: this.width,
-			      pageId: this.pid,
-			      widgetType: this.widget.widgetType
+			      _id: 			this.wgid,
+			      name: 		this.name,
+			      text: 		this.text,
+			      url: 			this.url,
+			      width: 		this.width,
+			      pageId: 		this.pid,
+			      widgetType:   this.widget.widgetType
 		    }
 
     this.widgetService.updateWidget(this.wgid, updatedWidget);

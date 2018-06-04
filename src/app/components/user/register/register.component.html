@@ -8,14 +8,13 @@
 				This username already in use, Try another one.		
 				</div>
 
-
 		<div    class="alert alert-danger" 
 				*ngIf="passwordError">
 				Password ERROR both passwords dont match !		
 				</div>
 
 <!--########################################################-->
-<!--#############[          FORM         ]############-->
+<!--#############[            FORM             ]############-->
 <!--########################################################-->
 
 <form (ngSubmit)="register()" #f="ngForm">
@@ -25,9 +24,11 @@
 				<input  class="form-control" 
 						type="text" 
 						name="username" 
-						required ngModel #username="ngModel" 
+						required 
+						ngModel 
+						#username="ngModel" 
 						placeholder="Username">
-				</div>
+	</div>
 
 	<span 	class="alert" 
 			*ngIf="username.invalid && username.touched">
@@ -36,12 +37,14 @@
 
 	<div class="form-group">
 
-		<input  class="form-control" 
-				type="password" 
-				name="password" 
-				required  ngModel #password="ngModel" 
-				placeholder="Password">
-			</div>
+			<input  class="form-control" 
+					type="password" 
+					name="password" 
+					required  
+					ngModel 
+					#password="ngModel" 
+					placeholder="Password">
+	</div>
 
 	<span   class="alert" 
 			*ngIf="password.invalid && password.touched">
@@ -53,9 +56,12 @@
 		<input  class="form-control" 
 				type="password" 
 				name="verifyPassword" 
-				required ngModel #verifyPassword="ngModel" 
+				required 
+				ngModel 
+				#verifyPassword="ngModel" 
 				placeholder="Verify Password">
-			</div>
+				
+	</div>
 
 	<span   class="alert" 
 			*ngIf="verifyPassword.invalid && verifyPassword.touched">

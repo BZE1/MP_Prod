@@ -34,7 +34,7 @@
 <!--#############[          Form Inputs        ]############-->
 <!--########################################################-->
 
-<div class="container">
+<div class="container-fluid">
 	
 	<form id="pageForm" (ngSubmit)="update()" #f="ngForm">
 
@@ -51,9 +51,6 @@
 							placeholder="what is the name of your page" 
 							value="Blog Post">
 		</div>
-
-
-
 
 		<div 	*ngIf="name.invalid && name.touched" 
 				class="alert alert-warning">
@@ -106,12 +103,3 @@
 		</div>
 </footer>
 
-
-	<!-- 
-
-			<nav class="navbar navbar-dark bg-primary sw-gray fixed-bottom">
-				<div class="sw-me">
-					<a routerLink="/user/:uid" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
-				</div>
-			</nav>
-			 -->

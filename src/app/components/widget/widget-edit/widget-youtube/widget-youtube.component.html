@@ -1,69 +1,117 @@
 
-				<!--########################################################-->
-				<!--#############[         Nave bar            ]############-->
-				<!--########################################################-->
-		<nav class="navbar navbar-dark fixed-top sw-gray">
+<!--########################################################-->
+<!--#############[         Nav bar            ]############-->
+<!--########################################################-->
+<nav class="navbar navbar-dark fixed-top sw-gray">
 
-					<a routerLink="/uid/website/:wid/page/:pid/widget" class="sw-font-white"><i class="fas fa-chevron-left"></i></a>
+	<a 	class="sw-color-black"
+		routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget">
+		<i class="fas fa-chevron-left"></i>
+		</a>
 					
-					<div class="sw-80-width">
-						<a class="sw-font-white sw-no-underline float-left" routerLink="/widget-youtube">Widget Edit</a>
+	<div class="sw-80-width">
+
+		<a 	class="navbar-brand float-left" 
+			routerLink="user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new">
+			Widget Edit
+			</a>
+	</div>
+
+	<button 	[disabled]="f.invalid" 
+				type="submit" 
+				form="widgetForm" 
+				class="btn sw-button-to-a sw-color-white float-right" >
+				<i class="fas fa-check"></i>
+			</button>
+
+</nav>
+
+<div class="container-fluid">
+<!--########################################################-->
+<!--#############[         Main Form           ]############-->
+<!--########################################################-->	
+<form 	id="widgetForm" 
+		(ngSubmit)="update()" 
+		#f="ngForm">
+
+	<div class="form-group">
+		<label>Name</label>
+		<input 	class="form-control" 
+				ngModel="{{widget.name}}" 
+				#name="ngModel"
+				type="text" 
+				name="name" 
+				placeholder="Give a Name to your Widget">
+	</div>
+
+	<div class="form-group">
+		<label>Text</label>
+		<input 	class="form-control" 
+				ngModel="{{widget.text}}"
+				type="text" 
+				name="text"  
+				#text="ngModel" 
+				placeholder="Describe you Widget here.">
+	</div>
+
+	<div class="form-group">
+		<label>URL</label>
+		<input 	class="form-control" 
+				required ngModel="{{widget.url}}" 
+				#url="ngModel" 
+				type="text" 
+				name="url" 
+				placeholder="http://www.drudgereport.com">
+	</div>
+	
+	<!-- ( ALERT MESSAGE TO USER ) -->
+			<div 	class="alert alert-danger" 
+					*ngIf="url.invalid && url.touched">
+					you MUST enter a URL here.
 					</div>
 
-					<a routerLink="/uid/website/:wid/page/:pid/widget" class="sw-font-white float-right">
-						                             <i class="fas fa-check"></i></a>
-		</nav>
-
-				<!--########################################################-->
-				<!--#############[         Nave bar            ]############-->
-				<!--########################################################-->
-
-	<div class="container-fluid">
-
-
-			<form>
-				
-				<div class="form-group">
-					<label for="name">NAME</label>
-					<input type="text" name="name" class="form-control"  placeholder="Michael Jordon">
+	<div 	class="form-group">
+			<label>Width</label>
+			<input 	class="form-control" 
+					required 
+					ngModel="{{widget.width}}" 
+					#width="ngModel"  
+					type="text" 
+					name="width" 
+					placeholder="Try to Use %50 to start">
 				</div>
 
-				<div class="form-group">
-					<label for="text">TEXT</label>
-					<input type="text" name="text" class="form-control"  placeholder="Top US News Headlines">
+	<!-- ( ALERT MESSAGE TO USER ) -->
+			<div 	class="alert alert-danger" 
+					*ngIf="width.invalid && width.touched">
+					You Must enter a width for your video
 				</div>
 
-				<div class="form-group">
-					<label for="url">URL</label>
-					<input type="url" name="url" class="form-control"  placeholder="https://www.youtu.be/uLWLashCXHE">
-				</div>
+	<button 	class="btn btn-primary btn-block"	
+				type="submit" 
+				[disabled]="f.invalid" >
+				Submit
+			</button>
 
-				<div class="form-group">
-					<label for="width">WIDTH</label>
-					<input type="text" name="width" class="form-control"  placeholder="">
-				</div>
+	<button 	class="btn btn-danger btn-block" 
+				type="button" 
+				(click)="remove()">
+				Delete
+			</button>
 
-				
-
-				<div>
-						<a class="btn btn-danger btn-block" routerLink="/uid/website/:wid/page/:pid/widget">DELETE</a>
-				</div>
-
-			</form>
-
-
+</form>	
+</div>  <!-- container-fluid -->
+<!--########################################################-->
+<!--#############[        footer               ]############-->
+<!--########################################################-->
+<footer class="navbar navbar-dark sw-gray fixed-bottom">
+		<div class="sw-me">
+				<a 		routerLink="/user/{{uid}}:" 
+						class="sw-font-white float-right">
+						<i class="fas fa-user "></i>
+					</a>
+		</div>
+</footer>
 			
 
-				<!--########################################################-->
-				<!--#############[        footer Icon          ]############-->
-				<!--########################################################-->
-
-			<!-- footer -->
-			<nav class="navbar navbar-dark sw-gray fixed-bottom">
-				<div class="sw-me">
-					<a routerLink="/user/uid:" class="sw-font-white float-right"><i class="fas fa-user "></i></a>
-				</div>
-			</nav>
-			
-
-	</div>  <!-- container-fluid -->
+	

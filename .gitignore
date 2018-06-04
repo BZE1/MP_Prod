@@ -42,3 +42,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# My Files
+CPR_TEST_1.ts
+CPR_TEST_2.ts

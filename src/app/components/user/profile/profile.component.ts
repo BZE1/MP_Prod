@@ -1,33 +1,11 @@
 
-/**
-############################################
-______________[   TODO :   ]________________
 
-[_]  Users
-  		-Imported
-    	-Do I need to put it in the constructure
-
-[_]  userService
-		var nopt working 
-		what going on with this one
-
-[_]  View Child
-		#F used in HTML code
-		
-[_]  findUserByUsername
-
-[_]  updatedUser
-
-
-#############################################
- */
-
-import { UserServices } from '../../../services/user.service.client'
+import { UserServices } from '../../../services/user.service.client';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { User } from '../../../models/user.models.client'
-import { ActivatedRoute } from '@angular/router'
-import { WebsiteServices } from '../../../services/website.service.client'
-import { NgForm } from '@angular/forms'
+import { User } from '../../../models/user.models.client';
+import { ActivatedRoute } from '@angular/router';
+import { WebsiteServices } from '../../../services/website.service.client';
+import { NgForm } from '@angular/forms';
 
 @Component
 	({
@@ -48,8 +26,8 @@ export class ProfileComponent implements OnInit {
 	 @ViewChild('f') profileForm;
 
 	// [ Varables ]_____________
-		uid:			string;
 		user: 			User;
+		uid:			string;
 		username: 		string;
 		email: 			string;
 		firstName: 		string;
@@ -60,8 +38,8 @@ export class ProfileComponent implements OnInit {
 
 
   constructor(	private activatedRoute: ActivatedRoute,
-   				private userService: UserServices,
-   				private user: User) { }
+   				private userService: 	UserServices
+   				) { }
 
 
   ngOnInit() 
@@ -70,6 +48,7 @@ export class ProfileComponent implements OnInit {
 	  		(
 	  			params => 
 	  			{
+
 	  				this.uid 			= params['uid'];
 	  				this.user 			= this.userService.findUserById(this.uid);
 	  				this.username 		= this.user.username;
@@ -116,4 +95,4 @@ export class ProfileComponent implements OnInit {
 
 		}
 
-}	/* [END OF CLASS]
+}	/* [END OF CLASS] */

@@ -10,7 +10,6 @@ import { ActivatedRoute } from "@angular/router"
 import { DomSanitizer } from '@angular/platform-browser'
 
 
-
 @Component
 	({
 	  selector: 	 'app-widget-list',
@@ -36,7 +35,6 @@ export class WidgetListComponent implements OnInit {
 				private sanitizer: 		DomSanitizer   ) { }
 
 
-
   ngOnInit() 
 	  {
 	  	this.activatedRoute.params.subscribe(
@@ -46,11 +44,10 @@ export class WidgetListComponent implements OnInit {
 			  		this.wid = params['wid'];
 			  		this.pid = params['pid'];
 
-			  		this.widgets = this.widgetService.findWidgetsByPageId(this.pid);
+			  		this.widgets = this.widgetService.findWidgetByPageId(this.pid);
+			  		
 			  	}  )
 	  }
-
-
 
 
   getYoutubeUrl(url)
@@ -62,8 +59,6 @@ export class WidgetListComponent implements OnInit {
 	  	
 	  	return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
 	  }
-
-
 
 
 
