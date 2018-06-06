@@ -1,5 +1,6 @@
 import { BrowserModule }   from '@angular/platform-browser';
 import { NgModule }        from '@angular/core';
+// import { HttpModule } from '@angular/http';
 
 
 // Other Modules__________________________________________________________
@@ -65,7 +66,8 @@ import { WidgetHeaderComponent }   from './components/widget/widget-edit//widget
            FormsModule,
            HttpModule,
            BrowserModule,
-           Routing
+           Routing,
+           HttpModule
       ],
 
       providers: [

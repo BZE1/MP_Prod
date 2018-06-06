@@ -35,53 +35,58 @@ export class RegisterComponent implements OnInit
 	 /* [_NG_ON_INIT FUNCTION_] */
   	ngOnInit() 
 	  	{
-
+	  		this.passwordError = 	false;
+			this.usernameError = 	false;
 	  	}
 
+	register()
+		{
+		  this.username = this.registerForm.value.username;
+		  this.password = this.registerForm.value.password;
+		  this.verifyPassword = this.registerForm.value.verifyPassword;
+	    
 
-	  	register()
-			{
-			  	this.username = this.registerForm.value.username;
-			  	this.password = this.registerForm.value.password;
-			  	this.verifyPassword = this.registerForm.value.verifyPassword;
+		  if(this.password !== this.verifyPassword) 
+			 {
+			   this.passwordError = true;
+			 } 
 
-			  	if(this.password !== this.verifyPassword) 
-				  	{
-				  		this.passwordError = true;
-				  		this.usernameError = false;
-				  	} 
-			  	else 
-				  	{
-				  		this.passwordError = false;
-				  		const user: User = this.userService.findUserByUserName(this.username);
+		  else 
+			 {
+			   this.passwordError = false;
 
-				  		if(user)
-					  		{
-					  			this.usernameError = true;
-					  		} 
-				  		else 
-					  		{
-					  			this.usernameError = false;
-					  			this.passwordError = false;
+			   this.userService.findUserByUserName(this.username).subscribe(
+			      (user: User) => 
+				      {
+				        this.usernameError = true;
+				      }
+				      ,
+			       (error: any) => 
+			          {
+			            const newUser: User = 
+				            {
+				                _id: 		"",
+				                username: 	this.username,
+				                password: 	this.password,
+				                firstName: 	"",
+				                 lastName: 	"",
+				                 email: 	""
+				             };
 
-					  			const newUser: User = 
-						  			{
-						  				_id: "",
-										username: 	this.username,
-										password: 	this.password,
-										firstName: "",
-										lastName: "",
-										email: ""
-						  			};
+			            this.userService.createUser(newUser).subscribe(
+			               (user2: User) => 
+				                {
+				                     var id = user2._id;
+				                     this.router.navigate(['user', id]);
+				                })
+			        	}  
 
-					  			this.userService.createUser(newUser);
-					  			var id: string = this.userService.findUserByUserName(this.username)._id
-					  			this.router.navigate(['user', id]);
-					  		}
-				  	}
-			 }
+				       );  
 
+			   }   
 
+		  } 
+          
 
 
 }  /* [___________________END OF CLASS_______________________]*/

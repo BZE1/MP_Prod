@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
 		oldUsername:	string;
 		usernameTaken:	boolean;
 		submitSuccess:	boolean;
-
+		aUser: 			User;
 
   constructor(	private activatedRoute: ActivatedRoute,
    				private userService: 	UserServices
@@ -44,22 +44,29 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() 
 	  {
+
+	  	this.usernameTaken =	false;
+		this.submitSuccess =	false;
+
 	  	this.activatedRoute.params.subscribe
 	  		(
 	  			params => 
 	  			{
-
 	  				this.uid 			= params['uid'];
-	  				this.user 			= this.userService.findUserById(this.uid);
-	  				this.username 		= this.user.username;
-	  				this.email	 		= this.user.email;
-	  				this.firstName 		= this.user.firstName;
-	  				this.lastName 		= this.user.lastName;
-	  				this.oldUsername 	= this.user.username;
+	  				this.userService.findUserById(this.uid).subscribe(
+	  				(user: User) => {
+	  					this.user = user;
+		  				this.username 		= this.user.username;
+		  				this.email	 		= this.user.email;
+		  				this.firstName 		= this.user.firstName;
+		  				this.lastName 		= this.user.lastName;
+		  				this.oldUsername 	= this.user.username;
+	  				});
 	  			}
 	  		)
-
 	  }
+
+
 
 	update()
 		{
@@ -68,9 +75,13 @@ export class ProfileComponent implements OnInit {
 			this.firstName 	= this.profileForm.value.firstName;
 			this.lastName 	= this.profileForm.lastname;
 
-			const aUser: User = this.userService.findUserByUserName(this.username);
+			this.userService.findUserByUserName(this.username)
+				.subscribe(
+					( user: User) => {
+						this.aUser = user;
+					});
 
-			if (aUser && this.oldUsername !== this.username)
+			if (this.aUser && this.oldUsername !== this.username)
 				{
 					this.usernameTaken = true;
 					this.submitSuccess = false;
@@ -86,11 +97,12 @@ export class ProfileComponent implements OnInit {
 							lastName: 	this.lastName,
 							email: 		this.email
 						};
-
-					this.userService.updateUser(this.uid, updatedUser);
-					this.usernameTaken = false;
-					this.submitSuccess = true;
-
+					this.userService.updateUser(this.uid, updatedUser)
+					   .subscribe(
+					   		(user2: User) =>{
+					   			this.usernameTaken = false;
+								this.submitSuccess = true;
+					   		});
 				}
 
 		}
