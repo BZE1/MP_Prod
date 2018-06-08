@@ -21,9 +21,9 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 	'app-login',
+  templateUrl:  './login.component.html',
+  styleUrls:    ['./login.component.css']
 })
 
 /*##############################################################
@@ -48,15 +48,16 @@ export class LoginComponent implements OnInit {
 		  {
 		  	this.username = this.loginForm.value.username;
 		  	this.password = this.loginForm.value.password;
-		  	this.userServices.findUserByCredentials(this.username,this.password).subscribe(
-		  			(user: User) => {
-		  				this.errorFlag = false;
-			  			this.router.navigate(['user', user._id]);
-		  			},
-		  			(error:any) =>{
-		  				this.errorFlag = true;
-		  			}
-		  		)
+		  	this.userServices.findUserByCredentials(this.username,this.password).subscribe
+			  	(
+			  		(user: User) => {
+			  				this.errorFlag = false;
+				  			this.router.navigate(['user', user._id]);
+			  		},
+			  		(error:any) =>{
+			  				this.errorFlag = true;
+			  		}
+			  	)
 	  	
 		  }
 

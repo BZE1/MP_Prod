@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
 	 @ViewChild('f') profileForm;
 
 	// [ Varables ]_____________
-		user: 			User;
+		// user: 			User;
 		uid:			string;
 		username: 		string;
 		email: 			string;
@@ -36,6 +36,16 @@ export class ProfileComponent implements OnInit {
 		usernameTaken:	boolean;
 		submitSuccess:	boolean;
 		aUser: 			User;
+		user: 			User = 
+				{
+					_id: 		'',
+					username:	'',
+					password: 	'',
+					firstName:	'',
+					lastName:	'',
+					email:		''
+				};
+
 
   constructor(	private activatedRoute: ActivatedRoute,
    				private userService: 	UserServices

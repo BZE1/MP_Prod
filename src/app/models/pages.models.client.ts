@@ -1,6 +1,6 @@
 
 
-export class Pages {
+export class Page {
 
 	_id:string;
 	name:string;

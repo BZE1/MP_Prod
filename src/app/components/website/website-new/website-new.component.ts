@@ -37,7 +37,10 @@ export class WebsiteNewComponent implements OnInit {
             params => 
               {
               		this.uid = params['uid'];
-              		this.websites = this.websiteService.findWebsiteByUser(this.uid);
+              		this.websiteService.findWebsitesByUser(this.uid).subscribe(
+                    (websites: Website[]) => {
+                      this.websites = websites;
+                    });
               })
     }
 
@@ -56,8 +59,12 @@ export class WebsiteNewComponent implements OnInit {
 		  			description: this.description
 		  		};
 
-	  		this.websiteService.createWebsite(this.uid, newWebsite);
-	  		this.router.navigate(['user', this.uid, 'website']);
+	  		this.websiteService.createWebsite(this.uid, newWebsite).subscribe(
+          (website:Website) => {
+            this.router.navigate(['user', this.uid, 'website']);
+          });
+
+	  		
 	  }
 
 }

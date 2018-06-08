@@ -3,7 +3,7 @@
   ############################################################## */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pages } from '../../../models/pages.models.client'
+import { Page } from '../../../models/pages.models.client'
 import { PageServices } from '../../../services/page.service.client'
 
 
@@ -15,7 +15,6 @@ import { PageServices } from '../../../services/page.service.client'
 	})
 
 
-
 /*##############################################################
   ############[                ClASS                ]########### 
   ############################################################## */
@@ -23,7 +22,7 @@ export class PageListComponent implements OnInit {
 
 	  uid: 		string;
 	  wid: 		string;
-	  pages: 	Pages[];
+	  pages: 	Page[];
 
   constructor(	private pageService: 	PageServices, 
   				private activatedRoute: ActivatedRoute) { }
@@ -35,7 +34,10 @@ export class PageListComponent implements OnInit {
 		  	{
 		  		this.uid = params['uid'];
 		  		this.wid = params['wid'];
-		  		this.pages = this.pageService.findPageByWebsiteId(this.wid);
+		  		this.pageService.findPageByWebsiteId(this.wid).subscribe(
+		  			(pages: Page[])=>{
+		  				this.pages = pages;
+		  			});
 		  	});
 	  }
 

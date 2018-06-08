@@ -4,7 +4,7 @@
   ############################################################## */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Pages } from '../../../models/pages.models.client'
+import { Page } from '../../../models/pages.models.client'
 import { PageServices } from '../../../services/page.service.client'
 import { NgForm } from "@angular/forms"
 
@@ -33,7 +33,14 @@ export class PageEditComponent implements OnInit {
 	  pid: 			string;
 	  name: 		string;
 	  description:  string;
-	  page: 		Pages;
+	  page: 		Page = 
+	  			{
+	  				_id:		 "",
+	  				websiteId:	 "",
+	  				name:		 "",
+	  				description: ""
+	  			}
+
 	 /*________________________________*/
 
 
@@ -54,9 +61,12 @@ export class PageEditComponent implements OnInit {
 			  		this.wid = params['wid'];
 			  		this.pid = params['pid'];
 
-			  		this.page = this.pageService.findPageById(this.pid);
-			  		this.name = this.page.name;
-			  		this.description = this.page.description;
+			  		this.pageService.findPageById(this.pid).subscribe(
+			  			(page: Page) => {
+			  				this.page = page;
+			  			 	this.name = this.page.name;
+			  				this.description = this.page.description;
+			  			});
 		  		});
 	  }
 
@@ -66,7 +76,7 @@ export class PageEditComponent implements OnInit {
 	  	this.name = this.pageForm.value.name;
 	  	this.description = this.pageForm.value.description;
 
-	  	const updatedPage: Pages =
+	  	const updatedPage: Page =
 		  	{
 		  		_id: 			this.pid,
 		  		name: 			this.name,
@@ -74,16 +84,23 @@ export class PageEditComponent implements OnInit {
 		  		websiteId: 		this.wid
 		  	}
 
-	  	this.pageService.updatePage(this.pid, updatedPage);
-	  	this.router.navigate(['user', this.uid, 'website', this.wid, 'page']);
+	  	this.pageService.updatePage(this.pid, updatedPage).subscribe(
+	  		(page: Page)=> {
+	  			this.router.navigate(['user', this.uid, 'website', this.wid, 'page']);
+	  		}); 	
 	  }
 
 
 
   remove() 
 	  {
-	  	this.pageService.deletePage(this.pid);
-	  	this.router.navigate(['user', this.uid, 'website', this.wid, 'page']);
+	  	this.pageService.deletePage(this.pid).subscribe(
+	  		(pages: Page[])=>{
+	  			this.router.navigate(['user', this.uid, 'website', this.wid, 'page']);
+	  		});
+
+
+	  	
 	  }
 
 

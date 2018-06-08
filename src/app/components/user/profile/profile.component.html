@@ -45,11 +45,14 @@
 
 	<div class="form-group">
 
+				<h1>{{this.user.username}}</h1>
 				<label for="username"><strong>Username</strong></label>
 
 				<input  class="form-control" 
-						type="text" name="username" 
-						required ngModel="{{user.username}}" 
+						type="text" 
+						name="username" 
+						required 
+						ngModel="{{user.username}}" 
 						#username="ngModel" 
 						placeholder="Your Username">
 	</div>

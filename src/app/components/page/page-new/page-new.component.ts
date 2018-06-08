@@ -3,7 +3,7 @@
   ############################################################## */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Pages } from '../../../models/pages.models.client'
+import { Page } from '../../../models/pages.models.client'
 import { PageServices } from '../../../services/page.service.client'
 import { NgForm } from "@angular/forms"
 
@@ -53,7 +53,7 @@ export class PageNewComponent implements OnInit {
       	this.name = this.pageForm.value.name;
       	this.description = this.pageForm.value.description;
 
-      	const newPage: Pages = 
+      	const newPage: Page = 
             {
               	_id:         "",
             		name:        this.name,
@@ -61,8 +61,11 @@ export class PageNewComponent implements OnInit {
             		description: this.description
           	}
 
-      	this.pageService.createPage(this.wid, newPage);
-      	this.router.navigate(['user', this.uid, 'website', this.wid, 'page']);
+      	this.pageService.createPage(this.wid, newPage).subscribe(
+          (page: Page)=>{
+            this.router.navigate(['user', this.uid, 'website', this.wid, 'page']);
+          });
+     	
       }
 
 

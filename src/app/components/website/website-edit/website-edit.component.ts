@@ -41,9 +41,18 @@ export class WebsiteEditComponent implements OnInit {
 		  		this.uid = params['uid'];
 		  		this.wid = params['wid'];
 
-		  		this.websites = this.websiteService.findWebsiteByUser(this.uid);
+		  		this.websiteService.findWebsitesByUser(this.uid).subscribe(
+		  			(websites: Website[])=>{
+		  				this.websites = websites;
+		  			});
 		  		
-		  		this.website = this.websiteService.findWebsiteById(this.wid);
+		  		this.websiteService.findWebsiteById(this.wid).subscribe(
+		  				(website: Website) => {
+		  					this.website = website;
+		  					this.name = this.website.name;
+		  					this.description = this.website.description;
+		  				}
+		  			);
 
 		  		this.name = this.website.name;
 		  		this.description = this.website.description;
@@ -66,15 +75,20 @@ export class WebsiteEditComponent implements OnInit {
 					description: this.description
 				}
 
-			this.websiteService.updateWebsite(this.wid,updatedWeb);
-			this.router.navigate( ['user' , this.uid , 'website' ] );
+			this.websiteService.updateWebsite(this.wid,updatedWeb).subscribe(
+				(website: Website) => {
+					this.router.navigate(['user', this.uid, 'website']);
+				});
 
 		}
 
 	delete()
 		{
-			this.websiteService.deleteWebsite(this.wid);
-			this.router.navigate( ['user' , this.uid , 'website' ] );
+			this.websiteService.deleteWebsite(this.wid).subscribe(
+				(websites: Website) => {
+					this.router.navigate( ['user' , this.uid , 'website' ] );
+				});
+			
 		}
 
 } /* [ END OF CLASS ] */
