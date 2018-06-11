@@ -15,8 +15,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 
-
-
 /*
 ########################################################
 ##########[               Class               ]#########
@@ -27,12 +25,17 @@ export class WidgetEditComponent implements OnInit {
 	  				private activatedRoute: ActivatedRoute) {}
 
 
-	  //[ VARABLES ]___________
-	 	 	widget: Widget;
+	  //[ VARABLES ]___________ 	 	
 	  		wgid: 	string;
 	  		uid: 	string;
 	  		pid: 	string;
 	  		wid:	string;
+			widget: Widget = 
+				{
+					_id: 		'',
+					widgetType: '',
+					pageId: 	''
+				};
 
 
 	  	ngOnInit() 
@@ -41,10 +44,13 @@ export class WidgetEditComponent implements OnInit {
 			  		params => 
 				  		{
 					  		this.wgid = params['wgid'];
-					  		this.wgid = params['uid'];
-					  		this.wgid = params['pid'];
-					  		this.wgid = params['wid'];
-					  		this.widget = this.widgetService.findWidgetById(this.wgid);
+					  		this.uid = params['uid'];
+					  		this.pid = params['pid'];
+					  		this.wid = params['wid'];
+					  		this.widgetService.findWidgetById(this.wgid).subscribe(
+					  			(widget: Widget)=> {
+					  				this.widget = widget;
+					  			});
 				  		})
 			  	}
 

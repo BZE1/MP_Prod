@@ -21,11 +21,17 @@ export class WidgetImageComponent implements OnInit {
 	  wid: 		string;
 	  pid: 		string;
 	  wgid: 	string;
-	  widget: 	Widget;
 	  name: 	string;
 	  text: 	string;
 	  url: 		string;
 	  width: 	string;
+	  widget: 	Widget = 
+			 {
+			 	_id:		'',
+			 	widgetType: '',
+			 	pageId:		''
+			  };
+
 
   constructor(	private widgetService: 	Widget_Services, 
   				private activatedRoute: ActivatedRoute, 
@@ -40,14 +46,21 @@ export class WidgetImageComponent implements OnInit {
 		      this.pid 	= params['pid'];
 		      this.wgid = params['wgid'];
 
-		      this.widget = this.widgetService.findWidgetById(this.wgid);
+		      this.widgetService.findWidgetById(this.wgid).subscribe(
+		      	(widget: Widget)=> {
+		      		this.widget = widget;
+		      	});
    			 });
   }
 
+
+
   remove() {
-    this.widgetService.deleteWidget(this.wgid);
-    this.router.navigate(
+    this.widgetService.deleteWidget(this.wgid).subscribe(
+    	(widgets: Widget[])=> {
+    		this.router.navigate(
     	['user', this.uid, 'website', this.wid, 'page', this.pid, 'widget']);
+    	})
   }
 
   update() 
@@ -68,10 +81,13 @@ export class WidgetImageComponent implements OnInit {
 			      widgetType:   this.widget.widgetType
 		    }
 
-    this.widgetService.updateWidget(this.wgid, updatedWidget);
-    this.router.navigate(
+    this.widgetService.updateWidget(this.wgid, updatedWidget).subscribe(
+    	(widget:Widget)=> {
+    		this.router.navigate(
     	['user', this.uid, 'website', this.wid, 'page', this.pid, 'widget']);
+    	});
+   
   }
 
 
-}
+} /*[END]*/
