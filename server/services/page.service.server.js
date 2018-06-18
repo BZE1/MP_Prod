@@ -9,7 +9,7 @@ module.exports = function(app){
 				{_id: "543",name: "Post 3", websiteId: "456", description: "lorem"}
 			]
 
-	/* Querys from Client*/
+	/* Querys from Client */
 	app.post('/api/website/:wid/page', createPage);
 	app.get('/api/website/:wid/page', findAllPagesForWebsite);
 	app.get('/api/page/:pid', findPageById);
