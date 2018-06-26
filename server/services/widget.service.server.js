@@ -132,4 +132,4 @@ module.exports = function(app){
 
 
 
-} /*[END]*/
+} /* [END] */
