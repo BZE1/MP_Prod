@@ -18,7 +18,9 @@ import { Routing } from './app.routing';
 import { UserServices }     from './services/user.service.client';
 import { WebsiteServices }  from './services/website.service.client';
 import { PageServices }     from './services/page.service.client';
-import { Widget_Services }   from './services/widget.service.client';
+import { Widget_Services }  from './services/widget.service.client';
+import { OmdbServices }     from './services/omdb.service.client';
+import { FlickrService }    from './services/flickr.service.client'
 
 // WEB PAGE COMPONENTS________________________________________________________
 
@@ -38,6 +40,8 @@ import { WidgetImageComponent }    from './components/widget/widget-edit/widget-
 import { WidgetYoutubeComponent }  from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
 import { WidgetHeaderComponent }   from './components/widget/widget-edit//widget-header/widget-header.component';
 
+import { OmdbtestComponent }       from './components/omdbtest/omdbtest.component';
+import { FlickrImageSearchComponent } from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 
 
 @NgModule({
@@ -59,6 +63,8 @@ import { WidgetHeaderComponent }   from './components/widget/widget-edit//widget
               WidgetImageComponent,
               WidgetYoutubeComponent,
               WidgetHeaderComponent,
+              OmdbtestComponent,
+              FlickrImageSearchComponent,
             ],
 
       imports: [
@@ -74,7 +80,9 @@ import { WidgetHeaderComponent }   from './components/widget/widget-edit//widget
               UserServices, 
               WebsiteServices, 
               PageServices,
-              Widget_Services
+              Widget_Services,
+              OmdbServices,
+              FlickrService
               ],
 
       bootstrap: [AppComponent]

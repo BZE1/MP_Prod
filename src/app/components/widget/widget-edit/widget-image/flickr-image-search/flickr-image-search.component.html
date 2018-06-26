@@ -1,0 +1,70 @@
+
+<!-- 
+######################################################
+################[        Nav Bar      ]###############
+###################################################### -->
+<nav class="navbar fixed-top navbar-light sw-bg-grey">
+
+	<a 		class="sw-color-black" 
+			routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{wgid}}">
+			<i class="fas fa-chevron-left"></i>
+			</a>
+
+	<div class="sw-90-width">
+		<a 	class="navbar-brand float-left" 
+			routerLink="user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{wgid}}/flickr">
+			<b>Search Flicker for a Image</b>
+			</a>
+	</div>
+
+</nav>
+<!-- 
+######################################################
+################[    Image Routine    ]###############
+###################################################### -->
+<div class="container-fluid">
+
+	<div class="input-group">
+			<input  class="form-control"
+					[(ngModel)]="searchText" 
+					type="text" >
+
+			<span 	class="input-group-btn">
+		        	<a 	class="btn btn-default" 
+		        		(click)="searchPhotos()" 
+		        		type="button">
+		        		Search
+		        		</a>
+			</span>
+	</div>
+
+	<br>
+
+	<div class="row">
+
+		<div 	class="col-xs-4"  
+				*ngFor = "let pic of photos" >
+
+				<img 	(click)="selectPhoto(pic)" 
+						width="80%" 
+					[src] = "['https://farm' + pic.farm + '.staticflickr.com/' + pic.server + '/' +   pic.id + '_' + pic.secret + '_s.jpg']"/>
+		</div>
+
+	</div>   <!-- [end row] -->
+
+</div> <!-- [end container] -->
+
+<!-- 
+######################################################
+################[    Footer Section   ]###############
+###################################################### -->
+<footer class="navbar fixed-bottom navbar-light sw-bg-grey">
+
+	<div class="sw-full-width">
+
+		<a    	class="navbar-brand float-right" 
+				routerLink="/user/{{uid}}">
+				<i class="fas fa-user"></i>
+				</a>
+	</div>
+</footer>

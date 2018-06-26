@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Widget_Services } from "../../../../services/widget.service.client"
 import { Widget } from "../../../../models/widget.models.client"
 import { NgForm } from "@angular/forms";
+import { environment }   from '../../../../../environments/environment';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class WidgetImageComponent implements OnInit {
 @ViewChild('f') widgetForm: NgForm;
 
 	// (VARABLES)
+	  baseUrl: string;
 	  uid: 		string;
 	  wid: 		string;
 	  pid: 		string;
@@ -38,6 +40,10 @@ export class WidgetImageComponent implements OnInit {
   				private router: 		Router) { }
 
   ngOnInit() {
+
+  	this.baseUrl = environment.baseUrl;
+
+
     this.activatedRoute.params.subscribe(
     	params=>
     		{

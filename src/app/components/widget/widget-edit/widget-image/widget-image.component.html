@@ -25,6 +25,9 @@
 				
 </nav>
 <div class="container-fluid">
+
+
+
 <!--########################################################-->
 <!--#############[         Form Area           ]############-->
 <!--########################################################-->
@@ -70,33 +73,41 @@
       		     		*ngIf="width.invalid && width.touched">
       		     		Enter a width for your Image Try %50
       		     </div>
+ 
+<!--########################################################-->
+<!--#############[     Flickr Component        ]############-->
+<!--########################################################--> 
 
-     <div class="form-group">
-        <label><strong>Upload</strong></label>
-        <input  class="form-control" 
-                type="file" 
-                name="upload" 
-                placeholder="Try %50 for a start">
-      </div>
+  <form   ngNoForm 
+          action="{{baseUrl}}/api/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{wgid}}/upload" 
+          method="post" 
+          enctype="multipart/form-data">
 
-      <a   class="btn btn-secondary btn-block" 
-            href="#">
-            Upload Image (NOT WORKING)
-            </a>
+          <div>
+              <label class='form-group'><b>Upload</b></label>
+              <input  name="myFile"   type="file" class="form-control"/>
+              <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
+          </div>
+   </form> <!-- end Nested Form -->
 
-      <button   type="submit" 
-                [disabled]="f.invalid" 
-                class="btn btn-primary btn-block">
-                Submit
-                </button>
 
-      <button   class="btn btn-danger btn-block" 
-                type="button" 
-                (click)="remove()">
-                Delete
-                </button>
- 				
-</form>
+    <br>
+    <button   class="btn btn-primary btn-block" 
+              routerLink='/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{wgid}}/flickr'>
+              Choose from Flickr
+              </button>
+
+      <br>
+    <button   class="btn btn-danger btn-block" 
+              type="button" 
+              (click)="remove()">
+              Delete
+            </button>
+  
+
+
+
+</form>   <!-- [end main form] -->
 </div>  <!-- container-fluid -->
 <!--########################################################-->
 <!--#############[        footer Icon          ]############-->

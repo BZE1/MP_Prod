@@ -1,5 +1,12 @@
 module.exports = function(app){
 
+	/*____________________[ New API code ]____________________________*/
+	var multer = require('multer'); // npm install multer --save
+    var upload = multer({ dest: './dist/assets/uploads' });
+    /*                     Loc where the file will be saved     */
+    /*_________________________________________________________________*/
+
+
 	widgets = [
   		{ _id: "123", widgetType: "HEADING", pageId: "321", size: 2, text: "GIZMODO"},
   		{ _id: "234", widgetType: "HEADING", pageId: "321", size: 4, text: "Lorem ipsum"},
@@ -15,6 +22,32 @@ module.exports = function(app){
 	app.get ('/api/widget/:wgid',findWidgetsById);
 	app.put ('/api/widget/:wgid',updateWidget);
 	app.delete ('/api/widget/:wgid',deleteWidget);
+	// app.post("/api/user/:uid/website/:wid/page/:pid/widget:wgid/upload", upload.single('myfile'), uploadImage);
+
+	/*____________________[ New API code ]____________________________*/
+	app.post('/api/user/:uid/website/:wid/page/:pid/widget/:wgid/upload',
+			       upload.single('myFile'), uploadImage);
+	
+	/*_________________________________________________________________*/
+
+
+	function uploadImage (req,res) {
+		const uid = 	req.params['uid'];
+		const wid = 	req.params['wid'];
+		const pid = 	req.params['pid'];
+		const wgid = 	req.params['wgid'];
+
+		var myfile = req.file;
+		widget = selectWidgetById(wgid);
+		widget.url = '/assets/uploads/' + myfile.filename;
+
+		var callbackUrl = req.headers.origin + "/user" + uid +"/website/" + wid + "/page/" + pid + "widget/" + wgid;
+
+		req.redirect(callbackUrl);
+
+	}
+
+
 
 
 	function createWidget (req, res) {
@@ -75,6 +108,27 @@ module.exports = function(app){
 		res.json(widgets);
 		
 	}
+
+
+	/*____________________[ New API code ]____________________________*/
+	 function uploadImage(req, res) {
+
+        const uid = req.params['uid'];
+        const wid = req.params['wid'];
+        const pid = req.params['pid'];
+        const wgid = req.params['wgid'];
+        var myFile = req.file;
+
+        widget = selectWidgetById(wgid);
+        widget.url = '/assets/uploads/'+myFile.filename;
+
+        var callbackUrl = req.headers.origin + "/user/" + uid + "/website/" + wid + "/page/" + pid + "/widget/" + wgid;
+
+        res.redirect(callbackUrl);
+    }/*_________________________________________________________________*/
+  
+
+
 
 
 
