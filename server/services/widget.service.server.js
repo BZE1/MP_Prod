@@ -5,7 +5,7 @@ module.exports = function(app){
     var upload = multer({ dest: './dist/assets/uploads' });
     /*                     Loc where the file will be saved     */
     /*_________________________________________________________________*/
-    var widgetModel = require("../models/widget/widget.model.server");
+    var widgetModel = require("../model/widget/widget.model.server");
 
 
 	// widgets = [
@@ -113,7 +113,7 @@ module.exports = function(app){
 			}
 		);
 	}
-}
+
 
 
 	/*____________________[ New API code ]____________________________*/
@@ -143,4 +143,4 @@ module.exports = function(app){
 
 
 
-} /* [END] */
+} 
