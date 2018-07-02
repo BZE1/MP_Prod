@@ -2,75 +2,65 @@
 module.exports = function(app){
 
 
-	pages = 
-			[		
-				{_id: "321",name: "Post 1", websiteId: "456", description: "lorem"},
-				{_id: "432",name: "Post 2", websiteId: "456", description: "lorem"},
-				{_id: "543",name: "Post 3", websiteId: "456", description: "lorem"}
-			]
+	// pages = 
+	// 		[		
+	// 			{_id: "321",name: "Post 1", websiteId: "456", description: "lorem"},
+	// 			{_id: "432",name: "Post 2", websiteId: "456", description: "lorem"},
+	// 			{_id: "543",name: "Post 3", websiteId: "456", description: "lorem"}
+	// 		]
 
 	/* Querys from Client */
-	app.post('/api/website/:wid/page', createPage);
-	app.get('/api/website/:wid/page', findAllPagesForWebsite);
-	app.get('/api/page/:pid', findPageById);
-	app.put('/api/page/:pid', updatePage);
-	app.delete('/api/page/:pid', deletePage);
+	app.post('/api/website/:wid/page',  createPage);
+	app.get('/api/website/:wid/page', 	findAllPagesForWebsite);
+	app.get('/api/page/:pid', 			findPageById);
+	app.put('/api/page/:pid', 			updatePage);
+	app.delete('/api/page/:pid', 		deletePage);
 
-
-
-	function createPage(req, res){
+	function createPage(req, res) {
 		var page = req.body;
-		page._id = Math.floor(Math.random() * 10000).toString();
-		page.websiteId = req.params['wid'];
-		pages.push(page);
-		res.json(page);
+		pageModel.createPage(page).then(
+			(data) => {
+				res.json(data);
+			}
+		);
 	}
 
-
-	function findAllPagesForWebsite(req, res){
+	function findAllPagesForWebsite(req, res) {
 		var wid = req.params['wid'];
-		let result = [];
-		for (let i = 0 ; i <pages.length ; i++){
-			if (pages[i].websiteId === wid){
-				result.push(pages[i]);
+		pageModel.findAllPagesForWebsite(wid).then(
+			(data) => {
+				res.json(data);
 			}
-		}
-		res.json(result);
+		);
 	}
 
 
-	function selectPageById(pid){
-		for(let i = 0 ; i < pages.length ; i++){
-			if (pages[i]._id === pid){
-				return pages[i];
-			}
-		}
-	}
-
-	function findPageById(req, res){
+	function findPageById(req, res) {
 		var pid = req.params['pid'];
-		var page = selectPageById(pid);
-		res.json(page);
+		pageModel.findPageById(pid).then(
+			(data) => {
+				res.json(data);
+			}
+		);
 	}
 
-
-	function updatePage(req, res){
+	function updatePage(req, res) {
 		var pid = req.params['pid'];
 		var page = req.body;
-		var oldPage = selectPageById(pid);
-		const index = page.indexOf(oldPage);
-		pages[index].name = page.name;
-		pages[index].description = page.description;
-		res.json(page);
+		pageModel.updatePage(pid, page).then(
+			(data) => {
+				res.json(data);
+			}
+		);
 	}
 
-
-	function deletePage(req, res){
+	function deletePage(req, res) {
 		var pid = req.params['pid'];
-		let oldPage = selectPageById(pid);
-		const index = this.pages.indexOf(oldPage);
-		pages.splice(index, 1);
-		res.json(pages);
+		pageModel.deletePage(pid).then(
+			(data)=> {
+				res.json(data);
+			}
+		);
 	}
 
 

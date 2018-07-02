@@ -21,9 +21,9 @@ export class RegisterComponent implements OnInit
 
 
 	 /* [_VARABLES USED IN CLASS_] */
-    _id: string;
-		username: 		string;
-		password: 		string;
+    // _id:            string;
+		username: 		  string;
+		password: 		  string;
 		verifyPassword: string;
 		passwordError: 	boolean;
 		usernameError: 	boolean;
@@ -37,23 +37,26 @@ export class RegisterComponent implements OnInit
   	ngOnInit() 
 	  	{
 	  		this.passwordError = 	false;
-			this.usernameError = 	false;
+			  this.usernameError = 	false;
 	  	}
 
 	register(){
     this.ngOnInit();
   	this.username = this.registerForm.value.username;
   	this.password = this.registerForm.value.password;
+
   	this.verifyPassword = this.registerForm.value.verifyPassword;
     
     if(this.password !== this.verifyPassword) {
         this.passwordError = true;
-    } else {
+    } 
+
+    else {
         this.passwordError = false;
         this.userService.findUserByUserName(this.username).subscribe(
         	(data: any) => {
                 if(!data) {
-                  const newUser: User = {
+                    const newUser: User = {
                     username: this.username,
                     password: this.password,
                     firstName: "",
@@ -72,9 +75,8 @@ export class RegisterComponent implements OnInit
                 } else {
                     this.usernameError = true;
                 }
-            }
-        )
-    }
+          })
+      }
   }
 		
           

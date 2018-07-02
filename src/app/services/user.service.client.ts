@@ -29,6 +29,7 @@ export class UserServices
 
 			createUser(user:User)
 				{
+					console.log("createUser");
 					// user._id = Math.floor(Math.random() + 10000).toString();
 					// this.users.push(user);
 					const url = this.baseUrl + '/api/user';
