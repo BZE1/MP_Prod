@@ -12,7 +12,6 @@ UserModel.deleteUser = deleteUser;
 
 
 function createUser(user) {
-	console.log(user);
 	return UserModel.create(user);
 }
 

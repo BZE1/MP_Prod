@@ -1,5 +1,6 @@
 module.exports = function(app){
 
+	var userModel = require('../model/user/user.model.server.js');
 	 // var users = 
 		// 	[
 		// 		{_id: "123",username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},
@@ -9,7 +10,7 @@ module.exports = function(app){
 		// 		{_id: "000",username: "z", password: "z", firstName: "Mr Z", lastName: "Z", email: "MrZ@ulem.com"}
 		// 	]
 
-		app.get('/test', test);
+		// app.get('/test', test);
 		app.get('/api/user', findUser);
 		app.get('/api/user/:uid', findUserById);
 		app.post("/api/user", createUser);
@@ -28,9 +29,9 @@ http://localhost:3100/api/user?username=bob&password=bob
 =================================================
 */
 
-	function test(req, res){
-					res.send("Test.... from [SERVER] !")
-	}	
+	// function test(req, res){
+	// 				res.send("Test.... from [SERVER] !")
+	// }	
 
 	// function selectUserbyId(uid){
 	// 	for (let x = 0; x < users.length; x++) {
@@ -41,40 +42,65 @@ http://localhost:3100/api/user?username=bob&password=bob
 	// }
 
 
-	function findUser(req, res) 
-	{
+	function findUser(req, res) {
 		const username = req.query['username'];
 		const password = req.query['password'];
-
-		if(username && password) 
-		{
-			var user;
-			for (let x = 0; x < users.length; x++) 
-				{
-		      	   if (users[x].username === username && users[x].password === password) 
-		      		{  
-		             	user = users[x]
-		      		}
-	    		}
-    		res.json(user);
+				// find user by credentials
+		if(username && password) {
+			userModel.findUserByCreadentials(username, password).then(
+				data => {
+					res.json(data);
+				}
+			);
     		return;
 		}
-		if(username) 
-			{
-			var user;
-			user = users.find(function(user)
-				{
-					return user.username === username;
-				})
-			if(user) {
-					res.json(user);
-				} else {
-					res.json(null);
+		// find user by username
+		if(username) {
+			userModel.findUserByUsername(username).then(
+				data => {
+					res.json(data);	
 				}
+			);
 			return;
-			}
+		}
 		res.json(users);
 	}
+
+
+
+	// {
+	// 	const username = req.query['username'];
+	// 	const password = req.query['password'];
+
+	// 	if(username && password) 
+	// 	{
+	// 		var user;
+	// 		for (let x = 0; x < users.length; x++) 
+	// 			{
+	// 	      	   if (users[x].username === username && users[x].password === password) 
+	// 	      		{  
+	// 	             	user = users[x]
+	// 	      		}
+	//     		}
+ //    		res.json(user);
+ //    		return;
+	// 	}
+	// 	if(username) 
+	// 		{
+	// 		var user;
+	// 		user = users.find(function(user)
+	// 			{
+	// 				return user.username === username;
+	// 			})
+	// 		if(user) {
+	// 				res.json(user);
+	// 			} else {
+	// 				res.json(null);
+	// 			}
+	// 		return;
+	// 		}
+	// 	res.json(users);
+	// }
 
 
 		

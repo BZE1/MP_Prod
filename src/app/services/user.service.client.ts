@@ -29,7 +29,6 @@ export class UserServices
 
 			createUser(user:User)
 				{
-					console.log("createUser");
 					// user._id = Math.floor(Math.random() + 10000).toString();
 					// this.users.push(user);
 					const url = this.baseUrl + '/api/user';
@@ -63,12 +62,13 @@ export class UserServices
 			findUserByUserName (username: string)
 				{
 					const url = this.baseUrl + '/api/user?username=' + username;
+					
 					return this.http.get(url).pipe(map(
 						(response: Response) =>{
 							return response.json();
 						}
 					))
-
+				}
 
 					// for (let x = 0; x < this.users.length; x++)
 					// 	{
@@ -77,7 +77,7 @@ export class UserServices
 					// 				return this.users[x];
 					// 			}
 					// 	}
-				}
+				
 
 			findUserByCredentials (username: string , password: string){
 				const url = this.baseUrl + '/api/user?username=' 
