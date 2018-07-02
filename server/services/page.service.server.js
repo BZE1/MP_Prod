@@ -21,7 +21,7 @@ module.exports = function(app){
 	function createPage(req, res){
 		var page = req.body;
 		page._id = Math.floor(Math.random() * 10000).toString();
-		apge.websiteId = req.params['wid'];
+		page.websiteId = req.params['wid'];
 		pages.push(page);
 		res.json(page);
 	}
