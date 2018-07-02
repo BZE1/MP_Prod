@@ -13,6 +13,8 @@ module.exports = function(app){
 			]
 
 
+	var websiteModel = require('../model/website/website.model.server.js');
+
 	/** Calls from the Client side */
 	app.post	("/api/user/:uid/website",  createWebsite);
 	app.get		("/api/user/:uid/website",  findAllWebsitesForUser);
@@ -23,64 +25,64 @@ module.exports = function(app){
 
 	function createWebsite(req, res){
 		var website = req.body;
-		var uid = req.params['uid'];
-		website._id = Math.floor(Math.random() + 10000).toString();
-		website.developerId = uid;
-		websites.push(website);
-
-	  	res.json(website);
+		// var uid = req.params['uid'];
+		websiteModel.createWebsiteForUser (website).then(
+			(date) => {
+					res.json(date);
+			});
+		
+		
 	}
 
 
 	function findAllWebsitesForUser(req, res){
 		var uid = req.params['uid'];
-		var result = [];
-		for (let i = 0 ; i < websites.length ; i++){
-			if (websites[i].developerId === uid){
-				result.push(websites[i]);
-			}
-		}
-		res.json(result);
+		websiteModel.findAllWebsitesForUser(uid).then(
+			(websites) => {
+					res.json(websites);
+			});
 	}
 
 
 
 	/*( Helper Function______________________________ )*/
-	function selectWebsiteById(wid){
-		for (let i = 0 ; i < websites.length ; i++){
-			if(websites[i]._id === wid){
-				return websites[i];
-			}
-		}
-	}
+	// function selectWebsiteById(wid){
+	// 	for (let i = 0 ; i < websites.length ; i++){
+	// 		if(websites[i]._id === wid){
+	// 			return websites[i];
+	// 		}
+	// 	}
+	// }
 	/*(_______________________________________________)*/
 
 
 
 	function findWebsiteById(req, res){
 		var wid = req.params['wid'];
-		var website = selectWebsiteById(wid);
-		res.json(website);
+		websiteModel.findWebsitesById(wid).then(
+			(website) => {
+				res.json(website);
+			});
 	}
 
 	function updateWebsite(req, res){
 		var wid = req.params['wid'];
 		var website = req.body;
-		var oldWeb = selectWebsiteById(wid);
-		var index = websites.indexOf(oldWeb);
-		websites[index].name = website.name;
-		websites[index].description = websites.description;
-		res.json(website);
+		websiteModel.updateWebsite(wid, website).then(
+			(date) => {
+				res.json(date);
+
+			});
 	}
 
 
 
 	function deleteWebsite(req, res){
 		var wid = req.params['wid'];
-		var web = selectWebsiteById(wid);
-		var index = websites.indesOf(web);
-		websites.splice(index, 1);
-		res.json(websites);
+		websiteModel.deleteWebsite(wid).then(
+			(data)=> {
+				res.json(data);
+			});
 	}
 
 

@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit
 
 
 	 /* [_VARABLES USED IN CLASS_] */
+    _id: string;
 		username: 		string;
 		password: 		string;
 		verifyPassword: string;
@@ -39,54 +40,43 @@ export class RegisterComponent implements OnInit
 			this.usernameError = 	false;
 	  	}
 
-	register()
-		{
-		  this.ngOnInit();
-		  this.username = this.registerForm.value.username;
-		  this.password = this.registerForm.value.password;
-		  this.verifyPassword = this.registerForm.value.verifyPassword;
-	    
-
-		  if(this.password !== this.verifyPassword) 
-			 {
-			   this.passwordError = true;
-			 } 
-
-		  else 
-			 {
-			   this.passwordError = false;
-
-			   this.userService.findUserByUserName(this.username).subscribe(
-			      (user: User) => 
-				      {
-				        this.usernameError = true;
-				      }
-				      ,
-			       (error: any) => 
-			          {
-			            const newUser: User = 
-				            {
-				                _id: 		"",
-				                username: 	this.username,
-				                password: 	this.password,
-				                firstName: 	"",
-				                 lastName: 	"",
-				                 email: 	""
-				             };
-
-			            this.userService.createUser(newUser).subscribe(
-			               (user2: User) => 
-				                {
-				                     var id = user2._id;
-				                     this.router.navigate(['user', id]);
-				                })
-			        	}  
-
-				       );  
-
-			   }   
-
-		  } 
+	register(){
+    this.ngOnInit();
+  	this.username = this.registerForm.value.username;
+  	this.password = this.registerForm.value.password;
+  	this.verifyPassword = this.registerForm.value.verifyPassword;
+    
+    if(this.password !== this.verifyPassword) {
+        this.passwordError = true;
+    } else {
+        this.passwordError = false;
+        this.userService.findUserByUserName(this.username).subscribe(
+        	(data: any) => {
+                if(!data) {
+                  const newUser: User = {
+                    username: this.username,
+                    password: this.password,
+                    firstName: "",
+                    lastName: "",
+                    email: ""
+                };
+                this.userService.createUser(newUser).subscribe(
+                    (user: User) => {
+                        var id = user._id;
+                        this.router.navigate(['user', id]);
+                    },
+                    (error: any) => {
+                        this.usernameError = true;
+                    }
+                );
+                } else {
+                    this.usernameError = true;
+                }
+            }
+        )
+    }
+  }
+		
           
 
 

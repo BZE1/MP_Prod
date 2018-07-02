@@ -2,7 +2,7 @@
 
 export class Website {
 
-	_id:			string;
+	_id?:			string;
 	name:			string;
 	developerId:	string;
 	description:	string;
