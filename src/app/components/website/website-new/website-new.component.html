@@ -63,30 +63,34 @@
 <!--########################################################-->
 
 	<!-- _______________TOP OF UL GROUP________________ -->
-<div class="col-md-4 d-none d-md-block">
-	<div class="container-fluid">
-		<ul class="list-group">
+	<!-- <div class="col-md-8 d-none d-md-block"> -->
+		<div class="container-fluid">
+		
+			<ul class="list-group">
+				
+				<li class="list-group-item" 
+							*ngFor ="let website of websites">
 
-			<li class="list-group-item" 
-						*ngFor ="let website of websites">
+					<a  routerLink="/user/{{uid}}/website/{{website._id}}/page">
+						{{website.name}}
+						</a>
 
-				<a  routerLink="/user/{{uid}}/website/{{website._id}}/page">
-					{{website.name}}
-					</a>
+					<a  class="float-right" 
+						routerLink="/user/{{uid}}/website/{{website._id}}">
+						<i class="fas fa-cog"></i>
+						</a>
 
-				<a  class="float-right" 
-					routerLink="/user/{{uid}}/website/{{website._id}}">
-					<i class="fas fa-cog"></i>
-					</a>
-
-			</li>
-		</ul>
-</div>   <!-- [END CONTAINER] -->
-
+				</li>
+			</ul>
+			
+		</div>   <!-- [END CONTAINER] -->
+	<!-- </div> -->
 <!--########################################################-->
 <!--#############[    Middle   [ RIGHT SIDE ]  ]############-->
 <!--########################################################-->
-<div class="col-md-8">
+
+<!-- <div class="col-md-4"> -->
+
 	<div class="container-fluid">
 		<form   id="websiteForm" 
 				(ngSubmit)="create()" 
@@ -116,7 +120,7 @@
 								name="description" 
 								placeholder="Write about your website here." 
 								ngModel #description="ngModel">
-							</textarea>
+								</textarea>
 			</div>
 
 			<a  	routerLink="/user/{{uid}}/website" 
@@ -128,13 +132,16 @@
 					type="submit" 
 					class="btn btn-success float-right">
 					Submit
-					</button>
+			</button>
 
 		</form>   <!-- [END OF FORM] -->
-	</div><!-- [END CONTAINER] -->
-</div><!-- [END ROW]_________________________________________ -->
 
-</div>  <!-- [END OF ROW] -->
+	</div><!-- [END CONTAINER] -->
+<!-- </div> -->
+
+<!-- [END ROW]_________________________________________ -->
+
+<!-- </div> -->  <!-- [END OF ROW] -->
 <!--###################################################################-->
 <!--###############[           FOOTER  SECTION           ]#############-->
 <!--###################################################################-->
