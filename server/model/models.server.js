@@ -14,5 +14,4 @@ var mongoose = require("mongoose");
 
 var db = mongoose.connect(connectionString);
 
-
 module.exports = db;
