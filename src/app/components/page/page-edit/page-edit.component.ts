@@ -35,7 +35,7 @@ export class PageEditComponent implements OnInit {
 	  description:  string;
 	  page: 		Page = 
 	  			{
-	  				_id:		 "",
+	  				// _id:		 "",
 	  				websiteId:	 "",
 	  				name:		 "",
 	  				description: ""

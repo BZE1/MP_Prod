@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
 		aUser: 			User;
 		user: 			User = 
 				{
-					_id: 		'',
+					// _id: 		'',
 					username:	'',
 					password: 	'',
 					firstName:	'',
