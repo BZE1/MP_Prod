@@ -21,6 +21,7 @@ import { PageServices }     from './services/page.service.client';
 import { Widget_Services }  from './services/widget.service.client';
 import { OmdbServices }     from './services/omdb.service.client';
 import { FlickrService }    from './services/flickr.service.client'
+import { SharedService }    from './services/shared.service.client'
 
 // WEB PAGE COMPONENTS________________________________________________________
 
@@ -42,7 +43,7 @@ import { WidgetHeaderComponent }   from './components/widget/widget-edit//widget
 
 import { OmdbtestComponent }       from './components/omdbtest/omdbtest.component';
 import { FlickrImageSearchComponent } from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
-
+import {AuthGuard} from './services/auth-guard.service';
 
 @NgModule({
     declarations: 
@@ -82,7 +83,9 @@ import { FlickrImageSearchComponent } from './components/widget/widget-edit/widg
               PageServices,
               Widget_Services,
               OmdbServices,
-              FlickrService
+              FlickrService,
+              SharedService,
+              AuthGuard
               ],
 
       bootstrap: [AppComponent]

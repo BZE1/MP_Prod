@@ -1,45 +1,107 @@
 module.exports = function(app){
 
+	var bcrypt = require("bcrypt-nodejs");
+
 	var userModel = require('../model/user/user.model.server.js');
-	 // var users = 
-		// 	[
-		// 		{_id: "123",username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},
-		// 		{_id: "234",username: "bob", password: "bob", firstName: "Bob", lastName: "Marley", email: "bob@whatever.com"},
-		// 		{_id: "345",username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia", email: "charly@ulem.com"},
-		// 		{_id: "456",username: "shiyu", password: "shiyu", firstName: "Shiyu", lastName: "Wang", email: "swang@ulem.com"},
-		// 		{_id: "000",username: "z", password: "z", firstName: "Mr Z", lastName: "Z", email: "MrZ@ulem.com"}
-		// 	]
+	
+	var passport = require('passport');
 
-		// app.get('/test', test);
-		app.get('/api/user', findUser);
-		app.get('/api/user/:uid', findUserById);
-		app.post("/api/user", createUser);
-		app.put('/api/user/:uid', updateUser);
-		app.delete('/api/user/:uid', deleteUser);
-		// app.get('/api/user', findUserByCredentials);
+	passport.serializeUser(serializeUser);
+	passport.deserializeUser(deserializeUser);
+
+	var LocalStrategy = require('passport-local').Strategy;
+
+	passport.use(new LocalStrategy(localStrategy));
+
+	function localStrategy(username, password, done) {
+		userModel.findUserByUsername(username)
+			.then(
+					(user)=> {
+						if(user && bcrypt.compareSync(password, user.password)) {
+                   			return done(null, user);
+                		} else {
+                    			return done(null, false);
+                		}
+					}				
+			)
+
+        // userModel.findUserByCreadentials(username, password).then(
+        //     (user ) => {
+        //         if(user && bcrypt.compareSync(password, user.password)) {
+        //            return done(null, user);
+        //         } else {
+        //             return done(null, false);
+        //         }
+        //     }
+        // )
+   }
+
+
+	// app.get('/test', test);
+	app.get('/api/user', findUser);
+	app.get('/api/user/:uid', findUserById);
+	app.post("/api/user", createUser);
+	app.put('/api/user/:uid', updateUser);
+	app.delete('/api/user/:uid', deleteUser);
+	app.post("/api/register", register);
+	app.post  ('/api/login', passport.authenticate('local'), login);
+	app.post('/api/logout', logout);
+	app.post ('/api/loggedIn', loggedIn);
+	// app.get('/api/user', findUserByCredentials);
+
+
+	function loggedIn(req, res) {
+		if (req.isAuthenticated()){
+				res.send(req.user);
+		}else{
+				res.send(0);   //res.send("0");
+		}
+	}
+
+	function logout(req, res) {
+	   req.logOut();
+	   res.send(200);
+	}
+	
+
+	function serializeUser(user, done) {
+		done(null, user);
+	}
+
+	
+	function deserializeUser(user, done) {
+	    userModel
+	        .findUserById(user._id)
+	        .then(
+	            function(user){
+	                done(null, user);
+	            },
+	            function(err){
+	                done(err, null);
+	            }
+	        );
+	}
+
+
+		function login(req, res) {
+			   var user = req.user;
+			   res.json(user);
+		}
 		
-/*
-=================================================
-http://localhost:3100/test
-http://localhost:3100/api/user
 
-http://localhost:3100/api/user?username=alice&password=alice
-http://localhost:3100/api/user?username=bob&password=bob
+		function register (req, res) {
+		    var user = req.body;
+		    user.password = bcrypt.hashSync(user.password);
+		    userModel.createUser(user)
+		      .then(
+		         function(user){
+		            req.login(user, function(err) {
+		            res.json(user);
+		            });
+		         });
+		}
 
-=================================================
-*/
 
-	// function test(req, res){
-	// 				res.send("Test.... from [SERVER] !")
-	// }	
-
-	// function selectUserbyId(uid){
-	// 	for (let x = 0; x < users.length; x++) {
- //      		if (users[x]._id === uid) {  
- //        		return users[x]; 
- //        	}
- //      	}
-	// }
 
 
 	function findUser(req, res) {
@@ -67,43 +129,7 @@ http://localhost:3100/api/user?username=bob&password=bob
 	}
 
 
-
-	// {
-	// 	const username = req.query['username'];
-	// 	const password = req.query['password'];
-
-	// 	if(username && password) 
-	// 	{
-	// 		var user;
-	// 		for (let x = 0; x < users.length; x++) 
-	// 			{
-	// 	      	   if (users[x].username === username && users[x].password === password) 
-	// 	      		{  
-	// 	             	user = users[x]
-	// 	      		}
-	//     		}
- //    		res.json(user);
- //    		return;
-	// 	}
-	// 	if(username) 
-	// 		{
-	// 		var user;
-	// 		user = users.find(function(user)
-	// 			{
-	// 				return user.username === username;
-	// 			})
-	// 		if(user) {
-	// 				res.json(user);
-	// 			} else {
-	// 				res.json(null);
-	// 			}
-	// 		return;
-	// 		}
-	// 	res.json(users);
-	// }
-
-
-		
+	
 		
 	function findUserById(req, res)
 		{

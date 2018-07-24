@@ -1,18 +1,5 @@
 module.exports = function(app){
 
-	/*( server data being used in functions )*/
-	// websites  = 
-	// 		[		
-	// 			{_id: "123",name: "Facebook", developerId: "456", description: "lorem"},
-	// 			{_id: "234",name: "Tweeter", developerId: "456", description: "lorem"},
-	// 			{_id: "456",name: "Gizmodo", developerId: "456", description: "lorem"},
-	// 			{_id: "890",name: "Go", developerId: "123", description: "lorem"},
-	// 			{_id: "567",name: "Tic Tac Toe", developerId: "123", description: "lorem"},
-	// 			{_id: "678",name: "Checkers", developerId: "123", description: "lorem"},
-	// 			{_id: "789",name: "Chess", developerId: "234", description: "lorem"},
-	// 		]
-
-
 	var websiteModel = require('../model/website/website.model.server.js');
 
 	/** Calls from the Client side */
@@ -30,9 +17,7 @@ module.exports = function(app){
 			(date) => {
 					res.json(date);
 			});
-		
-		
-	}
+		}
 
 
 	function findAllWebsitesForUser(req, res){
@@ -43,23 +28,9 @@ module.exports = function(app){
 			});
 	}
 
-
-
-	/*( Helper Function______________________________ )*/
-	// function selectWebsiteById(wid){
-	// 	for (let i = 0 ; i < websites.length ; i++){
-	// 		if(websites[i]._id === wid){
-	// 			return websites[i];
-	// 		}
-	// 	}
-	// }
-	/*(_______________________________________________)*/
-
-
-
 	function findWebsiteById(req, res){
 		var wid = req.params['wid'];
-		websiteModel.findWebsitesById(wid).then(
+		websiteModel.findWebsiteById(wid).then(
 			(website) => {
 				res.json(website);
 			});

@@ -3,9 +3,11 @@
 import { UserServices } from '../../../services/user.service.client';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../../models/user.models.client';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WebsiteServices } from '../../../services/website.service.client';
 import { NgForm } from '@angular/forms';
+import { SharedService } from '../../../services/shared.service.client';
+
 
 @Component
 	({
@@ -48,32 +50,24 @@ export class ProfileComponent implements OnInit {
 
 
   constructor(	private activatedRoute: ActivatedRoute,
-   				private userService: 	UserServices
+   				private userService: 	UserServices,
+   				private sharedService:  SharedService,
+   				private router :		Router
    				) { }
 
 
   ngOnInit() 
 	  {
-
 	  	this.usernameTaken =	false;
 		this.submitSuccess =	false;
-
-	  	this.activatedRoute.params.subscribe
-	  		(
-	  			params => 
-	  			{
-	  				this.uid 			= params['uid'];
-	  				this.userService.findUserById(this.uid).subscribe(
-	  				(user: User) => {
-	  					this.user = user;
-		  				this.username 		= this.user.username;
-		  				this.email	 		= this.user.email;
-		  				this.firstName 		= this.user.firstName;
-		  				this.lastName 		= this.user.lastName;
-		  				this.oldUsername 	= this.user.username;
-	  				});
-	  			}
-	  		)
+		
+		this.user = this.sharedService.user;
+			this.uid 			= this.user._id;
+			this.username 		= this.user.username;
+			this.email	 		= this.user.email;
+			this.firstName 		= this.user.firstName;
+			this.lastName 		= this.user.lastName;
+			this.oldUsername 	= this.user.username;
 	  }
 
 
@@ -107,7 +101,7 @@ export class ProfileComponent implements OnInit {
 							lastName: 	this.lastName,
 							email: 		this.email
 						};
-					this.userService.updateUser(this.uid, updatedUser)
+					this.userService.updateUser(this.user._id, updatedUser)
 					   .subscribe(
 					   		(user2: User) =>{
 					   			this.usernameTaken = false;
@@ -117,4 +111,14 @@ export class ProfileComponent implements OnInit {
 
 		}
 
+		logout() {
+		    this.userService.logout().subscribe(
+		      (data: any) => {
+		        this.router.navigate(['/login'])
+		      }
+		   );
+
+		}
+
+		
 }	/* [END OF CLASS] */

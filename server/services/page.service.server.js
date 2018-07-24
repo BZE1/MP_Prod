@@ -2,19 +2,14 @@
 module.exports = function(app){
 
 
-	// pages = 
-	// 		[		
-	// 			{_id: "321",name: "Post 1", websiteId: "456", description: "lorem"},
-	// 			{_id: "432",name: "Post 2", websiteId: "456", description: "lorem"},
-	// 			{_id: "543",name: "Post 3", websiteId: "456", description: "lorem"}
-	// 		]
+var pageModel = require('../model/page/page.model.server.js')
 
 	/* Querys from Client */
-	app.post('/api/website/:wid/page',  createPage);
-	app.get('/api/website/:wid/page', 	findAllPagesForWebsite);
-	app.get('/api/page/:pid', 			findPageById);
-	app.put('/api/page/:pid', 			updatePage);
-	app.delete('/api/page/:pid', 		deletePage);
+	app.post	('/api/website/:wid/page',  createPage);
+	app.get		('/api/website/:wid/page', 	findAllPagesForWebsite);
+	app.get		('/api/page/:pid', 			findPageById);
+	app.put		('/api/page/:pid', 			updatePage);
+	app.delete	('/api/page/:pid', 			deletePage);
 
 	function createPage(req, res) {
 		var page = req.body;

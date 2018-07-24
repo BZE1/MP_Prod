@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms'
 import { UserServices } from '../../../services/user.service.client'
 import { User } from '../../../models/user.models.client'
 import { Router } from '@angular/router'
-
+import { SharedService } from '../../../services/shared.service.client'
 
 
 @Component({
@@ -29,8 +29,9 @@ export class RegisterComponent implements OnInit
 		usernameError: 	boolean;
 
 
-  	constructor(private userService: 	UserServices, 
-  				private router: 		Router) { }
+  	constructor(  private userService: 	UserServices, 
+  				        private router: Router,
+                  private sharedService: SharedService) { }
 
 
 	 /* [_NG_ON_INIT FUNCTION_] */
@@ -56,23 +57,34 @@ export class RegisterComponent implements OnInit
         this.userService.findUserByUserName(this.username).subscribe(
         	(data: any) => {
                 if(!data) {
-                    const newUser: User = {
-                    username: this.username,
-                    password: this.password,
-                    firstName: "",
-                    lastName: "",
-                    email: ""
-                };
-                this.userService.createUser(newUser).subscribe(
-                    (user: User) => {
-                        var id = user._id;
-                        this.router.navigate(['user', id]);
-                    },
-                    (error: any) => {
-                        this.usernameError = true;
-                    }
-                );
-                } else {
+                    // const newUser: User = {
+                    // username: this.username,
+                    // password: this.password,
+                    // firstName: "",
+                    // lastName: "",
+                    // email: ""
+                // };
+                this.userService.register(this.username, this.password)
+                   .subscribe(
+                     (data: User) => {
+                       this.sharedService.user = data;
+                       this.router.navigate(['/user']);
+                     },
+                     (error: any) => {
+                       this.usernameError = true;
+                     }
+                  );
+                 }
+                // this.userService.createUser(newUser).subscribe(
+                //     (user: User) => {
+                //         var id = user._id;
+                //         this.router.navigate(['user', id]);
+                //     },
+                //     (error: any) => {
+                //         this.usernameError = true;
+                //     }
+                // );
+                 else {
                     this.usernameError = true;
                 }
           })
