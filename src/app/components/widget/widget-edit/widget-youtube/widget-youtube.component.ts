@@ -31,7 +31,7 @@ export class WidgetYoutubeComponent implements OnInit {
       width:    string;
       widget:   Widget = 
         {
-          _id:          '',
+          // _id:          '',
           widgetType:   '',
           pageId:       ''
         };

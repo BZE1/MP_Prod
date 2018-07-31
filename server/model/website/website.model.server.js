@@ -18,7 +18,8 @@ function createWebsiteForUser( website) {
 
 
 function findAllWebsitesForUser(uid) {
-	return WebsiteModel.find({developerId : uid});
+	// return WebsiteModel.find({developerId : uid});
+	return WebsiteModel.find({developerId : uid}).sort({name: 1});
 }
 
 

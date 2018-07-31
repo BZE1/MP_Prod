@@ -40,9 +40,8 @@
 
 		<div class="form-group">
 
-					<label 	class="font-weight-bold" 
-							for="website-name">
-							Name
+									<!-- for="website-name" -->
+					<label 	class="font-weight-bold">							Name
 							</label>
 					<input class="form-control" 
 							required ngModel="{{page.name}}" 
@@ -54,12 +53,13 @@
 
 		<div 	*ngIf="name.invalid && name.touched" 
 				class="alert alert-warning">
-				This fiels canot be enpty
+				This fields cannot be enpty
 				</div>
 
 		<div class="form-group">
-				<label 	class="font-weight-bold"  
-						for="website-name">
+
+								<!-- for="website-name" -->
+				<label 	class="font-weight-bold">  
 						Description
 						</label>
 				<input 	class="form-control" 

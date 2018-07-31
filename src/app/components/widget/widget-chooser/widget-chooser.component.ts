@@ -47,7 +47,7 @@ export class WidgetChooserComponent implements OnInit {
 		{
 		  	const newWidget: Widget = 
 			  	{
-			  		_id: 		'',
+			  		// _id: 		'',
 			  		widgetType: type,
 			  		pageId: 	this.pid
 			  	}

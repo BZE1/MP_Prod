@@ -30,10 +30,14 @@ export class ProfileComponent implements OnInit {
 	// [ Varables ]_____________
 		// user: 			User;
 		uid:			string;
-		username: 		string;
-		email: 			string;
-		firstName: 		string;
-		lastName:		string;
+		username: string ='1';
+  		email: string = '1';
+  		firstName: string ='1';
+  		lastName: string = '1';
+		// username: 		string;
+		// email: 			string;
+		// firstName: 		string;
+		// lastName:		string;
 		oldUsername:	string;
 		usernameTaken:	boolean;
 		submitSuccess:	boolean;

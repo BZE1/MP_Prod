@@ -28,8 +28,8 @@ export class WidgetEditComponent implements OnInit {
 	  //[ VARABLES ]___________ 	 	
 	  		wgid: 	string;
 	  		uid: 	string;
-	  		pid: 	string;
-	  		wid:	string;
+	  		// pid: 	string;
+	  		// wid:	string;
 			widget: Widget = 
 				{
 					_id: 		'',
@@ -44,9 +44,9 @@ export class WidgetEditComponent implements OnInit {
 			  		params => 
 				  		{
 					  		this.wgid = params['wgid'];
-					  		this.uid = params['uid'];
-					  		this.pid = params['pid'];
-					  		this.wid = params['wid'];
+					  		// this.uid = params['uid'];
+					  		// this.pid = params['pid'];
+					  		// this.wid = params['wid'];
 					  		this.widgetService.findWidgetById(this.wgid).subscribe(
 					  			(widget: Widget)=> {
 					  				this.widget = widget;

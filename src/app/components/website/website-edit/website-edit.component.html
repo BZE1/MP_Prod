@@ -38,11 +38,19 @@
 			<strong>Website Edit</strong>
 			</a>
 
+
+		<button class="btn sw-color-white float-right sw-button-to-a" 		 type="submit" 
+				[disabled]="f.invalid" 
+				form="websiteForm">
+				<i class="fas fa-check"></i>
+			</button>
+
+<!-- 
 		<button class="btn sw-color-white float-right sw-button-to-a" 		 
 				type="submit" 
 				form="websiteForm">
 				<i class="fas fa-check"></i>  
-				</button>
+				</button> -->
 	
 	</div>
 
@@ -79,7 +87,8 @@
 <!--########################################################-->
 <!--#############[  [ Right ] Side of Website  ]############-->
 <!--########################################################-->
-<div class="col-md-8 d-none d-md-block">  
+<div class="col-md-8 ">  
+		<!-- d-none d-md-block -->
 	<!-- [GRID USEING 8 COLUMES PF PAGE] -->
 <div class="container-fluid">
 
@@ -125,7 +134,8 @@
 
 
 				<button 	type="submit" 
-							class="btn btn-primary float-right">
+							class="btn btn-primary float-right"
+							[disabled]="f.invalid">
 							Update
 						</button>
 
@@ -146,6 +156,7 @@
 				routerLink="/user/{{uid}}">
 				<i class="fas fa-user"></i>
 				</a>
+				<!-- routerLink="/user/{{uid}}" -->
 	</div>
 </footer>
 

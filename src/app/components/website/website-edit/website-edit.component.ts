@@ -23,8 +23,12 @@ export class WebsiteEditComponent implements OnInit {
   	websites: 		Website[];
   	name: 			string;
   	description: 	string;
-  	website: 		Website;
   	wid: 			string;
+    website: Website ={
+	    name: "",
+	    description: "",
+	    developerId: ""
+	  };
 
 
   constructor(  private websiteService: WebsiteServices, 
@@ -54,8 +58,8 @@ export class WebsiteEditComponent implements OnInit {
 		  				}
 		  			);
 
-		  		this.name = this.website.name;
-		  		this.description = this.website.description;
+		  		// this.name = this.website.name;
+		  		// this.description = this.website.description;
 
 	  		}	
 

@@ -8,12 +8,13 @@
 		<i class="fas fa-chevron-left"></i>
 		</a>
 					
-	<div class="sw-80-width">
+	<div class="sw-90-width">
 
 		<a 	class="navbar-brand sw-font-white sw-no-underline float-left"
-			routerLink="/user/{{uid}}/website/:wid/page/{{pid}}/widget/new">
+			routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new">
 			Widget Edit
 			</a>
+                              <!-- :wid -->
 	</div>
 
 	    <button class="btn sw-button-to-a sw-color-black float-right"
@@ -43,6 +44,17 @@
 	                  placeholder="Enter your widget name...">
 	      </div>
 
+<div class="form-group">
+        <label><b>Text</b></label>
+        <input class="form-control" 
+                required ngModel="{{widget.text}}" 
+                #text="ngModel" 
+                type="text" 
+                name="url" 
+                placeholder="enter widget text">
+      </div>
+
+
 	<div class="form-group">
         <label><b>URL</b></label>
         <input class="form-control" 
@@ -62,7 +74,8 @@
      <div class="form-group">
         <label><b>Width</b></label>
         <input  class="form-control" 
-                required ngModel="{{widget.width}}" 
+                required 
+                ngModel="{{widget.width}}" 
                 #width="ngModel"  
                 type="text" 
                 name="width" 

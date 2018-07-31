@@ -6,8 +6,9 @@
 	<!--_______________NAV_BAR_________________-->
 <nav class="navbar navbar-dark bg-primary fixed-top">
 
+				<!-- routerLink="/user/{{uid}}" -->
 		<a  class="navbar-brand" 
-			routerLink="/user/{{uid}}">
+			routerLink="/user/:uid">
 			<strong>Profile</strong>
 			</a>
 
@@ -56,6 +57,10 @@
 						#username="ngModel" 
 						placeholder="Your Username">
 	</div>
+
+				<span   class="alert" 
+						*ngIf="username.invalid && username.touched">Please enter username!
+					</span>
 
 	<div class="form-group">
 
